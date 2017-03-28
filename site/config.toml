@@ -36,3 +36,5 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     height = 50
     alt = "Logo"
 
+[params.social]
+  Github        = "aj2duncan"
