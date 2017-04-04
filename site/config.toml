@@ -14,11 +14,14 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     name = "About"
     url = "/about/"
 [[menu.main]]
+    name = "Teaching"
+    url = "/teaching/"
+[[menu.main]]
+    name = "Research"
+    url = "/research/"
+[[menu.main]]
     name = "Blog"
     url = "/blog/"
-[[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
 
 [params]
     description = "My personal webpage built through Hugo and blogdown."
@@ -38,3 +41,4 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params.social]
   Github        = "aj2duncan"
+  Twitter       = "aj2duncan"
