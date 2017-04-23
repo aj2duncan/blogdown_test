@@ -1,14 +1,14 @@
 baseurl = "/"
 relativeurls = true
 languageCode = "en-us"
-title = "A Hugo website"
+title = "aj2duncan.com"
 theme = "hugo-sustain"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [permalinks]
-    post = "/blog/:slug/"
+    post = "/blog/:title/"
 
 [[menu.main]]
     name = "About"
