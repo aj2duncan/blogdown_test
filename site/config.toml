@@ -25,13 +25,14 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params]
     description = "My personal webpage built through Hugo and blogdown."
-    avatar = "images/profile_small.jpg"
+    avatar = "images/profile_avatar.png"
     author = "Andrew Duncan"
     
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.9.0"
     highlightjsLang = ["r", "yaml"]
     highlightjsTheme = "github"
+    custom_css = ["css/custom.css"]
 
     [params.logo]
     url = "logo.png"
@@ -42,3 +43,4 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 [params.social]
   Github        = "aj2duncan"
   Twitter       = "aj2duncan"
+  email         = "duncanaj2@gmail.com"
