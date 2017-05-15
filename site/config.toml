@@ -11,9 +11,6 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     post = "/blog/:title/"
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-[[menu.main]]
     name = "Research"
     url = "/research/"
 [[menu.main]]

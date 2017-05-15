@@ -9,3 +9,10 @@ p, li, ul {
 a {
   font-family: 'Indie Flower', serif;
 }
+
+
+.container-front {
+  width: auto;
+  max-width: 800px;
+  text-align: justify;
+}
