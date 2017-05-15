@@ -19,7 +19,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params]
     description = "My personal webpage built through Hugo and blogdown."
-    avatar = "images/profile_avatar.png"
+    front = "images/front.jpg"
     author = "Andrew Duncan"
     
     # options for highlight.js (version, additional languages, and theme)
