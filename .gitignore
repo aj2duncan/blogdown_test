@@ -5,8 +5,8 @@
 
 
 # ignore built site
-site/public
+/public
 
 # ignore html & images built by Rmarkdown
-site/content/blog/*.html
-site/static/blog/*
+/content/blog/*.html
+/static/blog/*
