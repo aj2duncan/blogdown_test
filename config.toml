@@ -28,7 +28,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightjsTheme = "github"
     custom_css = ["css/custom.css"]
 
-    [params.logo]
+[params.logo]
     url = "logo.png"
     width = 50
     height = 50
