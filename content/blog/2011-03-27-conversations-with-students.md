@@ -1,6 +1,7 @@
 ---
 title: "Conversations with Students"
 date: "2011-03-27"
+slug: "conversations-with-students"
 ---
 <p>I lost a student the other day...</p>
 <p>No not as in I didn't know where they were but that I was working through an example on the board and my method didn't make any sense to them. They pointed this out to me and I tried to explain my method in an alternative way but to no avail.</p>

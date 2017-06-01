@@ -1,6 +1,7 @@
 ---
 title: "Getting students to study"
 date: "2011-01-30"
+slug: "getting-students-to-study"
 ---
 <p>I teach in a college. The teaching atmosphere isn't like school. We do as much as we can for the students - but expect them to act like adults. As far as I'm concerned this means that they are responsible for their own studying outside of class.</p>
 <p>I gave my Intermediate 2 class a test the other week. After they mostly performed rather poorly we had a chat about what went wrong - was the test too hard? - did they not study? - or am I just doing a terrible job?</p>

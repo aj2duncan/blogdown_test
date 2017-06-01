@@ -1,6 +1,7 @@
 ---
 title:  "New Shiny App - Catch Statistics"
 date: "2017-02-04"
+slug: "catch-statistics-app"
 ---
 I was sat on a train for a little over 3 hours today and managed to get something finished that I've been working on for a couple of days. 
 

@@ -1,6 +1,7 @@
 ---
 title: "Observations and Planning"
 date: "2011-03-27"
+slug: "observations-and-planning"
 ---
 <p>So as part of the teaching diploma I am trying to obtain I am having a couple of my lessons observed. I've now had the first observation and although it was a little strange having another teacher in the classroom, I think I got over that after about 5 minutes.</p>
 <p>The class seemed to go quite smoothly and they behaved themselves quite well, at least until the observer left the room at which point they inundated me with questions about how I thought it was going rather than actually doing the work I had set them.</p>

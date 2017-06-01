@@ -1,6 +1,7 @@
 ---
 title: "Positive Feedback"
 date: "2010-12-19"
+slug: "positive-feedback"
 ---
 <p>I had a good reaction from a student last week and again this week. One of my numeracy students gave me the distinct impression that he hated maths especially any maths that involved numerical calculations. Before you point it out I'll happily list the types of maths that don't involve numerical calculations. Anyway, he was reaching the end of the course having sat (and passed) most of the assessments and we were reviewing one topic before one of the final assessments. He'd done a few questions on it and I made the mistake of rather bluntly telling him they were all wrong. I said we'd go through the work and see where the problem was. He missed a little bit of working out and I pointed this out but reassured him that everything else was perfect (it was).</p>
 <p>He had another shot at the questions and got all but one. We reviewed this one again and I could see him getting a little upset about it. It turned out that he'd just not put the final sum into the calculator correctly everything else was fine. Having shown him this he seemed happy with himself. He later sat and passed the assessment with no problem.</p>

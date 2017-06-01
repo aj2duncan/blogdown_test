@@ -1,6 +1,7 @@
 ---
 title: "Revision and Questioning"
 date: "2010-12-01"
+slug: "revision-and-questioning"
 ---
 <p>Sorry, haven't posted in a while. I'll try to get back to more regular updates.</p>
 <p>Last week, my classes had some NABs to do and so the topic of revision came up. In a lot of cases people revised well and if they didn't pass a section there was an explanation for it. They could do examples in class fine but forgot a formula. They were off the day we taught that formula and missed the catch-up class. They just got a little confused but have demonstrated to me in class that they know what they are doing - with a little more practice they'll be fine.</p>

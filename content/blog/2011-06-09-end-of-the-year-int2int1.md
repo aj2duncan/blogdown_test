@@ -1,6 +1,7 @@
 ---
 title: "End of the year - Int2/Int1"
 date: "2011-06-09"
+slug: "end-of-year-int1-int2"
 ---
 <p>The only other course I taught this year was a combined Intermediate 2 and Intermediate 1 class. </p>
 <p>This was a very difficult class to teach. By the end of the year there were three classes to teach because the Int 2 part of the class split some finishing with unit 3 and some finishing with unit 4: Applications. </p>

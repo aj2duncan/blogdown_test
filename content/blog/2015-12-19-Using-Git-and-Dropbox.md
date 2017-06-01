@@ -1,6 +1,7 @@
 ---
 title: "Using Git and Dropbox"  
 date: "2015-12-19"
+slug: "using-git-and-dropbox"
 ---
 
 

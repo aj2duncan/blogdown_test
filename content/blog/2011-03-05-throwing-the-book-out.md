@@ -1,6 +1,7 @@
 ---
 title: "Throwing the book out"
 date: "2011-03-06"
+slug: "throwing-the-book-out"
 ---
 <p>Sorry for the break - hopefully post more regularly now.</p>
 <p>First post I wanted to talk about the flexibility allowed when you're teaching in an FE college. </p>

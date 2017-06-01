@@ -1,6 +1,7 @@
 ---
 title: "More info on ggplots"
 date: "2016-08-27"
+slug: "more-info-on-ggplots"
 categories: ["R"]
 tags: ["ggplot2"]
 ---

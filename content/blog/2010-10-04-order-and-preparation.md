@@ -1,6 +1,7 @@
 ---
 title: "Order and Preparation"
 date: "2010-10-04"
+slug: "order-and-preparation"
 ---
 <p>I taught three classes today and in all of them I made little mistakes (some that could have been avoided)</p>
 <p>First up was Higher. With  a test tomorrow revision was the order of the day. I had decided to use a revision sheet produced by one of the other lecturers. The sheet is very good, covers everything a student will need to know for the test.</p>

@@ -1,6 +1,7 @@
 ---
 title: "Time Keeping and Work Ethics"
 date: "2010-11-10"
+slug: "time-keeping-and-work-ethics"
 ---
 <p>I sometimes find it difficult to keep the class moving on. I am always conscious that I don't want to run out of time at the end of the course and have to cram things in. In turn that means that I feel like I'm going a little quicker than some of the students would prefer, but there are others that are getting a little frustrated that things aren't moving fast enough.</p>
 <p>Teaching in a college provides a bridge between university learning and school learning. It seems that students new to the college struggle a little with the transition between school and college teaching. Coming from a very recent (and quite long) university background I probably appear to demanding of pupils who have just come through the school system and I probably expect them to come round to uni style working to quickly. I sometimes wonder how to better get pupils around to the idea that they have to do work outside of class and to go look for material other than what I provide for them. I've already tried talking and explaining the time constraints. I wonder about some sort of research(ish) assignment, but as assignments don't count toward final grades getting them to do homework is sometimes hard enough.</p>

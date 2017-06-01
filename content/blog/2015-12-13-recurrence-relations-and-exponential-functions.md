@@ -1,6 +1,7 @@
 ---
 title:  "Recurrence Relations and Exponential Functions"
 date: "2015-12-13"
+slug: "recurrence-relations-and-exponential-functions"
 ---
 In my Higher Maths class we have just finished the recurrence relations topic and as part of that we investigated the limit of recurrence relations.  We also plotted some example as \\(n \rightarrow \infty\\) so we could see the behaviour of \\(u_n\\). I actually wrote a Shiny [app][Shinyapp] to show the behaviour. The graphs led to a question about the relationship between \\(u_n\\) as \\(n\\) increases and exponential functions. 
 

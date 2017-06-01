@@ -1,6 +1,7 @@
 ---
 title: "Completing the square"
 date: "2013-11-06"
+slug: "completing-the-square"
 ---
 <p>I was covering "completing the square" in class today and one of the examples caused a little difficulty. I thought I would use it as a chance to test a new plug-in for this site.</p>
 <p>The question involved was: Use completing the square to solve \( 2x^2 = 3x+6 \).</p>

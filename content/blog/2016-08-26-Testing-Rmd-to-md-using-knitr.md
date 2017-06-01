@@ -1,6 +1,7 @@
 ---
 title: "Testing Rmd to md using knitr"
 date: "2016-08-06"
+slug: "testing-rmd-to-md-using-knitr"
 ---
 
 

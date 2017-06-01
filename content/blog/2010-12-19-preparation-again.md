@@ -1,6 +1,7 @@
 ---
 title: "Preparation (again)"
 date: "2010-12-19"
+slug: "preparation-again"
 ---
 <p>You can never be too prepared. Maybe after years of teaching you can be prepared for all the questions you'll be asked, prepared for all the problems students are going to have.</p>
 <p>In almost every class I have (at least) two levels of students and keeping track of where everyone is at all times is just another level of prep. Then you have all the assessments to be ready for - who has passed this NAB, where do I get extra revision stuff from (and solutions for them).</p>

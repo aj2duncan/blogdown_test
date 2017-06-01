@@ -1,6 +1,7 @@
 ---
 title: "End of the year - Higher"
 date: "2011-06-08"
+slug: "end-of-year-higher"
 ---
 <p>My higher maths class this year went both well and terribly, sort of all at the same time. The class themselves were great, when they turned up and I think that my teaching was pretty good. The problem was the course was rushed - pretty much the whole year. </p>
 <p>The class is only scheduled for 4.5 hours a week and this makes getting all the material in very difficult. I prefer to let the students try some questions - so they can see the style of them and so I can get an idea of how they are getting on.</p>

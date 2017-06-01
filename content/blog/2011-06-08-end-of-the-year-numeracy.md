@@ -1,6 +1,7 @@
 ---
 title: "End of the year - Numeracy"
 date: "2011-06-08"
+slug: "end-of-year-numeracy"
 ---
 <p>Firstly, I've been seriously lax in actually commenting on here. I have been reflecting but I've been snowed under with everything so haven't had a chance to post. The college year is coming swiftly to an end and I have many things to reflect on. I'm going to divide the reflections into all the subjects I teach and I'll start with numeracy.</p>
 <p>Good things about numeracy classes this year was that most of them were willing to learn and the classes themselves were sometimes very enjoyable. I had several classes who were highly motivated and worked very hard. </p>

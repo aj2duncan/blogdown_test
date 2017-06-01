@@ -16,3 +16,8 @@ a {
   max-width: 800px;
   text-align: justify;
 }
+
+.label-tag {
+    background-color: #FF8C00;
+    color:#fff;
+}
