@@ -1,8 +1,0 @@
----
-title: "Money"
-date: "2010-10-19"
----
-<p>I had a chat with a colleague today who reminded me about something I wanted to post. When I've asked a student what is 2 and a 1/2 % is as a fraction so they can enter it into their calculator I have generally been met with a blank stare and silence. (I'll get onto the subjest of calculators at a later date)</p>
-<p>However, if I ask them how they would write down 2 and a 1/2 pounds (£) then pretty much they say £2.50 very quickly. </p>
-<p>The context it would appear is key. After I had the idea to try money as an example (they dealt successfully with money questions in the class) some of them figured out fraction to decimal conversion on their own without anymore prompting. Before this I was struggling to explain it other than just stating what it was having forgotten how I had got to the realisation in the first place.</p>
-<p>I will now try to have money examples ready for other small problems too.</p>

@@ -1,0 +1,23 @@
+html, body {
+    font-family: 'Indie Flower', serif;
+}
+
+p, li, ul {
+  font-family: 'Alegreya', serif;
+}
+
+a {
+  font-family: 'Indie Flower', serif;
+}
+
+
+.container-front {
+  width: auto;
+  max-width: 800px;
+  text-align: justify;
+}
+
+.label-tag {
+    background-color: #FF8C00;
+    color:#fff;
+}

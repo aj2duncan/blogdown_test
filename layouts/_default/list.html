@@ -1,0 +1,60 @@
+{{ partial "head" . }}
+  <body>
+    <div id="wrap">
+      <!-- Header -->
+      {{ partial "header" . }}
+      {{if .Params.is_index }}
+      {{if .Params.is_front }}
+      <section id="about">
+        <div class="container">
+          <img class = "img-responsive" src="{{ .Site.BaseURL }}{{ .Site.Params.front }}">
+          <div class="container-front">
+          <h3>My name is <strong>{{ .Site.Params.author }}</strong> and I'm a lecturer, researcher and programme coordinator for science, maths and aqua at at <a href = "https://www.inverness.uhi.ac.uk/", target= "_blank">Inverness College UHI</a>. My background is a BSc (Hons) and a PhD in Maths from Edinburgh University. Maths is most of my teaching but I now spend a lot of time working with and teaching <a href = "https://cran.r-project.org/", target = "_blank">R</a>. You can look at my <a href="{{ .Site.BaseURL }}research/">research</a> or read my occasional ramblings on my <a href="{{ .Site.BaseURL }}blog/">blog</a>. I spend my spare time with my wonderful wife, our new baby girl and our wee dog, riding my bike and curling (you know the sport with granite rocks and ice!). Contact me at <a href="http://twitter.com/{{ .Site.Params.Social.Twitter }}">@{{ .Site.Params.Social.Twitter }}</a>. All views, ideas and documents on this site are my own.</h3>
+          </div>
+          {{ partial "social.html" . }}
+        </div>
+      </section>
+      {{ else }}
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="{{ .Permalink }}">{{ .Title }}</a></strong>
+          </h3>
+        </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="blogpost">
+                {{ .Content }}
+              </div>
+            </div>
+          </div>
+        </div> <!-- close container -->
+        {{ end }}
+      {{ else }}
+      <div class="container">
+        <h3>Archive</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+            {{ range .Data.Pages.ByPublishDate }}
+              <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                  <h5 style="text-align: right">
+                    {{ .Date.Format "January 2, 2006" }}
+                  </h5>
+                 </div>
+                 <div class="col-sm-8 col-md-8 col-lg-8">
+                   <h5 style="text-align: left">
+                    <strong><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></strong>
+                  </h5>
+                </div>
+              </div>
+            {{ end }}
+            </div>
+          </div>
+      </div>
+      {{ end }}
+    </div>
+    <!-- Footer -->
+    {{ partial "footer" . }}
+  </body>
+</html>

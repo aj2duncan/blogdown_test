@@ -1,8 +1,0 @@
----
-title: "Students"
-date: "2010-10-31"
----
-<p>A few weeks ago I lost one of my students whilst teaching logarithmic graphs, they couldn't see what I'd done or why I'd done it. Whilst trying to figure out how to rephrase and rework what I'd done one of the other students made a suggestion. It was a very good suggestion and I took their advice, redid the question and the "lost" student understood.</p>
-<p>I had problems with teachers in school who were never wrong or at least that's how they tried to play it. In University the lecturers were in general more accepting of you pointing out a mistake they had made. </p>
-<p>I don't think that teachers should act all high and mighty. I quite like it when students point out my mistakes, it means they are paying attention. This is especially the case when I write something incorrect on the board or incorrectly calculate the answer to a question. If no one spots the mistake they go away with work that is wrong and will revise from work that is wrong. I'm not sure that will really promote good understanding.</p>
-<p>This week I tried something a little new in one of my classes. Normally I stand at the board and ask the whole class for help with a problem. This time I put a student at the board and asked specific members of the class questions. I wasn't sure about asking specific pupils questions but a colleague was advised to do so by HMI and so I thought I would give it a try. The pupils didn't seem to mind and it gave me a much better idea of who knew what than just asking the whole class, especially as I wasn't standing at the board thinking about writing. </p>
