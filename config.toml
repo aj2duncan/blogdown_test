@@ -6,6 +6,7 @@ theme = "hugo-sustain"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+math = "true"
 
 [permalinks]
     post = "/blog/:slug/"

@@ -44,8 +44,6 @@ We can choose \\(u_0 = 0\\) just to make this look easier in this case and we en
 
 $$u_n = \frac{b\left(a^n - 1\right)}{a - 1}.$$
 
-
-
 So we now have an expression for \\(u_n\\) that involves the exponential \\(a^n\\) we were expecting. Remember that \\(a\\) and \\(b\\) are just numbers. If we take an example recurrence relation 
 
 $$u_{n+1} = 4u_n + 6$$
