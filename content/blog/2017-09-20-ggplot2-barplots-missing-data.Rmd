@@ -1,0 +1,77 @@
+---
+title: "Dealing with missing data in ggplot2 barplots"
+date: "2017-09-20"
+slug: "missing-data-ggplot2-barplots"
+categories: ["R"]
+tags: ["ggplot2", "geom_bar()"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, comment = NA, 
+                      message = FALSE, warning = FALSE)
+```
+
+I'm wrting this down because it's a problem I've tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn't. 
+
+Any way, the problem:
+
+```{r the-problem}
+library(ggplot2)
+fake_data <- data.frame(var1 = c("a", "a", "a", "b", "b", "b", "c"), 
+                        var2 = c("x", "x", "y", "x", "y", "y", "x"))
+fake_data 
+ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = "dodge")
+```
+
+Now that all works fine but I don't want the bar for `c` to be full width, just half width as the others are, so the missing data (or count of zero is clearer). 
+
+This same problem has been dealt with in two stackoverflow posts^[https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data] ^[https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot] and Hadley Wickham (the package author) commented on the design of the `position_dodge()` in this [issue](https://github.com/tidyverse/ggplot2/issues/1776). The basic idea is to stop `ggplot` from dropping the missing bar (or bar with count 0). 
+
+```{r}
+ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = "dodge") +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(drop = FALSE)
+```
+
+As you can see this makes no difference. The reason is because all the solutions count the data before plotting and use `stat = "identity"` and I wondered why that was necessary, why wouldn't it work without it. To get the answer I had a look at the plot in more detail.
+
+```{r}
+p = ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = "dodge")
+ggplot_build(p)$data
+```
+
+The data only has 5 rows and so there isn't any data to stop `ggplot` from dropping. It is necessary to count the data first. 
+
+```{r}
+# starting again
+library(tidyverse)
+fake_data <- data.frame(var1 = c("a", "a", "a", "b", "b", "b", "c"), 
+                        var2 = c("x", "x", "y", "x", "y", "y", "x"))
+# count the data
+count_fake = count(fake_data, var1, var2)
+# fill in the missing combination
+count_fake = complete(count_fake, var1, var2) 
+# plot the data
+ggplot(count_fake, aes(x = var1, y = n, fill = var2)) +
+  geom_bar(stat = "identity", position = "dodge")
+```
+
+**Note:** In the development version of `ggplot2` there is a much easier solution. First we need to install the development version (presuming you have already installed `devtools`.)
+
+```{r, eval = FALSE}
+devtools::install_github("tidyverse/ggplot2")
+```
+
+Then we have access to an additional argument within `position_dodge()`. 
+
+```{r}
+library(ggplot2)
+fake_data <- data.frame(var1 = c("a", "a", "a", "b", "b", "b", "c"), 
+                        var2 = c("x", "x", "y", "x", "y", "y", "x"))
+ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = position_dodge(preserve = 'single'))
+```
+
