@@ -1,0 +1,17 @@
+---
+title: "Reflection on the Feedback Process Pt. 2"
+date: "2017-10-22"
+slug: "reflection-on-feedback-process-pt-2"
+draft: true
+---
+
+This my second post on feedback, following up on reflecting on [getting feedback from students][reflect_1]. In this post will reflect giving feedback to students. 
+## Giving Feedback to Students
+
+[reflect_1]: https://www.aj2duncan.com/blog/reflection-on-feedback-process-pt-1/
+[reading_1]: https://www.edutopia.org/practice/student-surveys-using-student-voice-improve-teaching-and-learning
+[reading_2]: https://www.edutopia.org/blog/student-feedback-improves-your-teaching-vicki-davis
+[reading_3]: https://cft.vanderbilt.edu/guides-sub-pages/student-feedback/
+[reading_4]: https://www.cultofpedagogy.com/student-feedback/
+[reading_5]: http://194.81.189.19/ojs/index.php/prhe/article/viewFile/30/28
+
