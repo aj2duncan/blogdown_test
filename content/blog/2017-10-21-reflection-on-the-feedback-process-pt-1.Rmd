@@ -2,7 +2,6 @@
 title: "Reflection on the Feedback Process Pt. 1"
 date: "2017-10-21"
 slug: "reflection-on-feedback-process-pt-1"
-draft: true
 ---
 
 I've posted about the feedback I've asked for (and received) from students a [few][feedbacK_2017] [times][feedback_2016] [before][feedback_post] and the topic is frequently discussed in the workroom. 

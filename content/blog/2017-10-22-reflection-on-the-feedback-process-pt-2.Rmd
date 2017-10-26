@@ -2,16 +2,30 @@
 title: "Reflection on the Feedback Process Pt. 2"
 date: "2017-10-22"
 slug: "reflection-on-feedback-process-pt-2"
-draft: true
 ---
 
-This my second post on feedback, following up on reflecting on [getting feedback from students][reflect_1]. In this post will reflect giving feedback to students. 
+This my second post on feedback, following up on reflecting on [getting feedback from students][reflect_1]. In this post I'll reflect on giving feedback to students. 
+
 ## Giving Feedback to Students
 
+As I mentioned in my earlier post I started out looking for readings on getting feedback from students and along the way I found some about giving feedback back to students. This [article][reading] was the piece that I foud most interesting. 
+
+The first thing the study showed was that students like feedback in any form but like one-to-one oral feedback most. This confirms my own (non-scientific) observations and the article got me thinking about how I can improve my feedback. 
+
+The assessments we use (for the most part) need to be kept secure, so students cannot retain anything from them. This makes writing comments on them less useful as students can't refer back to them. I've addressed this previously with one-to-one discussion and general written feedback. 
+
+The new CfE courses have more flexible assessments, we can assess across the course or unit by unit. I really like this as topic by topic makes more sense to me in terms of delivery and assessment. The problem is that topic by topic can mean it is a little difficult for students to see their overall progress. 
+
+The other thing I picked up from the [article][reading] is that one of the things the authors tested was getting students to reflect on their work and set goals. 
+
+### Putting all this together
+
+This year after each assessment I will be giving the students written feedback and a grade for their work. _The assessments are pass/fail by topic so the grade is entirely my opinion (based on experience) and is meant to reflect a rough exam mark if we could scale the assessment up to the entire course._ 
+
+I will also be asking them to write down at least two things they plan on changing about the work they did in the run up to the assessment or the work during the assessment. 
+
+Finally, I'm asking them to set a goal for the next one and to email me their decisions. I previously asked students to think about these things but not write it down. My hope is writing it down (and telling me) will make it much easier for us to look back in order to improve heading toward the final exam.
+
 [reflect_1]: https://www.aj2duncan.com/blog/reflection-on-feedback-process-pt-1/
-[reading_1]: https://www.edutopia.org/practice/student-surveys-using-student-voice-improve-teaching-and-learning
-[reading_2]: https://www.edutopia.org/blog/student-feedback-improves-your-teaching-vicki-davis
-[reading_3]: https://cft.vanderbilt.edu/guides-sub-pages/student-feedback/
-[reading_4]: https://www.cultofpedagogy.com/student-feedback/
-[reading_5]: http://194.81.189.19/ojs/index.php/prhe/article/viewFile/30/28
+[reading]: http://files.eric.ed.gov/fulltext/EJ1130666.pdf
 

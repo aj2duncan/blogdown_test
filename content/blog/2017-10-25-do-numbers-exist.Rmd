@@ -1,0 +1,14 @@
+---
+title: "Do Numbers Exist?"
+date: "2017-10-25"
+slug: "do-numbers-exist"
+---
+
+I had an interesting discussion with several students the other day about whether numbers exist. My argument was that numbers themselves don't exist, they are a concept. They only exist once they are attached to objects. 
+
+This led me to think about one of my other courses where we discuss the history of Risk. One of the things I mention there is that the concept of zero, which appeared after other numbers. _People didn't have zero animals, they had some animals._  However, without it (and the ability to write numbers down as we do now) then the mathematics we do today _not to mention our digital world_ wouldn't function quite as well.  
+
+I thought this [article][article] presented quite a nice brief history of zero but other course quick google search will bring up others. 
+
+[article]: https://www.scientificamerican.com/article/history-of-zero/
+
