@@ -1,0 +1,32 @@
+---
+title: "Reprinting R Chunks"
+date: "2017-11-03"
+slug: "reprinting-r-chunks"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE,
+                      warning = FALSE, comment = NA)
+```
+
+I only discovered this the other day and I'm writing it down so I can find it easily again. 
+
+In an R markdown document you can include a *chunk* or `R` code like
+
+<pre><code>```{r chunk-name}
+my_fn <- function() {
+  print("Hello World.")
+}
+```</code></pre>
+
+
+What I hadn't realised is that you can reprint that chunk of code later by using the name as a reference. 
+
+<pre><code>```{r, ref.label = "chunk-name", echo = TRUE, results = "markup"}
+```</code></pre>
+
+The reason I was looking for this was to enable `R` functions to be printed in an appendix without having to copy and paste the code.
+
+This also means that you could put a chunk earlier in the document with `eval = FALSE` and then actually calculate the results later in the document by using `ref.label = "chunk-name", eval = TRUE`. I doubt I'll use this very much but it might be useful at some point. 
+
+It is of course in the [knitr documentation](https://yihui.name/knitr/demo/reference/) and the functionality is exactly what I've come to expect from a package by [Yihui Xie](https://yihui.name/). Yihui thinks of pretty much everything when he writes a package. 
