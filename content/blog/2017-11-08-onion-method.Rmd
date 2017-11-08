@@ -1,0 +1,21 @@
+---
+title: "The Onion Method for Rearranging Equations"
+date: "2017-11-08"
+slug: "the-onion-method"
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE,
+                      warning = FALSE, comment = NA)
+```
+
+$$
+\require{enclose}
+$$
+
+$$v = ut + a$$
+
+$$v = u\enclose{circle}{\:t\:} + a$$
+$$v = \enclose{circle}{\:u\:\enclose{circle}{\:t\:}\:} + a$$
+$$v = \enclose{circle}{\:\enclose{circle}{\:u\:\enclose{circle}{\:t\:}\:} + a\:}$$
