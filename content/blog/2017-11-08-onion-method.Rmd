@@ -10,12 +10,74 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE,
                       warning = FALSE, comment = NA)
 ```
 
+The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the *onion method* which might help.
+
+## Example 1
+
+If we take an example of the equation below, where we want to change the subject to $t$. 
+
 $$
 \require{enclose}
+v = u + at
+$$
+The onion method starts by drawing a circle around the new subject.
+$$v = u + a\enclose{circle}{\:t\:}.$$
+
+Then we circle the term closest to it
+
+$$v =  u + \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:}$$
+
+and continue with this until all the terms are circled
+
+$$v = \enclose{circle}{\:u + \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:}\:}.$$
+
+To rearrange we *peel away the layers*, so we start with the largest circle.
+
+$$
+\begin{align}
+v &= \enclose{circle}{\:u + \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:}\:}. \\ 
+v - u &= \enclose{circle}{\:u - u + \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:}\:}\\
+v - u &= \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:} 
+\end{align}
 $$
 
-$$v = ut + a$$
+We continue with this approach
 
-$$v = u\enclose{circle}{\:t\:} + a$$
-$$v = \enclose{circle}{\:u\:\enclose{circle}{\:t\:}\:} + a$$
-$$v = \enclose{circle}{\:\enclose{circle}{\:u\:\enclose{circle}{\:t\:}\:} + a\:}$$
+$$
+\begin{align}
+v - u &= \enclose{circle}{\:a\:\enclose{circle}{\:t\:}\:} \\
+\frac{v - u}{a} &= \enclose{circle}{\:\frac{a\:\enclose{circle}{\:t\:}}{a}\:} \\
+\frac{v - u}{a} &= \enclose{circle}{\:t\:} 
+\end{align}
+$$
+
+In this case we are now finished 
+
+$$
+t = \frac{v - u}{a}
+$$
+
+but it works for more complicated examples too.
+
+## Example 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
