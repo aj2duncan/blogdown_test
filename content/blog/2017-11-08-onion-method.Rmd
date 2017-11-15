@@ -14,7 +14,7 @@ The other day in the office we were discussing methods of explaining how to chan
 
 ## Example 1
 
-If we take an example of the equation below, where we want to change the subject to $t$. 
+If we take an example of the equation of motion below, where we want to change the subject to $t$. 
 
 $$
 \require{enclose}
@@ -61,23 +61,48 @@ but it works for more complicated examples too.
 
 ## Example 2
 
+For a more complicated example we could use an equation that might model population growth and again change the subject to $t$.
 
+$$P = P_0e^{kt}$$
 
+As before we start by circling the new subject and then move outwards.
 
+$$
+\begin{align}
+P &= P_0e^{k\enclose{circle}{\:t\:}} \\
+P &= P_0e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}} \\
+P &= P_0\enclose{circle}{\:\:\:e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}}\:} \\
+P &= \enclose{circle}{\:P_0\enclose{circle}{\:\:\:e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}\:}\:}\:} 
+\end{align}
+$$
 
+Having added our layers we can peel them away.
 
+$$
+\begin{align}
+P &= \enclose{circle}{\:P_0\enclose{circle}{\:\:\:e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}\:}\:}\:} \\
+(\div P_0) & \:\:\:\:\:\:\:\: (\div P_0) \\
+\frac{P}{P_0} &= \enclose{circle}{\:\:\:e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}\:}\:}
+\end{align}
+$$
 
+Remembering we use $\ln(x)$ to cancel $e^x$ give us the next step.
 
+$$
+\begin{align}
+\ln\left(\frac{P}{P_0}\right) &= \ln \left( e^{\enclose{circle}{\:k\enclose{circle}{\:t\:}\:}\:} \right) \\
+\ln\left(\frac{P}{P_0}\right) &= \enclose{circle}{\:k\enclose{circle}{\:t\:}\:} \\
+\end{align}
+$$
 
+Finally, we can divide by $k$ and we have finished changing the subject to $t$.
 
-
-
-
-
-
-
-
-
-
-
+$$
+\begin{align}
+\ln\left(\frac{P}{P_0}\right) &= \enclose{circle}{\:k\enclose{circle}{\:t\:}\:} \\
+(\div k) &\:\:\:\:\:\ (\div k) \\
+\frac{\ln\left(\frac{P}{P_0}\right)}{k} & = t \\
+t & =\frac{\ln\left(\frac{P}{P_0}\right)}{k} \\
+\end{align}
+$$
 
