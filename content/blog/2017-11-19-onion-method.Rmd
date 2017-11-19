@@ -1,8 +1,7 @@
 ---
 title: "The Onion Method for Rearranging Equations"
-date: "2017-11-08"
+date: "2017-11-19"
 slug: "the-onion-method"
-draft: true
 ---
 
 ```{r setup, include=FALSE}
@@ -10,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE,
                       warning = FALSE, comment = NA)
 ```
 
-The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the *onion method* which might help.
+The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the *onion method* which I think might help some students. Below I outline how the method works with a couple of examples. 
 
 ## Example 1
 
