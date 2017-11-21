@@ -4,15 +4,12 @@ date: "2015-12-13"
 slug: "recurrence-relations-and-exponential-functions"
 ---
 
-<!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
 
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
-<p>In my Higher Maths class we have just finished the recurrence relations topic and as part of that we investigated the limit of recurrence relations. We also plotted some example as \(n \) so we could see the behaviour of \(u_n\). I actually wrote a Shiny <a href="https://shiny.aj2duncan.com/higher/rec_rel/">app</a> to show the behaviour. The graphs led to a question about the relationship between \(u_n\) as \(n\) increases and exponential functions.</p>
+
+<p>In my Higher Maths class we have just finished the recurrence relations topic and as part of that we investigated the limit of recurrence relations. We also plotted some example as <span class="math inline">\(n \rightarrow \infty\)</span> so we could see the behaviour of <span class="math inline">\(u_n\)</span>. I actually wrote a Shiny <a href="https://shiny.aj2duncan.com/higher/rec_rel/">app</a> to show the behaviour. The graphs led to a question about the relationship between <span class="math inline">\(u_n\)</span> as <span class="math inline">\(n\)</span> increases and exponential functions.</p>
 <p>If we start we a recurrence relation of the form</p>
 <p><span class="math display">\[u_{n+1} = au_n + b\]</span></p>
-<p>with some value of \(u_0\) then we can very quickly find out what \(u_1\), \(u_2\) etc. are. If we look at the first few terms we get</p>
+<p>with some value of <span class="math inline">\(u_0\)</span> then we can very quickly find out what <span class="math inline">\(u_1\)</span>, <span class="math inline">\(u_2\)</span> etc. are. If we look at the first few terms we get</p>
 <p><span class="math display">\[\begin{align}
 u_1 &amp;= au_0 + b \\
 u_2 &amp;= au_1 + b = a(au_0 + b) + b = a^2u_0 + ab + b \\
@@ -21,42 +18,51 @@ u_4 &amp;= au_3 + b = a(a^3u_0 + a^2b + ab + b) \\
 &amp;= a^4u_0 + a^3b + a^2b + ab + b.
 \end{align}\]</span></p>
 <p>This pattern continues so we end up with</p>
-<p><span class="math display">\[u_n = a^nu_0 + a^{n-1}b + a^{n-2}b + \ldots + a^2b + ab + b\]</span></p>
+<p><span class="math display">\[u_n = a^nu_0 + a^{n-1}b + a^{n-2}b + \cdots + a^2b + ab + b\]</span></p>
 <p>or rather</p>
 <p><span class="math display">\[u_n = a^nu_0 + b\left(\sum_{k = 0}^{n-1}a^k\right)\]</span></p>
-<p>where \(\) means sum all the terms so</p>
-<p><span class="math display">\[\sum_{k = 0}^{n-1}a^k = a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1.\]</span></p>
-<p>It can be shown (and I’ve included a quick proof at the bottom of this post) that</p>
+<p>where <span class="math inline">\(\sum\)</span> means sum all the terms so</p>
+<p><span class="math display">\[\sum_{k = 0}^{n-1}a^k = a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1.\]</span></p>
+<p>It can be shown (and I’ve included a quick proof at the bottom of this post) that provided <span class="math inline">\(a \neq 1\)</span></p>
 <p><span class="math display">\[\sum_{k = 0}^{n-1}a^k = \frac{a^n - 1}{a - 1}\]</span></p>
 <p>and so putting all of this together gives</p>
 <p><span class="math display">\[u_n = a^nu_0 + b\left(\sum_{k = 0}^{n-1}a^k\right) = a^nu_0 + \frac{b\left(a^n - 1\right)}{a - 1}.\]</span></p>
-<p>We can choose \(u_0 = 0\) just to make this look easier in this case and we end up with</p>
+<p>We can choose <span class="math inline">\(u_0 = 0\)</span> to simplify things and we end up with</p>
 <p><span class="math display">\[u_n = \frac{b\left(a^n - 1\right)}{a - 1}.\]</span></p>
-<p>So we now have an expression for \(u_n\) that involves the exponential \(a^n\) we were expecting. Remember that \(a\) and \(b\) are just numbers. If we take an example recurrence relation</p>
+<p>So we now have an expression for <span class="math inline">\(u_n\)</span> that involves the exponential <span class="math inline">\(a^n\)</span> we were expecting. Remember that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are just numbers. If we take an example recurrence relation</p>
 <p><span class="math display">\[u_{n+1} = 4u_n + 6\]</span></p>
 <p>then we will have</p>
 <p><span class="math display">\[u_n = \frac{b\left(a^n - 1\right)}{a - 1} = \frac{6\left(4^n - 1\right)}{4 - 1} = 2\left(4^n - 1\right).\]</span></p>
-<p>This expression we now have for \(u_n\) also lets us prove the limit for a recurrence relation. If \(-1 &lt; a &lt; 1\) then \(a^n\) will get very small as \(n\) gets very big. After a certain point \(n\) will be so big that \(a^n\) might as well be zero. We can prove this formally but I’m not going to do it here. If we take \(a^n\) to be zero then we get</p>
+<p>This expression we now have for <span class="math inline">\(u_n\)</span> also lets us prove the limit for a recurrence relation but when do we have a limit? The crucial term is <span class="math inline">\(a^n\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(a &gt; 1\)</span> then <span class="math inline">\(a^n\)</span> will tend to infinity and so will <span class="math inline">\(u_n\)</span>.</p></li>
+<li><p>If <span class="math inline">\(a = -1\)</span> then <span class="math inline">\(a^n\)</span> will be <span class="math inline">\(1\)</span> if <span class="math inline">\(n\)</span> is even and <span class="math inline">\(-1\)</span> if <span class="math inline">\(n\)</span> is odd. Therefore <span class="math inline">\(u_n\)</span> will either be <span class="math inline">\(0\)</span> (as <span class="math inline">\(u_0 = 0\)</span>) or <span class="math inline">\(b\)</span>.</p></li>
+<li><p>If <span class="math inline">\(a &lt; -1\)</span> then <span class="math inline">\(a^n\)</span> (and therefore <span class="math inline">\(u_n\)</span>) will tend to postive infinity if <span class="math inline">\(n\)</span> is even (and getting bigger) but negative infinity if <span class="math inline">\(n\)</span> is odd (and getting bigger).</p></li>
+<li><p>If <span class="math inline">\(a = 1\)</span> then we have to go back to our equation</p></li>
+</ul>
+<p><span class="math display">\[u_n = a^nu_0 + b\left(\sum_{k = 0}^{n-1}a^k\right) = 1 \times u_0 + b\left(\sum_{k = 0}^{n-1}1^k\right) = u_0 + bn\]</span></p>
+<p>and this will tend to infinity as <span class="math inline">\(n\)</span> does. So in none of these cases do we get a limit. Either <span class="math inline">\(u_n\)</span> will tend to infinity or flip-flop between positive and negative values, depending on whether <span class="math inline">\(n\)</span> is even or odd.</p>
+<p>Finally we can consider that if <span class="math inline">\(-1 &lt; a &lt; 1\)</span> then <span class="math inline">\(a^n\)</span> will get very small as <span class="math inline">\(n\)</span> gets very big. After a certain point <span class="math inline">\(n\)</span> will be so big that <span class="math inline">\(a^n\)</span> might as well be zero. We can prove this formally but we’re not going to do it here. If we take <span class="math inline">\(a^n\)</span> to be zero then we get</p>
 <p><span class="math display">\[u_n = \frac{b\left(a^n - 1\right)}{a - 1} = \frac{b\left(0 - 1\right)}{a - 1} = \frac{-b}{a - 1}\]</span></p>
-<p>and if we multiply top and bottom by \(-1\) we end up with</p>
+<p>and if we multiply top and bottom by <span class="math inline">\(-1\)</span> we end up with</p>
 <p><span class="math display">\[u_n = \frac{b}{1 - a}.\]</span></p>
 <div id="footnote-proof-of-summation" class="section level3">
 <h3>Footnote: Proof of summation</h3>
-<p>To find the sum of \(a^{n-1} + a^{n-2} + + a^2 + a + 1\) is surprisingly straight forward. We start by multiplying the whole thing by \(a - 1\).</p>
-<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right)\left(a - 1\right) = a\left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right) - \left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right)\]</span></p>
+<p>To find the sum of <span class="math inline">\(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\)</span> is surprisingly straight forward. We start by multiplying the whole thing by <span class="math inline">\(a - 1\)</span>.</p>
+<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right)\left(a - 1\right) = a\left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right) - \left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right)\]</span></p>
 <p>Multiply out gives us</p>
-<p><span class="math display">\[\left(a^{n} + a^{n-1} + a^{n-2} + \ldots + a^2 + a\right) - \left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right)\]</span></p>
+<p><span class="math display">\[\left(a^{n} + a^{n-1} + a^{n-2} + \cdots + a^2 + a\right) - \left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right)\]</span></p>
 <p>and you’ll see that almost everything cancels except the very first and very last terms.</p>
 <p><span class="math display">\[\begin{align}
-&amp; \left(a^{n} + a^{n-1} + a^{n-2} + \ldots + a^2 + a\right) - \left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right) \\
-&amp;= a^{n} + a^{n-1} - a^{n-1} + a^{n-2} - a^{n-2} + \ldots + a^2 - a^2 + a - a + 1 \\
+&amp; \left(a^{n} + a^{n-1} + a^{n-2} + \cdots + a^2 + a\right) - \left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right) \\
+&amp;= a^{n} + a^{n-1} - a^{n-1} + a^{n-2} - a^{n-2} + \cdots + a^2 - a^2 + a - a + 1 \\
 &amp;= a^n - 1
 \end{align}\]</span></p>
 <p>So we can write</p>
-<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right)\left(a - 1\right) = a^n - 1.\]</span></p>
+<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right)\left(a - 1\right) = a^n - 1.\]</span></p>
 <p>Remembering our summation notation above</p>
-<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \ldots + a^2 + a + 1\right)\left(a - 1\right) = \left(\sum_{k = 0}^{n-1}a^k\right)\left(a - 1\right) = a^n - 1\]</span></p>
-<p>so if we divide both sides by \(a - 1\) we get</p>
+<p><span class="math display">\[\left(a^{n-1} + a^{n-2} + \cdots + a^2 + a + 1\right)\left(a - 1\right) = \left(\sum_{k = 0}^{n-1}a^k\right)\left(a - 1\right) = a^n - 1\]</span></p>
+<p>so if we divide both sides by <span class="math inline">\(a - 1\)</span> we get</p>
 <p><span class="math display">\[\begin{align}
 \frac{\left(\sum_{k = 0}^{n-1}a^k\right)\left(a - 1\right)}{a - 1} &amp;= \frac{a^n - 1}{a - 1} \\
 \sum_{k = 0}^{n-1}a^k &amp;= \frac{a^n - 1}{a - 1}
