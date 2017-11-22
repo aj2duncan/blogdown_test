@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE,
                       warning = FALSE, comment = NA)
 ```
 
-The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the *onion method* which I think might help some students. Below I outline how the method works with a couple of examples. 
+The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the *onion method* which I think might help some students. Below I outline how the method works with a few of examples. 
 
 ## Example 1
 
@@ -64,7 +64,7 @@ For a more complicated example we could use an equation that might model populat
 
 $$P = P_0e^{kt}$$
 
-As before we start by circling the new subject and then move outwards.
+As before we start by circling the new subject and then move to the next closest terms and so on outwards.
 
 $$
 \begin{align}
@@ -105,3 +105,40 @@ t & =\frac{\ln\left(\frac{P}{P_0}\right)}{k} \\
 \end{align}
 $$
 
+## Example 3
+
+One thing to note is that *closest* is not in terms of distance but defined by the order of mathematical operations. Typically this order is denoted by the acronym **BODMAS** or **BIDMAS**. The equation below might serve as an example.
+
+$$y = e^{(x - 3)}$$
+
+Suppose we want to change the subject to $x$, then we start by circling it.
+
+$$y = e^{(\enclose{circle}{x} - 3)}$$
+
+Now we move to the closest term. Distance wise this is the $e$ but actually we need to sort out the *brackets* (*B* in *BODMAS*) first and so we circle the $-3$ first and then the $e$.
+
+$$
+\begin{align}
+y &= e^{(\enclose{circle}{x} - 3)}\\
+y &= e^{(\enclose{circle}{\enclose{circle}{x} - 3\:})}\\
+y &= \enclose{circle}{\:\:e^{(\enclose{circle}{\enclose{circle}{x} - 3\:})}\:}\\
+\end{align}
+$$
+
+To change the subject we start (as above) by taking $\ln$ of both sides.
+
+$$
+\begin{align}
+y &= \enclose{circle}{\:\:e^{(\enclose{circle}{\enclose{circle}{x} - 3\:})}\:}\\
+\ln(y) &= \ln\left(e^{(\enclose{circle}{\enclose{circle}{x} - 3\:})}\right)\\
+\ln(y) &= \left(\enclose{circle}{\enclose{circle}{x} - 3\:}\right) \\
+(+3) \:\: & \:\:\:\:\:\:\:\:\:\: (+3) \\
+\ln(y) + 3 &= x
+\end{align}
+$$
+
+Finally we would normally read from left to right giving us
+
+$$x = \ln(y) + 3.$$
+
+Hopefully these examples help introduce an alternative way of setting out a *changing the subject of the formula* type problem. 
