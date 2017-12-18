@@ -14,8 +14,8 @@ I am currently working at both the [SRUC Epidemiology Research Unit](http://www.
 - My own [shiny server](https://shiny.aj2duncan.com/) to use for any apps I develop for teaching or just for my own interest.
     
 
-### Published Papers
-
+### Published Articles
+- [Blowfly strike in sheep: self-help surveillance for shepherds is unsustainable](http://veterinaryrecord.bmj.com/content/180/11/280.1.full). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/11171).
 - [Difficulties arising from the variety of testing schemes used for bovine viral diarrhoea virus (BVDV)](http://veterinaryrecord.bmj.com/cgi/content/full/vr.103329). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/10928).
 - [Replicating disease spread in empirical cattle networks by adjusting the probability of infection in random networks](http://www.sciencedirect.com/science/article/pii/S0040580914000653). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/bitstream/11262/10508/2/10508.pdf).
 - [The influence of empirical contact networks on modelling diseases in cattle] (http://www.sciencedirect.com/science/article/pii/S1755436512000187). This article was also recommended by [Professor Matt Keeling](http://www2.warwick.ac.uk/fac/sci/maths/people/staff/matt_keeling/) for the [Faculty of 1000](http://f1000.com/about/whatis). [Read](http://f1000.com/717950095) the recommendation.
@@ -25,7 +25,7 @@ I am currently working at both the [SRUC Epidemiology Research Unit](http://www.
 - My PhD Thesis: __On the estimation of the electromagnetic, elastodynamic and piezoelectric properties of homogenized composite materials__ which can be downloaded from the [University of Edinburgh](https://www.era.lib.ed.ac.uk/handle/1842/3871).
 
 
-### Presentations and Posters
+### Selected Presentations and Posters
 - __Duncan AJ__, Auty H, Gunn GJ, Humphry RW, [An online calculator for assisting in the design of herd-level prevalence surveys whilst taking into account test imperfections](http://www.abstractsonline.com/Plan/ViewAbstract.aspx?sKey=909940c4-51e0-45b7-9577-46c7f25b2d9b&cKey=1ced8d75-5478-4b7f-81ea-f9fab912d764&mKey=6753aa4b-4efd-470c-b925-c66f22f0712c), Poster Presentation, 14th ISVEE Conference Yucatan, Mexico 2015. Poster No. 242.
 - Noble LR, Jones CS, Frost MB, Verspoor E, __Duncan AJ__, Bickham JW, _The challenge of identifying management units in large, vagile marine animals: meta-analysis reveals why conservation geneticists should think smart not big_, Paper and Oral Presentation, Meeting of the Scientific Committee of the International Whaling Commision Slovenia, 2014. Paper No. SC/65b/BRG02.
 - Macleod CJ, __Duncan AJ__, Ross NP, Duncan JL, _Is Aortic Aneurysm Growth Rate Affected by Aneurysm Risk Factors?_ Poster Presentation RCSEd President's Meeting, 2013
