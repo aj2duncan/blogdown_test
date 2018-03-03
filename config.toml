@@ -2,7 +2,7 @@ baseurl = "/"
 relativeurls = true
 languageCode = "en-us"
 title = "aj2duncan.com"
-theme = "hugo-sustain"
+theme = "hugo-xmin"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
@@ -12,11 +12,19 @@ math = "true"
     post = "/blog/:slug/"
 
 [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
     name = "Research"
     url = "/research/"
+    weight = 2
+    
 [[menu.main]]
     name = "Blog"
     url = "/blog/"
+    weight = 3
 
 [params]
     description = "My personal webpage built through Hugo and blogdown."
