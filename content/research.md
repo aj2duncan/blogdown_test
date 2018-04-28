@@ -15,6 +15,7 @@ I am currently working at both the [SRUC Epidemiology Research Unit](http://www.
     
 
 ### Published Articles
+- [R Markdown in education](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 72 and the entire journal should be available. If you are interested the [R Markdown](https://rmarkdown.rstudio.com/) file that I used to create the article is available from this [github repository](https://github.com/aj2duncan/Rmd_Ed_Paper).
 - [Blowfly strike in sheep: self-help surveillance for shepherds is unsustainable](http://veterinaryrecord.bmj.com/content/180/11/280.1.full). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/11171).
 - [Difficulties arising from the variety of testing schemes used for bovine viral diarrhoea virus (BVDV)](http://veterinaryrecord.bmj.com/cgi/content/full/vr.103329). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/10928).
 - [Replicating disease spread in empirical cattle networks by adjusting the probability of infection in random networks](http://www.sciencedirect.com/science/article/pii/S0040580914000653). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/bitstream/11262/10508/2/10508.pdf).
