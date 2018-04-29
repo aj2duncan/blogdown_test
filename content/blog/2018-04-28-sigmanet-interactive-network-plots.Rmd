@@ -132,7 +132,7 @@ dolphin_net %>%
   addNodeSize(sizeMetric = "betweenness", minSize = 1, maxSize = 8)
 ```
 
-In this case it would seem that *SN100* and *Beescratch* are quite important. They have high betweenness and appear to be on the edge of their communities. From a disease transmission perspective, if they were vaccinated to prevent them becoming infectious it might slow down transmission to the other dolphins. 
+Nodes with high betweenness that appear to be on the edge of their communities might be considered the most important. From a disease transmission perspective, if they were vaccinated to prevent them becoming infectious it might slow down transmission to the other dolphins. 
 
 An alternative metric for identifying communities is **edge betweenness**. In a similar way to **betweenness** for nodes it counts how many shortest paths (from node to node) pass through each edge. Edges with higher betweenness are the joins betweens clusters. You can think of them like bridges across a river, if there are lots of bridges it doesn't matter if one can't be used. If there is only one bridge, it really needs to stay open. 
 
