@@ -1,0 +1,180 @@
+---
+title: "Betweenness and Degree Investigation"
+author: ''
+date: '2018-04-28'
+slug: betweenness-degree-investigation
+categories:
+  - R
+  - Networks
+tags:
+  - sigmaNet
+  - Networks
+description: ''
+highlight: true
+draft: true
+---
+
+```{r}
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+
+# loading packages
+library(igraph)
+library(ggraph)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+plot_graph = function(graph) {
+  ggraph(graph, layout = "kk") + 
+    geom_edge_fan(arrow = arrow(type = "closed", ends = "last",
+                                 length = unit(0.20, "inches"),
+                                 angle = 15)) + 
+    geom_node_point(aes(colour = name) , size = 3) +
+    geom_node_text(aes(label = name), position = position_jitter(width = 0.15, 
+                                                                 height = 0.15)) +
+    scale_colour_discrete(name = "Nodes") +
+    theme_graph()
+}
+
+```
+
+
+### Introduction
+
+To investigate the relationship of betweenness to total degree as we increase the number of edges I thought a basic graph might be of some use.
+
+```{r}
+# Our first graph
+g1 = make_graph(c("A", "B", "B", "C", "A", "C", "C", "D", "E", "D", "D", "F"),
+                directed = TRUE) +
+  vertex("G") # adding standalone node that we will connect later
+plot_graph(g1)
+```
+
+Betweenness of a node $k$ is defined as $$\sum_{i,j} \frac{s^k_{ij}}{n_{ij}}, \:\:i \ne j \ne k.$$ Where $i$, $j$ represent the other nodes in the network, $s^k_{ij}$ is the number of shortest paths from $i$ to $j$ that go through $k$ and $n_{ij}$ is the total number of shortest paths from $i$ to $j$. 
+
+For our graph we have:
+
+```{r}
+betweenness(g1)
+mean(betweenness(g1))
+degree(g1)
+sum(degree(g1))
+mean(degree(g1))
+```
+
+### Adding Edges
+Let us start by adding an edge that is a repeat of one that is already there. A to B.
+
+```{r}
+g2 = add_edges(g1, c("A", "B"))
+plot_graph(g2)
+```
+
+```{r}
+betweenness(g2)
+mean(betweenness(g2)) 
+degree(g2)
+sum(degree(g2))
+mean(degree(g2))
+```
+
+
+We get a similar result if we add an additional edge from A to C, which is again a repeated edge. 
+
+```{r}
+g3 = add_edges(g2, c("A", "C"))
+plot_graph(g3)
+betweenness(g3)
+mean(betweenness(g3)) 
+degree(g3)
+sum(degree(g3))
+mean(degree(g3))
+```
+
+
+For clarity let's remove these for a moment and add a new edge from B to D, bypassing C.
+
+```{r}
+g4 = delete_edges(g3, c("A|B", "A|C"))
+g4 = add_edges(g4, c("B", "D"))
+plot_graph(g4)
+```
+```{r}
+betweenness(g4)
+mean(betweenness(g4)) 
+degree(g4)
+sum(degree(g4))
+mean(degree(g4))
+```
+
+Now we get a change as the shortest path from B to D no longer goes through C and we have two equally good choices for shortest paths from A to D. 
+
+If we put the repeated edges back in, the result is the same as previously, no change in the average betweenness but the average degree goes up.
+
+```{r}
+g5 = add_edges(g4, c("A", "B"))
+g5 = add_edges(g5, c("A", "C"))
+plot_graph(g5)
+betweenness(g5)
+mean(betweenness(g5)) 
+degree(g5)
+sum(degree(g5))
+mean(degree(g5))
+```
+
+If we complete the triangle with D, E and F we will introduce a new shortest path from E to F (that doesn't need to go through D) and the average betweenness should drop.
+
+```{r}
+g6 = add_edges(g5, c("E", "F"))
+plot_graph(g6)
+betweenness(g6)
+mean(betweenness(g6)) 
+degree(g6)
+sum(degree(g6))
+mean(degree(g6))
+```
+
+Finally, we can connect node G to the original network. We can do this to create more shortest paths if make the edge from G into the network
+
+```{r}
+g7 = add_edges(g1, c("G", "E"))
+plot_graph(g7)
+betweenness(g7)
+mean(betweenness(g7)) 
+degree(g7)
+sum(degree(g7))
+mean(degree(g7))
+```
+
+### Summary
+Increasing the number of edges within a network does not necessarily change the value of the betweenness. As the examples above demonstrate, if we add a repetition of an existing edge the average betweenness doesn't change but the average degree increases. However, if we add a new edge that provides a new shortest path, then the average betweenness will change.  
+
+```{r}
+network_list = list(g1 = g1, g2 = g2, g3 = g3, g4 = g4, 
+                    g5 = g5, g6 = g6, g7 = g7)
+av_betweenness = network_list %>% 
+  map(betweenness) %>%
+  map_df(mean) 
+
+av_degree = network_list %>%
+  map(degree) %>%
+  map_df(mean)
+
+tot_degree = network_list %>%
+  map(degree) %>%
+  map_df(sum)
+
+tab_results = rbind(av_betweenness, av_degree, tot_degree)
+
+sum_tab = data_frame(network = colnames(tab_results),
+                     av_bt = as.vector(t(tab_results[1,])),
+                     av_deg = as.vector(t(tab_results[2,])),
+                     tot_deg = as.vector(t(tab_results[3,])))
+
+kable(sum_tab, format = "html", digits = 3) %>%
+  kable_styling(full_width = FALSE)
+```
+
+

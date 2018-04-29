@@ -1,0 +1,156 @@
+---
+title: sigmaNet - Interactive Network Plots
+author: ''
+date: '2018-04-28'
+slug: sigmanet-interactive-network-plots
+categories:
+  - R
+  - Networks
+tags:
+  - sigmaNet
+  - Networks
+description: ''
+highlight: true
+bibliography: "../../static/refs/aj2duncan.bib"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE,
+                      warning = FALSE, comment = NA)
+```
+
+Since getting my PhD, my mathematics focus has been on network analysis with an emphasis on examining the network with an eye to how diseases might spread through it. I recently came across a new package for network visualisation which I liked because it was interactive without needing to build it into a [shiny](https://shiny.aj2duncan.com) app. This is similar to several other packages but I liked the syntax of it and that it also seemed quite light weight. The package is the [sigmaNet](https://github.com/iankloo/sigmaNet) which is built on the [Sigma.js](http://sigmajs.org/) javascript library. 
+
+### Getting Started
+
+We start by loading the package (and some others we'll need), reading a graph in by using an [igraph](http://igraph.org/r/) function for reading in a graph file and then plotting it. The network graph should be zoomable and respond to single and double clicks. 
+
+```{r, eval = FALSE, echo = TRUE}
+library(sigmaNet)
+library(igraph)
+library(magrittr) # for the pipe %>% operator
+
+# load the dolphins network
+dolphins = read_graph("dolphins.gml", format = "gml")
+# create the initial graph
+dolphin_net = sigmaFromIgraph(dolphins)
+# plot the initial graph
+dolphin_net
+```
+
+```{r, eval = TRUE, echo = FALSE}
+library(sigmaNet)
+library(igraph)
+library(magrittr) # for the pipe %>% operator
+
+# load the dolphins network
+dolphins = read_graph("../../static/data/dolphins.gml", format = "gml")
+# create the initial graph
+dolphin_net = sigmaFromIgraph(dolphins)
+# plot the initial graph
+dolphin_net
+```
+
+The graph in this case is an undirected social network of frequent associations between 62 dolphins in a community living off Doubtful Sound, New Zealand [@Lusseau2003] and is available for download [here](http://www-personal.umich.edu/~mejn/netdata/). I like this network because of my work on the [SMASS website](https://strandings.org). 
+
+The shape is based on igraph layouts so we can modify it to suit. The default is to use `layout_nicely()` but we can choose from other options too. 
+
+```{r}
+dolphin_net = sigmaFromIgraph(dolphins, layout = layout_in_circle(dolphins))
+dolphin_net
+```
+
+or 
+
+```{r}
+dolphin_net = sigmaFromIgraph(dolphins, layout = layout_as_tree(dolphins))
+dolphin_net
+```
+
+or my personal first choice of layout
+
+```{r}
+dolphin_net = sigmaFromIgraph(dolphins, layout = layout_with_kk(dolphins))
+dolphin_net
+```
+
+We can add the default labels which should appear on a Mouseover. 
+
+```{r}
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label')
+```
+
+### Adding More Detail
+
+So far so good and all relatively easy. If we want to see a little more of what is going on in the network then we can use some **network metrics** to help. These metrics calculate values for the nodes (the circles in the network, which represent the dolphins) or the edges (the connections between the circles). *sigmaNet* allows us to easily add this to our existing network diagram. Let's start by using **degree** of the node (how many connections it has) to control its size. 
+
+```{r}
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label') %>%
+  addNodeSize(sizeMetric = "degree", minSize = 1, maxSize = 8)
+```
+
+We could change this to several other metrics but I will demonstrate one more - **betweenness**. Betweenness is a measure of how central the node is to the network by counting the number of shortest paths from one node to another that pass through the node. The higher the number of shortest paths, the higher the betweenness and the more central the node is.
+ 
+```{r}
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label') %>%
+  addNodeSize(sizeMetric = "betweenness", minSize = 1, maxSize = 8)
+```
+
+You should notice that depending on which measure we use, different nodes become more/less important. 
+
+### Communities
+
+Although we can use metrics like **degree** and **betweenness** to identify individual nodes (or dolphins in this case) that might be of importance we can also identify communities or groups within the network. To do this (and plot them) we need to calculate the metrics and redraw the graph. 
+
+First we can take a **random walk** through the network. Essentially we pick a node and then randomly choose an edge to progress onto another node. The other nodes have a particular probability of being on such a walk, the higher the probability - the more likely it is that the node is in the same community (or cluster). 
+
+```{r}
+# calculate the groups
+clust = cluster_walktrap(dolphins)$membership
+# add this property to the graph
+V(dolphins)$group = clust
+```
+
+Having found the groups we can now redraw the graph and add some colour. 
+
+```{r}
+dolphin_net = sigmaFromIgraph(dolphins, layout = layout_with_kk(dolphins))
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label') %>%
+  addNodeColors(colorAttr = "group")
+```
+
+We can combine this with our previous metrics too. 
+
+```{r}
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label') %>%
+  addNodeColors(colorAttr = "group") %>%
+  addNodeSize(sizeMetric = "betweenness", minSize = 1, maxSize = 8)
+```
+
+In this case it would seem that *SN100* and *Beescratch* are quite important. They have high betweenness and appear to be on the edge of their communities. From a disease transmission perspective, if they were vaccinated to prevent them becoming infectious it might slow down transmission to the other dolphins. 
+
+An alternative metric for identifying communities is **edge betweenness**. In a similar way to **betweenness** for nodes it counts how many shortest paths (from node to node) pass through each edge. Edges with higher betweenness are the joins betweens clusters. You can think of them like bridges across a river, if there are lots of bridges it doesn't matter if one can't be used. If there is only one bridge, it really needs to stay open. 
+
+Once again we need to recalculate the groups and replot the graph. 
+
+```{r}
+# calculate the groups
+clust = cluster_edge_betweenness(dolphins)$membership
+# add this property to the graph
+V(dolphins)$group = clust
+dolphin_net = sigmaFromIgraph(dolphins, layout = layout_with_kk(dolphins))
+dolphin_net %>%
+  addNodeLabels(labelAttr = 'label') %>%
+  addNodeColors(colorAttr = "group") %>% 
+  addNodeSize(sizeMetric = "betweenness", minSize = 1, maxSize = 8)
+```
+
+We get slightly different communities and `sigmaNet` lets us simplfy things (as other packages do) by clicking on a node. In this case this will show only the nodes it is connected to. I will continue to play around with *sigmaNet* but it certainly appears like a nice lightweight option for inclusion in R markdown documents/websites. 
+
+
+# References
