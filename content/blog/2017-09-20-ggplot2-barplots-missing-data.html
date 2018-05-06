@@ -1,0 +1,80 @@
+---
+title: "Dealing with missing data in ggplot2 barplots"
+date: "2017-09-20"
+slug: "missing-data-ggplot2-barplots"
+categories: ["R"]
+tags: ["ggplot2", "geom_bar()"]
+---
+
+
+
+<p>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.</p>
+<p>Any way, the problem:</p>
+<pre class="r"><code>library(ggplot2)
+fake_data &lt;- data.frame(var1 = c(&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;), 
+                        var2 = c(&quot;x&quot;, &quot;x&quot;, &quot;y&quot;, &quot;x&quot;, &quot;y&quot;, &quot;y&quot;, &quot;x&quot;))
+fake_data </code></pre>
+<pre><code>  var1 var2
+1    a    x
+2    a    x
+3    a    y
+4    b    x
+5    b    y
+6    b    y
+7    c    x</code></pre>
+<pre class="r"><code>ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = &quot;dodge&quot;)</code></pre>
+<p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/the-problem-1.png" width="672" /></p>
+<p>Now that all works fine but I don’t want the bar for <code>c</code> to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</p>
+<p>This same problem has been dealt with in two stackoverflow posts<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and Hadley Wickham (the package author) commented on the design of the <code>position_dodge()</code> in this <a href="https://github.com/tidyverse/ggplot2/issues/1776">issue</a>. The basic idea is to stop <code>ggplot</code> from dropping the missing bar (or bar with count 0).</p>
+<pre class="r"><code>ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = &quot;dodge&quot;) +
+  scale_x_discrete(drop = FALSE) +
+  scale_fill_discrete(drop = FALSE)</code></pre>
+<p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>As you can see this makes no difference. The reason is because all the solutions count the data before plotting and use <code>stat = &quot;identity&quot;</code> and I wondered why that was necessary, why wouldn’t it work without it. To get the answer I had a look at the plot in more detail.</p>
+<pre class="r"><code>p = ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = &quot;dodge&quot;)
+ggplot_build(p)$data</code></pre>
+<pre><code>[[1]]
+     fill y count prop     x PANEL group ymin ymax xmin xmax colour size
+1 #00BFC4 1     1    1 1.225     1     2    0    1 1.00 1.45     NA  0.5
+2 #F8766D 2     2    1 0.775     1     1    0    2 0.55 1.00     NA  0.5
+3 #00BFC4 2     2    1 2.225     1     4    0    2 2.00 2.45     NA  0.5
+4 #F8766D 1     1    1 1.775     1     3    0    1 1.55 2.00     NA  0.5
+5 #F8766D 1     1    1 3.000     1     5    0    1 2.55 3.45     NA  0.5
+  linetype alpha
+1        1    NA
+2        1    NA
+3        1    NA
+4        1    NA
+5        1    NA</code></pre>
+<p>The data only has 5 rows and so there isn’t any data to stop <code>ggplot</code> from dropping. It is necessary to count the data first.</p>
+<pre class="r"><code># starting again
+library(tidyverse)
+fake_data &lt;- data.frame(var1 = c(&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;), 
+                        var2 = c(&quot;x&quot;, &quot;x&quot;, &quot;y&quot;, &quot;x&quot;, &quot;y&quot;, &quot;y&quot;, &quot;x&quot;))
+# count the data
+count_fake = count(fake_data, var1, var2)
+# fill in the missing combination
+count_fake = complete(count_fake, var1, var2) 
+# plot the data
+ggplot(count_fake, aes(x = var1, y = n, fill = var2)) +
+  geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;)</code></pre>
+<p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><strong>Note:</strong> In the development version of <code>ggplot2</code> there is a much easier solution. First we need to install the development version (presuming you have already installed <code>devtools</code>.)</p>
+<pre class="r"><code>devtools::install_github(&quot;tidyverse/ggplot2&quot;)</code></pre>
+<p>Then we have access to an additional argument within <code>position_dodge()</code>.</p>
+<pre class="r"><code>library(ggplot2)
+fake_data &lt;- data.frame(var1 = c(&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;), 
+                        var2 = c(&quot;x&quot;, &quot;x&quot;, &quot;y&quot;, &quot;x&quot;, &quot;y&quot;, &quot;y&quot;, &quot;x&quot;))
+ggplot(fake_data, aes(x = var1, fill = var2)) +
+  geom_bar(position = position_dodge(preserve = &#39;single&#39;))</code></pre>
+<p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data" class="uri">https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot" class="uri">https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>

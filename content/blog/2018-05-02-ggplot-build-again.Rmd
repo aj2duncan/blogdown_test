@@ -1,0 +1,55 @@
+---
+title: ggplot_build() again
+author: ''
+date: '2018-05-02'
+slug: ggplot-build-again
+categories:
+  - R
+  - ggplot2
+tags:
+  - ggplot2
+description: ''
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, comment = NA, 
+                      message = FALSE, warning = FALSE)
+```
+
+I was playing around with extracting data from `ggplot` graphs, which I have done [previously](https://aj2duncan.com/blog/more-info-on-ggplots/) using `ggplot2_build()`. This time it was getting some of the modelling results that are plotted using `geom_smooth()`. Take the quick example below. 
+
+```{r}
+library(ggplot2)
+p = ggplot(cars, aes(x = speed, y = dist)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+p
+```
+
+The plot has two layers and so `ggplot_build(p)$data` will return a list of two data frames. If we are interested in the results from `geom_smooth()` we need the second one as `geom_smooth()` is the second layer.    
+
+```{r}
+head(ggplot_build(p)$data[[2]], n = 10)
+```
+
+The `y` values are the results from the **loess** model. So far, so good but I wanted to check if these values were the same as the results from direct calculation. Using base `R` functions give us the following by default.
+
+```{r}
+loess_results = predict(loess(dist~speed,cars), cars$speed)
+head(loess_results)
+```
+
+These results don't match but a quick look at the documentation shows that `geom_smooth()` defaults to using `n = 80` points and these are in equal steps from the minimum to the maximum values of `speed`. Providing the same sequence of speed values
+
+```{r}
+# recalculate the values
+loess_results = predict(loess(dist~speed,cars), 
+                        seq(min(cars$speed), max(cars$speed), length.out = 80))
+```
+
+produces the same results as `geom_smooth()`, so we don't need to do both. We can double check just to be sure.
+
+```{r}
+# are they the same as those from ggplot?
+identical(loess_results, ggplot_build(p)$data[[2]]$y)
+```
