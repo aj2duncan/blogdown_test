@@ -1,7 +1,7 @@
 ---
 title: ggplot_build() again
 author: ''
-date: '2018-05-06'
+date: '2018-05-02'
 slug: ggplot-build-again
 categories:
   - R
@@ -20,7 +20,7 @@ p = ggplot(cars, aes(x = speed, y = dist)) +
   geom_smooth(method = &quot;loess&quot;)
 p</code></pre>
 <p><img src="/blog/2018-05-02-ggplot-build-again_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>The plot has two layers and so <code>ggplot_build(p)$data</code> will return a list of two data frames. If we are interested in the results from <code>geom_smooth()</code> we need the second one as <code>geom_smooth()</code> is the second layer.</p>
+<p>The plot has two layers and so <code>ggplot_build(p)$data</code> will return a list of two data frames and if we are interested in the results from <code>geom_smooth()</code> we need the second one (<code>geom_smooth()</code> is the second layer).</p>
 <pre class="r"><code>head(ggplot_build(p)$data[[2]], n = 10)</code></pre>
 <pre><code>          x         y        ymin     ymax       se PANEL group  colour
 1  4.000000  5.893628 -14.0214308 25.80869 9.885466     1    -1 #3366FF
