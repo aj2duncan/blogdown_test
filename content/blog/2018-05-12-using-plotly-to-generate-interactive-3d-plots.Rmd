@@ -1,0 +1,74 @@
+---
+title: using plotly to generate interactive 3d plots
+author: ''
+date: '2018-05-12'
+slug: using-plotly-to-generate-interactive-3d-plots
+categories:
+  - R
+tags:
+  - plotly
+highlight: true
+description: ''
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, comment = NA, 
+                      message = FALSE, warning = FALSE)
+library(RiskModellingUHI)
+# A three body example where body one moves directly upwards and bodies
+# two and three rotate around it.
+
+
+# first we need to define the parameters we will pass to the functions
+# the gravitational constant
+G_const = 6.67384 * 10 ^ (-11)
+# one rotation of a circle, so we go from 0 to 2pi
+times = seq(0, 2*pi, by = 0.05)
+# initial parameters
+parms = c(m_1 = 1/G_const, m_2 = 1/G_const, m_3 = 1/G_const, G = G_const)
+# define the initial positions of the system
+state = c(X1 = 0, Y1 = 0, Z1 = 0, VX1 = 0, VY1 = 0, VZ1 = 0.5,
+          X2 = -1, Y2 = 0, Z2 = 0, VX2 = 0, VY2 = -1, VZ2 = 0.5,
+          X3 = 1, Y3 = 0, Z3 = 0, VX3 = 0, VY3 = 1, VZ3 = 0.5)
+
+# now we can call the function to calculate the results
+system_results = system_3body(time_in = times, state_in = state,
+                              parms_in = parms)
+```
+
+One of the courses I teach is a degree module which includes an introduction to solving ordinary differential equations (ODEs) numerically using `R`. I make heavy use of the [deSolve](http://desolve.r-forge.r-project.org/) package and normally plot results with [ggplot2](http://ggplot2.tidyverse.org/) but one of the models we look at is a 2/3 body problem and we generate results in 3d. At the moment we've been using [scatterplot3d](https://cran.r-project.org/web/packages/scatterplot3d/vignettes/s3d.pdf) as it's pretty easy to use but it is kind of lacking something when it comes to helping students see what is happening. You can change the angle you want to look at it but need to redraw the plot each time - which brings me onto [plotly](https://plot.ly/r/). 
+
+Recently I've been using it in some [shiny](https://shiny.aj2duncan.com) apps and rather than using `ggplotly()`, plotting in it directly [^1]. This led me to look at the documentation a little more closely and discover how simple it is to produce a 3d scatterplot. 
+
+If we model a 3-body problem where one body moves directly upwards and the other two rotate around it then the results end of in the *long* form shown below.
+
+```{r, echo = FALSE}
+results = system_results
+output_df = rbind(data.frame(body = "one", x = results$X1, y = results$Y1,
+                                   z = results$Z1),
+                    data.frame(body = "two", x = results$X2, y = results$Y2,
+                                   z = results$Z2))
+  # add third body if it exists
+  if ("X3" %in% names(results)) {
+    output_df = rbind(output_df,
+                      data.frame(body = "three", x = results$X3,
+                                 y = results$Y3, z = results$Z3))
+  }
+results = output_df
+head(results)
+```
+
+Producing the plot then requires a relatively small amount on code.
+
+```{r}
+library(plotly)
+plot_ly(results, x = ~x, y = ~y, z = ~z, color = ~body, colors = "Set1") %>%
+  add_markers() %>%
+  layout(title = "Three Body System")
+```
+
+The plot can be rotated to see it from different perspectives and the tooltips automatically provide the coordinates of the points, all of which does seem to lend it a little more to enabling students to see what is happening. I will try it out the next time I teach the module and see what the feedback is. In the meantime I will continue to use [plotly](https://plot.ly/r/). 
+
+[^1]: As an aside, it drastically speeded up plotting in a shiny app. 
+
+

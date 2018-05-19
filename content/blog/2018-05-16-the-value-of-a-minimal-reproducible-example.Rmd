@@ -1,0 +1,96 @@
+---
+title: The Value of a Minimal Reproducible Example
+author: ''
+date: '2018-05-16'
+slug: the-value-of-a-minimal-reproducible-example
+categories:
+  - R
+tags: []
+description: ''
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+I'm writing this down in the hope that it will remind me in the future. 
+
+Although I have used a [minimal reproducible example](https://gist.github.com/hadley/270442) before, I found one particularly useful the other day. 
+
+### The Problem
+
+I had developed a [shiny](https://shiny.aj2duncan.com) app and part of this was a [leaflet](https://rstudio.github.io/leaflet/) map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked. 
+
+Checking the usual sources of helpful advice (Google, Stackoverflow) yielded nothingm, so I started from scratch.
+
+### The Solution
+
+Really quite quickly I found the answer. Due to running the app on a shiny server, behind ssl I was using a custom declaration for the markers to make sure they were also using ssl. 
+
+```{r, eval = FALSE}
+markers <- makeIcon(
+  iconUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png",
+  shadowUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png"
+)
+```
+
+What I had neglected to do was to take into account that by default [leaflet](https://rstudio.github.io/leaflet/) puts the marker image with the top left of it at the actual latitude and longitude you want marked. Setting the anchor points sorted everything out.
+
+```{r, eval = FALSE}
+markers <- makeIcon(
+  iconUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png",
+  iconAnchorX = 12, iconAnchorY = 41,
+  shadowUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+  shadowAnchorX = 12, shadowAnchorY = 41
+)
+```
+
+I don't know how long this would have taken if I hadn't built it up piece by piece - keeping it as minimal as possible. Hopefully I'll remember how useful the process was next time around. 
+
+Full code for the minimal shiny app is here:
+
+```{r, eval = FALSE}
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(
+  fluidRow(
+    column(12, verbatimTextOutput("click"))
+  ),
+  fluidRow(
+    column(12, leafletOutput("map"))
+  )
+)
+
+
+server <- function(input, output) {
+   
+  output$map <- renderLeaflet({
+    leaflet("map") %>%
+      setView(lng = -3.64, lat = 57.36, zoom = 8) %>%
+      addTiles() 
+  })
+  
+  observeEvent(input$map_click, { 
+    markers <- makeIcon(
+      iconUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png",
+      iconAnchorX = 12, iconAnchorY = 41,
+      shadowUrl = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+      shadowAnchorX = 12, shadowAnchorY = 41
+    )
+    
+    leafletProxy("map") %>%
+      addMarkers(lng = input$map_click$lng, lat = input$map_click$lat,
+                 icon = markers)
+  })
+  
+  observeEvent(input$map_click, {
+    output$click <- renderPrint(input$map_click)
+  })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+

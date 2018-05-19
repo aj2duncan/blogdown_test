@@ -1,0 +1,27 @@
+---
+title: The Value of a Minimal Reproducible Example
+author: ''
+date: '2018-05-16'
+slug: the-value-of-a-minimal-reproducible-example
+categories:
+  - R
+tags: []
+description: ''
+---
+
+
+
+<p>I’m writing this down in the hope that it will remind me in the future.</p>
+<p>Although I have used a <a href="https://gist.github.com/hadley/270442">minimal reproducible example</a> before, I found one particularly useful the other day.</p>
+<div id="the-problem" class="section level3">
+<h3>The Problem</h3>
+<p>I had developed a <a href="https://shiny.aj2duncan.com">shiny</a> app and part of this was a <a href="https://rstudio.github.io/leaflet/">leaflet</a> map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</p>
+<p>Checking the usual sources of helpful advice (Google, Stackoverflow) yielded nothingm, so I started from scratch.</p>
+</div>
+<div id="the-solution" class="section level3">
+<h3>The Solution</h3>
+<p>Really quite quickly I found the answer. Due to running the app on a shiny server, behind ssl I was using a custom declaration for the markers to make sure they were also using ssl.</p>
+<p>What I had neglected to do was to take into account that by default <a href="https://rstudio.github.io/leaflet/">leaflet</a> puts the marker image with the top left of it at the actual latitude and longitude you want marked. Setting the anchor points sorted everything out.</p>
+<p>I don’t know how long this would have taken if I hadn’t built it up piece by piece - keeping it as minimal as possible. Hopefully I’ll remember how useful the process was next time around.</p>
+<p>Full code for the minimal shiny app is here:</p>
+</div>
