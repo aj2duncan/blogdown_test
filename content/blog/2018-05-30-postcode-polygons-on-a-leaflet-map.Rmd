@@ -1,0 +1,104 @@
+---
+title: Postcode Polygons on a Leaflet Map
+author: ''
+date: '2018-05-30'
+slug: postcode-polygons-on-a-leaflet-map
+categories:
+  - R
+tags:
+  - leaflet
+description: ''
+highlight: true
+bibliography: "../../../blogdown_datasets/aj2duncan.bib"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+library(rgdal)
+library(leaflet)
+postcodes = readOGR("../../../blogdown_datasets/postcode_polygons.gpkg", 
+                    layer = "postcode_district")
+```
+
+I have been using [Leaflet](https://rstudio.github.io/leaflet/) for a little while now but always as part of a __shiny__ app. However, as [Mike Spencer](http://mikerspencer.com/) went to all the trouble of producing polygons for [GB postcode areas and districts](https://scottishsnow.wordpress.com/2018/03/28/gb-postcode-polygons-open-data/) I thought this was a good opportunity for a blog post [@Spencer2018]. 
+
+## Sorting the Data
+
+First we'll load the packages we need.
+
+```{r, eval = FALSE}
+library(rgdal)
+library(leaflet)
+```
+
+Next we read in the data. The file has two layers of polygons and we need to specify which one we want. I have chosen to work with the postcode district which is the first half of our postcodes. 
+
+```{r, eval = FALSE}
+postcodes = readOGR("postcode_polygons.gpkg", layer = "postcode_district")
+```
+
+For leaflet to be able to plot these they need to be in terms of *latitude* and *longitude* rather than *Easting* and *Northing*. We can check the current projection:
+
+```{r}
+proj4string(postcodes)
+```
+
+and convert them to *latitude* and *longitude*.
+
+```{r}
+postcodes = spTransform(postcodes, CRS("+proj=longlat +datum=WGS84"))
+proj4string(postcodes)
+```
+
+For a lot more detail on different coordinate systems [this pdf](https://www.bnhs.co.uk/focuson/grabagridref/html/OSGB.pdf) seems like a reasonable place to start. 
+
+## Plotting the Ploygons
+
+To simplify plotting things (and reduce the amount of data needed for the leaflet map) we can select just those postcode districts starting **IV**. 
+
+```{r}
+postcodes = subset(postcodes, grepl("IV", postcodes$pc_district))
+```
+
+Now we can construct a map
+
+```{r}
+leaflet(postcodes, width = "100%") %>% 
+  setView(lng = -3.64, lat = 58, zoom = 7) %>%
+  addTiles() %>% 
+  addPolygons()
+```
+
+To get a little more info we can add the postcode district as a popup. Changing the highlight options and adding a little custom css to the popup improves how everything looks. 
+
+```{r, fig.align = "center"}
+leaflet(postcodes, width = "100%") %>% 
+  setView(lng = -3.64, lat = 58, zoom = 7) %>%
+  addTiles() %>% 
+  addPolygons(fillOpacity = 0.2, popup = ~(pc_district), weight = 2,
+              highlightOptions = highlightOptions(color = "#03F", weight = 5, 
+                                                  bringToFront = TRUE))
+```
+
+For info the custom popup css is shown below.
+
+```{css}
+.leaflet-popup-content-wrapper {
+  background:rgba(0,51,255,0.5);
+  color:rgba(255,255,255,0.7);
+  font-size:14px;
+  line-height:20px;
+  border-radius: 0px;  
+}
+.leaflet-popup-tip {
+  background:rgba(0,51,255,0.5);
+  border-left:2px solid transparent;
+  border-right:2px solid transparent;
+  border-top:2px solid #03F; 
+}
+```
+
+This was a good bit easier than I was expecting it to be ^[Not sure why I thought it was going to be difficult but there you go...] but mapping anything just reminds me of a [particular West Wing episode](https://www.youtube.com/watch?v=OH1bZ0F3zVU).
+
+# References

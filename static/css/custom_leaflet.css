@@ -1,14 +1,14 @@
 .leaflet-popup-content-wrapper {
-  background:rgba(0,51,255,0.5);
-  color:rgba(255,255,255,0.7);
-  font-size:14px;
-  line-height:20px;
-  border-radius: 0px; 
+  background:rgba(0,51,255,0.5) !important;
+  color:rgba(255,255,255,0.7) !important;
+  font-size:14px !important;
+  line-height:20px !important;
+  border-radius: 0px !important;  
 }
 .leaflet-popup-tip {
-  background:rgba(0,51,255,0.5);
-  border-left:2px solid transparent;
-  border-right:2px solid transparent;
-  border-top:2px solid #03F;
+  background:rgba(0,51,255,0.5) !important;
+  border-left:2px solid transparent !important;
+  border-right:2px solid transparent !important;
+  border-top:2px solid #03F !important;
 }
 

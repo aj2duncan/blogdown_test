@@ -21,7 +21,51 @@ description: ''
 <div id="the-solution" class="section level3">
 <h3>The Solution</h3>
 <p>Really quite quickly I found the answer. Due to running the app on a shiny server, behind ssl I was using a custom declaration for the markers to make sure they were also using ssl.</p>
+<pre class="r"><code>markers &lt;- makeIcon(
+  iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+  shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;
+)</code></pre>
 <p>What I had neglected to do was to take into account that by default <a href="https://rstudio.github.io/leaflet/">leaflet</a> puts the marker image with the top left of it at the actual latitude and longitude you want marked. Setting the anchor points sorted everything out.</p>
+<pre class="r"><code>markers &lt;- makeIcon(
+  iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+  iconAnchorX = 12, iconAnchorY = 41,
+  shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;,
+  shadowAnchorX = 12, shadowAnchorY = 41
+)</code></pre>
 <p>I don’t know how long this would have taken if I hadn’t built it up piece by piece - keeping it as minimal as possible. Hopefully I’ll remember how useful the process was next time around.</p>
 <p>Full code for the minimal shiny app is here:</p>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+ui &lt;- fluidPage(
+  fluidRow(
+    column(12, leafletOutput(&quot;map&quot;))
+  )
+)
+
+
+server &lt;- function(input, output) {
+  
+  output$map &lt;- renderLeaflet({
+    leaflet(&quot;map&quot;) %&gt;%
+      setView(lng = -3.64, lat = 57.36, zoom = 8) %&gt;%
+      addTiles() 
+  })
+  
+  observeEvent(input$map_click, { 
+    markers &lt;- makeIcon(
+      iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+      iconAnchorX = 12, iconAnchorY = 41,
+      shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;,
+      shadowAnchorX = 12, shadowAnchorY = 41
+    )
+    
+    leafletProxy(&quot;map&quot;) %&gt;%
+      addMarkers(lng = input$map_click$lng, lat = input$map_click$lat,
+                 icon = markers)
+  })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
 </div>

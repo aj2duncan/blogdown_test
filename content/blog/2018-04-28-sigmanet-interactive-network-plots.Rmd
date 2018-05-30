@@ -11,7 +11,7 @@ tags:
   - Networks
 description: ""
 highlight: true
-bibliography: "../../static/refs/aj2duncan.bib"
+bibliography: "../../../blogdown_datasets/aj2duncan.bib"
 ---
 
 ```{r setup, include=FALSE}
@@ -44,7 +44,7 @@ library(igraph)
 library(magrittr) # for the pipe %>% operator
 
 # load the dolphins network
-dolphins = read_graph("../../static/data/dolphins.gml", format = "gml")
+dolphins = read_graph("../../../blogdown_datasets/dolphins.gml", format = "gml")
 # create the initial graph
 dolphin_net = sigmaFromIgraph(dolphins)
 # plot the initial graph

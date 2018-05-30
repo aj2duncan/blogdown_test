@@ -27,7 +27,7 @@ math = "true"
     highlightjsVersion = "9.9.0"
     highlightjsLang = ["r", "yaml"]
     highlightjsTheme = "github"
-    custom_css = ["css/custom.css"]
+    custom_css = ["css/custom.css", "css/custom_leaflet.css"]
 
 [params.social]
   github        = "aj2duncan"

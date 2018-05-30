@@ -1,0 +1,40 @@
+---
+title: Investigating Betweenness and Degree
+author: ''
+date: '2018-05-13'
+slug: investigating-betweenness-and-degree
+categories:
+  - Networks
+tags:
+  - Networks
+description: ''
+draft: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+library(igraph)
+library(sigmaNet)
+library(tidyverse)
+
+deg_bet = function(graph) {
+  rbind(degree = degree(graph), betweenness = betweenness(graph))
+}
+```
+
+```{r}
+g1 = make_graph(c("1", "2", "2", "3", "1", "3", "3", "4", "4", "5", "4", "6"),
+                       directed = FALSE) +
+  vertex("7")
+```
+
+```{r}
+sigmaFromIgraph(g1) %>% 
+  addNodeLabels(labelAttr = "name") %>%
+  addNodeSize(sizeVector = betweenness(g1), maxSize = 8, minSize = 3)
+```
+
+```{r}
+deg_bet(g1)
+```
