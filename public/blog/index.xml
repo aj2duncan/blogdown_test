@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on aj2duncan.com</title>
+    <link>/blog/</link>
+    <description>Recent content in Blogs on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postcode Polygons on a Leaflet Map</title>
+      <link>/blog/postcode-polygons-on-a-leaflet-map/</link>
+      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
+      <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
+Sorting the DataFirst we’ll load the packages we need.
+library(rgdal)library(leaflet)Next we read in the data.</description>
+    </item>
+    
+    <item>
+      <title>The Value of a Minimal Reproducible Example</title>
+      <link>/blog/the-value-of-a-minimal-reproducible-example/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/the-value-of-a-minimal-reproducible-example/</guid>
+      <description>I’m writing this down in the hope that it will remind me in the future.
+Although I have used a minimal reproducible example before, I found one particularly useful the other day.
+The ProblemI had developed a shiny app and part of this was a leaflet map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</description>
+    </item>
+    
+    <item>
+      <title>using plotly to generate interactive 3d plots</title>
+      <link>/blog/using-plotly-to-generate-interactive-3d-plots/</link>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-plotly-to-generate-interactive-3d-plots/</guid>
+      <description>One of the courses I teach is a degree module which includes an introduction to solving ordinary differential equations (ODEs) numerically using R. I make heavy use of the deSolve package and normally plot results with ggplot2 but one of the models we look at is a 2/3 body problem and we generate results in 3d. At the moment we’ve been using scatterplot3d as it’s pretty easy to use but it is kind of lacking something when it comes to helping students see what is happening.</description>
+    </item>
+    
+    <item>
+      <title>ggplot_build() again</title>
+      <link>/blog/ggplot-build-again/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/ggplot-build-again/</guid>
+      <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
+library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames. If we are interested in the results from geom_smooth() we need the second one as geom_smooth() is the second layer.</description>
+    </item>
+    
+    <item>
+      <title>sigmaNet - Interactive Network Plots</title>
+      <link>/blog/sigmanet-interactive-network-plots/</link>
+      <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/sigmanet-interactive-network-plots/</guid>
+      <description>Since getting my PhD, my mathematics focus has been on network analysis with an emphasis on examining the network with an eye to how diseases might spread through it. I recently came across a new package for network visualisation which I liked because it was interactive without needing to build it into a shiny app. This is similar to several other packages but I liked the syntax of it and that it also seemed quite light weight.</description>
+    </item>
+    
+    <item>
+      <title>The Onion Method for Rearranging Equations</title>
+      <link>/blog/the-onion-method/</link>
+      <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/the-onion-method/</guid>
+      <description>The other day in the office we were discussing methods of explaining how to change the subject of a formula, our different approaches and any alternatives we have. One difficulty that students can have is the order in which to rearrange and one of my colleagues demonstrated the onion method which I think might help some students. Below I outline how the method works with a few of examples.
+Example 1If we take an example of the equation of motion below, where we want to change the subject to \(t\).</description>
+    </item>
+    
+    <item>
+      <title>Reprinting R Chunks</title>
+      <link>/blog/reprinting-r-chunks/</link>
+      <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/reprinting-r-chunks/</guid>
+      <description>I only discovered this the other day and I’m writing it down so I can find it easily again.
+In an R markdown document you can include a chunk or R code like
+```{r chunk-name}my_fn What I hadn’t realised is that you can reprint that chunk of code later by using the name as a reference.
+```{r, ref.label = &#34;chunk-name&#34;, echo = TRUE, results = &#34;markup&#34;}```The reason I was looking for this was to enable R functions to be printed in an appendix without having to copy and paste the code.</description>
+    </item>
+    
+    <item>
+      <title>Do Numbers Exist?</title>
+      <link>/blog/do-numbers-exist/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/do-numbers-exist/</guid>
+      <description>I had an interesting discussion with several students the other day about whether numbers exist. My argument was that numbers themselves don’t exist, they are a concept. They only exist once they are attached to objects.
+This led me to think about one of my other courses where we discuss the history of Risk. One of the things I mention there is that the concept of zero, which appeared after other numbers.</description>
+    </item>
+    
+    <item>
+      <title>Reflection on the Feedback Process Pt. 2</title>
+      <link>/blog/reflection-on-feedback-process-pt-2/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/reflection-on-feedback-process-pt-2/</guid>
+      <description>This my second post on feedback, following up on reflecting on getting feedback from students. In this post I’ll reflect on giving feedback to students.
+Giving Feedback to StudentsAs I mentioned in my earlier post I started out looking for readings on getting feedback from students and along the way I found some about giving feedback back to students. This article was the piece that I foud most interesting.</description>
+    </item>
+    
+    <item>
+      <title>Reflection on the Feedback Process Pt. 1</title>
+      <link>/blog/reflection-on-feedback-process-pt-1/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/reflection-on-feedback-process-pt-1/</guid>
+      <description>I’ve posted about the feedback I’ve asked for (and received) from students a few times before and the topic is frequently discussed in the workroom.
+After collecting the most recent set of feedback I took some time to reflect on the way I collect feedback from the students. As I normally do I spent some time searching for and reading published research/academic blog posts. A lot of the articles I found were about giving feedback to students after assessments and exams, rather than getting feedback from students.</description>
+    </item>
+    
+    <item>
+      <title>Feedback Term 1 2017-18</title>
+      <link>/blog/feedback-term1-2017/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/feedback-term1-2017/</guid>
+      <description>As with previous years, I collected feedback at the end of the first term of teaching by putting up four questions I wanted answered on up on the whiteboard and then leaving the room. I will follow this up with a Socrative quiz to double check these things and collect any individual feedback, in case someone didn’t want to speak up in class.
+Anyway here are the questions and the feedback.</description>
+    </item>
+    
+    <item>
+      <title>Dealing with missing data in ggplot2 barplots</title>
+      <link>/blog/missing-data-ggplot2-barplots/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/missing-data-ggplot2-barplots/</guid>
+      <description>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.
+Any way, the problem:
+library(ggplot2)fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;))fake_data  var1 var21 a x2 a x3 a y4 b x5 b y6 b y7 c xggplot(fake_data, aes(x = var1, fill = var2)) +geom_bar(position = &amp;quot;dodge&amp;quot;)Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
+    </item>
+    
+    <item>
+      <title>New Shiny App - Catch Statistics</title>
+      <link>/blog/catch-statistics-app/</link>
+      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/catch-statistics-app/</guid>
+      <description>I was sat on a train for a little over 3 hours today and managed to get something finished that I&amp;rsquo;ve been working on for a couple of days.
+The new shiny app is something I&amp;rsquo;ve put together as an example of what might be possible for the RLI to show off. It has also given me a chance to use the plotly R package for the first time - I think I&amp;rsquo;ll be using it again!</description>
+    </item>
+    
+    <item>
+      <title>Feedback Term 1 2016-17</title>
+      <link>/blog/feedback-term1-2016/</link>
+      <pubDate>Wed, 26 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/feedback-term1-2016/</guid>
+      <description>As with last year, I started the feedback gathering process by putting up 4 things I wanted feedback on up on the whiteboard and then left the room. I will follow this up with a Socrative quiz to collect individual feedback.
+Anyway here are the questions and the feedback. Any comments of mine are in italics.
+What&amp;rsquo;s good?
+ Explanation when needed. Great deaf awareness. Approachable.  What needs improved?</description>
+    </item>
+    
+    <item>
+      <title>More info on ggplots</title>
+      <link>/blog/more-info-on-ggplots/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/more-info-on-ggplots/</guid>
+      <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
+A little demo:
+library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+    </item>
+    
+    <item>
+      <title>Testing Rmd to md using knitr</title>
+      <link>/blog/testing-rmd-to-md-using-knitr/</link>
+      <pubDate>Sat, 06 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/testing-rmd-to-md-using-knitr/</guid>
+      <description>I use Rmarkdown a lot. I have recently been preparing lecture notes using it and I wanted to see how easy it would be for me take an Rmarkdown document and create a blog post.
+Firstly, this whole website is built using Jekyll which means that I need each of my blog posts to start with the date and then the title. For instance this blog post came from a file named 2016-08-26-Testing-Rmd-to-md-using-knitr.</description>
+    </item>
+    
+    <item>
+      <title>Using Git and Dropbox</title>
+      <link>/blog/using-git-and-dropbox/</link>
+      <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-git-and-dropbox/</guid>
+      <description>I have been using Git and Github for a little while and I think both of them are great. However, there are a few Git projects that I either don&amp;rsquo;t want to put on Github or can&amp;rsquo;t but I want to work on them on multiple computers. I might also add that I don&amp;rsquo;t (at the moment) want to pay for private repositories and instead of using an alternative online service I found out I could use Dropbox.</description>
+    </item>
+    
+    <item>
+      <title>Recurrence Relations and Exponential Functions</title>
+      <link>/blog/recurrence-relations-and-exponential-functions/</link>
+      <pubDate>Sun, 13 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/recurrence-relations-and-exponential-functions/</guid>
+      <description>In my Higher Maths class we have just finished the recurrence relations topic and as part of that we investigated the limit of recurrence relations. We also plotted some example as \(n \rightarrow \infty\) so we could see the behaviour of \(u_n\). I actually wrote a Shiny app to show the behaviour. The graphs led to a question about the relationship between \(u_n\) as \(n\) increases and exponential functions.
+If we start we a recurrence relation of the form</description>
+    </item>
+    
+    <item>
+      <title>Feedback</title>
+      <link>/blog/feedback/</link>
+      <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/feedback/</guid>
+      <description>In the past I have collected feedback using forms of one kind or another, including those that I&amp;rsquo;ve designed myself. I never really felt like I got accurate feedback.
+However, last year I tried something out with one of my classes and got a better response. I put some questions up on the board and left the room asking my class to answer the questions. I did something similar last week with my Higher Maths class and I will double check how many agreed with the feedback using Socrative.</description>
+    </item>
+    
+    <item>
+      <title>Moving to Github Pages and Jekyll</title>
+      <link>/blog/moving-to-github-pages-and-jekyll/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/moving-to-github-pages-and-jekyll/</guid>
+      <description>I started this website out on wordpress.com and then moved it to a server where I was paying too much money and not getting what I wanted.
+Recently I&amp;rsquo;ve started using git as part of my research work and therefore heard about GitHub and finally about GitHub Pages.
+So long story short I have moved my website to Github Pages and used Jekyll to make blogging easier. Hopefully this will mean more posts and more pages for my students.</description>
+    </item>
+    
+    <item>
+      <title>First female winner for Fields maths medal</title>
+      <link>/blog/first-female-winner-fields-medal/</link>
+      <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/first-female-winner-fields-medal/</guid>
+      <description>I was very happy to hear about this.</description>
+    </item>
+    
+    <item>
+      <title>An interesting article and an interesting paper</title>
+      <link>/blog/an-interesting-article-and-paper/</link>
+      <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/an-interesting-article-and-paper/</guid>
+      <description>I was having a wee browse of the old interweb and found this article and this paper. Might be of interest.</description>
+    </item>
+    
+    <item>
+      <title>Completing the square</title>
+      <link>/blog/completing-the-square/</link>
+      <pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/completing-the-square/</guid>
+      <description>I was covering &#34;completing the square&#34; in class today and one of the examples caused a little difficulty. I thought I would use it as a chance to test a new plug-in for this site.
+The question involved was: Use completing the square to solve \( 2x^2 = 3x+6 \).
+We begin by rearranging and setting equal to zero
+$$ 2x^2-3x-6=0 $$
+and then remove the common factor of 2. I tend to remove it just from the first 2 terms to avoid fractions in the third term - this doesn&#39;t actually matter in this case but I will continue with the method I used in class</description>
+    </item>
+    
+    <item>
+      <title>Learning about Maths and you don&#39;t even notice</title>
+      <link>/blog/learning-about-maths-and-you-dont-even-notice/</link>
+      <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/learning-about-maths-and-you-dont-even-notice/</guid>
+      <description>It would seem that the Simpson&#39;s and their creators have been teaching us (well those of us that watch) mathematical concepts for quite a while. Simon Singh shows us how in a recent BBC article
+Homer Simpson&#39;s scary maths problems</description>
+    </item>
+    
+    <item>
+      <title>Maths and Bacon...</title>
+      <link>/blog/maths-and-bacon/</link>
+      <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/maths-and-bacon/</guid>
+      <description>So I&#39;m a big fan of bacon - particularly a nice BLT sandwich - now it seems that the numbers show bacon is a wonder food! Read for yourself
+Bacon is a miracle food</description>
+    </item>
+    
+    <item>
+      <title>Maths and the Beatles</title>
+      <link>/blog/maths-and-the-beatles/</link>
+      <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/maths-and-the-beatles/</guid>
+      <description>Maths and the Beatles
+I got this off twitter a while ago and I&#39;ve been meaning to post it for a while. A mathematics professor has found out what the first chord that George Harrison played in &#34;A Hard Day&#39;s Night.&#34; - interesting stuff.</description>
+    </item>
+    
+    <item>
+      <title>The Wire</title>
+      <link>/blog/the-wire/</link>
+      <pubDate>Sun, 23 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/the-wire/</guid>
+      <description>A friend of mine put me onto this. I&#39;ve watched The Wire a bit but haven&#39;t got far enough into it to appreciate this bit. I guess the point of this clip is to show that if we can teach using examples that the learners can understand and relate to (or not even realise that they&#39;re learning) then we are more likely to get through to them.
+Please excuse the language</description>
+    </item>
+    
+    <item>
+      <title>End of the year - Int2/Int1</title>
+      <link>/blog/end-of-year-int1-int2/</link>
+      <pubDate>Thu, 09 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/end-of-year-int1-int2/</guid>
+      <description>The only other course I taught this year was a combined Intermediate 2 and Intermediate 1 class. This was a very difficult class to teach. By the end of the year there were three classes to teach because the Int 2 part of the class split some finishing with unit 3 and some finishing with unit 4: Applications. The first thing I will change for next year is to set proper ground rules for the students.</description>
+    </item>
+    
+    <item>
+      <title>End of the Year - Engineering</title>
+      <link>/blog/end-of-year-engineering/</link>
+      <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/end-of-year-engineering/</guid>
+      <description>Reflecting on the engineering and stats courses that I taught this year, I&#39;d say the engineering course went ok. There is a lot of stuff to cover in the course and several weeks of snow and the holidays got in the way to make everything a little difficult. It acually came down the the students quite a lot. Those who put in the work at home got on fine and those who didn&#39;t put the work in or didn&#39;t attend quite so much found it a struggle.</description>
+    </item>
+    
+    <item>
+      <title>End of the year - Higher</title>
+      <link>/blog/end-of-year-higher/</link>
+      <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/end-of-year-higher/</guid>
+      <description>My higher maths class this year went both well and terribly, sort of all at the same time. The class themselves were great, when they turned up and I think that my teaching was pretty good. The problem was the course was rushed - pretty much the whole year. The class is only scheduled for 4.5 hours a week and this makes getting all the material in very difficult. I prefer to let the students try some questions - so they can see the style of them and so I can get an idea of how they are getting on.</description>
+    </item>
+    
+    <item>
+      <title>End of the year - Numeracy</title>
+      <link>/blog/end-of-year-numeracy/</link>
+      <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/end-of-year-numeracy/</guid>
+      <description>Firstly, I&#39;ve been seriously lax in actually commenting on here. I have been reflecting but I&#39;ve been snowed under with everything so haven&#39;t had a chance to post. The college year is coming swiftly to an end and I have many things to reflect on. I&#39;m going to divide the reflections into all the subjects I teach and I&#39;ll start with numeracy.
+Good things about numeracy classes this year was that most of them were willing to learn and the classes themselves were sometimes very enjoyable.</description>
+    </item>
+    
+    <item>
+      <title>Classroom Discipline</title>
+      <link>/blog/classroom-discipline/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/classroom-discipline/</guid>
+      <description>Sometimes some of my classes can get out of control. I don&#39;t think they get as bad as some others but they can be a little hard to control.
+I had a class the other week that would just not shut-up when I am trying to present something on the board. Every time I started to talk when I was at the board someone else would start a conversation with the person they were sitting beside.</description>
+    </item>
+    
+    <item>
+      <title>Conversations with Students</title>
+      <link>/blog/conversations-with-students/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/conversations-with-students/</guid>
+      <description>I lost a student the other day...
+No not as in I didn&#39;t know where they were but that I was working through an example on the board and my method didn&#39;t make any sense to them. They pointed this out to me and I tried to explain my method in an alternative way but to no avail.
+I finished the example and let the rest of the class get on with their work, at which point I went back to the example with the student.</description>
+    </item>
+    
+    <item>
+      <title>Observations and Planning</title>
+      <link>/blog/observations-and-planning/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/observations-and-planning/</guid>
+      <description>So as part of the teaching diploma I am trying to obtain I am having a couple of my lessons observed. I&#39;ve now had the first observation and although it was a little strange having another teacher in the classroom, I think I got over that after about 5 minutes.
+The class seemed to go quite smoothly and they behaved themselves quite well, at least until the observer left the room at which point they inundated me with questions about how I thought it was going rather than actually doing the work I had set them.</description>
+    </item>
+    
+    <item>
+      <title>Lots of Work/Little Work</title>
+      <link>/blog/lots-of-work-little-work/</link>
+      <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/lots-of-work-little-work/</guid>
+      <description>I always thought teachers had it easy: lots of holidays, easy hours etc etc
+Wow was I wrong. Having been put in the deep end with little teaching experience I&#39;ve been preparing and planning as I go along. This means that sometimes I seem incredibly busy with a million things to do (when I don&#39;t post anything) and sometimes I&#39;m not as busy (when I get around to posting).
+Now I like doing all the extra work and I think that the pupils find some of the extra work I do helpful - I get requests for extra notes and sheets but I know some other staff who don&#39;t like doing (or don&#39;t d0) work outside of the time they are paid for.</description>
+    </item>
+    
+    <item>
+      <title>Planning &amp; IT</title>
+      <link>/blog/planning-and-it/</link>
+      <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/planning-and-it/</guid>
+      <description>So the other week I started teaching a course on how to perform basic statistical calculations on microsoft excel. I thought I had everything planned perfectly but no - a change in the college&#39;s IT setup meant that I was nearly completely screwed.
+Thankfully I had pen drive and was able to sort out all the problems. I&#39;m glad that I don&#39;t mind looking like an idiot in front of students.</description>
+    </item>
+    
+    <item>
+      <title>Throwing the book out</title>
+      <link>/blog/throwing-the-book-out/</link>
+      <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/throwing-the-book-out/</guid>
+      <description>Sorry for the break - hopefully post more regularly now.
+First post I wanted to talk about the flexibility allowed when you&#39;re teaching in an FE college. Some of my classes are numeracy classes - as opposed to maths classes and the syllabus for the numeracy classes are more flexible than those of the maths classes. The schedules also mean I have more time to teach in the order I want.</description>
+    </item>
+    
+    <item>
+      <title>Getting students to study</title>
+      <link>/blog/getting-students-to-study/</link>
+      <pubDate>Sun, 30 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/getting-students-to-study/</guid>
+      <description>I teach in a college. The teaching atmosphere isn&#39;t like school. We do as much as we can for the students - but expect them to act like adults. As far as I&#39;m concerned this means that they are responsible for their own studying outside of class.
+I gave my Intermediate 2 class a test the other week. After they mostly performed rather poorly we had a chat about what went wrong - was the test too hard?</description>
+    </item>
+    
+    <item>
+      <title>Aiming Too High</title>
+      <link>/blog/aiming-too-high/</link>
+      <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/aiming-too-high/</guid>
+      <description>I&#39;m still doing this. I&#39;m getting a little better at making sure that at least the first few questions students do are ok for them. However, every time I get to a topic I haven&#39;t taught before I&#39;m back to square one. I ask other lecturers to see if they&#39;ve had students find a particular topic difficult but other than that I&#39;m guessing. I can prepare my teaching materials as thoroughly as I like but just miss by a country mile with the questions I&#39;ve prepared for them.</description>
+    </item>
+    
+    <item>
+      <title>Positive Feedback</title>
+      <link>/blog/positive-feedback/</link>
+      <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/positive-feedback/</guid>
+      <description>I had a good reaction from a student last week and again this week. One of my numeracy students gave me the distinct impression that he hated maths especially any maths that involved numerical calculations. Before you point it out I&#39;ll happily list the types of maths that don&#39;t involve numerical calculations. Anyway, he was reaching the end of the course having sat (and passed) most of the assessments and we were reviewing one topic before one of the final assessments.</description>
+    </item>
+    
+    <item>
+      <title>Preparation (again)</title>
+      <link>/blog/preparation-again/</link>
+      <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/preparation-again/</guid>
+      <description>You can never be too prepared. Maybe after years of teaching you can be prepared for all the questions you&#39;ll be asked, prepared for all the problems students are going to have.
+In almost every class I have (at least) two levels of students and keeping track of where everyone is at all times is just another level of prep. Then you have all the assessments to be ready for - who has passed this NAB, where do I get extra revision stuff from (and solutions for them).</description>
+    </item>
+    
+    <item>
+      <title>Attention Higher/Int2 Students</title>
+      <link>/blog/attention-higher-int2-students/</link>
+      <pubDate>Fri, 03 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/attention-higher-int2-students/</guid>
+      <description>I would like to point the attention of my students to the Mathcentre link (in the links section to the right). Lots of free problems and notes. Click and investigate.
+Also you should all have a wee look at this very cool way to display statistical information.</description>
+    </item>
+    
+    <item>
+      <title>Revision and Questioning</title>
+      <link>/blog/revision-and-questioning/</link>
+      <pubDate>Wed, 01 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/revision-and-questioning/</guid>
+      <description>Sorry, haven&#39;t posted in a while. I&#39;ll try to get back to more regular updates.
+Last week, my classes had some NABs to do and so the topic of revision came up. In a lot of cases people revised well and if they didn&#39;t pass a section there was an explanation for it. They could do examples in class fine but forgot a formula. They were off the day we taught that formula and missed the catch-up class.</description>
+    </item>
+    
+    <item>
+      <title>Preparation</title>
+      <link>/blog/preparation/</link>
+      <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/preparation/</guid>
+      <description>Preparation is obviously very important in teaching. I&#39;ve occasionally done a bit of teaching off the top of my head but I&#39;ve found I&#39;m pretty much always going to forget something if I don&#39;t prepare.
+I teach a bunch of numeracy classes (6 in total) and I find them quite rewarding but it is very difficult to remember exactly where each pupil is week after week. Almost each class has pupils learning at each of the different levels and its hard to keep track of exactly where each pupil in each class is even with a written record.</description>
+    </item>
+    
+    <item>
+      <title>Time Keeping and Work Ethics</title>
+      <link>/blog/time-keeping-and-work-ethics/</link>
+      <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/time-keeping-and-work-ethics/</guid>
+      <description>I sometimes find it difficult to keep the class moving on. I am always conscious that I don&#39;t want to run out of time at the end of the course and have to cram things in. In turn that means that I feel like I&#39;m going a little quicker than some of the students would prefer, but there are others that are getting a little frustrated that things aren&#39;t moving fast enough.</description>
+    </item>
+    
+    <item>
+      <title>Presentations</title>
+      <link>/blog/presentations/</link>
+      <pubDate>Sun, 31 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/presentations/</guid>
+      <description>I&#39;ve done a couple of presentations to classes so far and I did another this week. The facilities I&#39;ve got aren&#39;t amazing but I should probably use them better than I do. The students seem to quite like short presentations as its different from me standing at the whiteboard doing examples. Problem I had this week was that the font size on the plots I used wasn&#39;t big enough and I didn&#39;t discover this until after I&#39;d put it on the wall.</description>
+    </item>
+    
+    <item>
+      <title>Students</title>
+      <link>/blog/students/</link>
+      <pubDate>Sun, 31 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/students/</guid>
+      <description>A few weeks ago I lost one of my students whilst teaching logarithmic graphs, they couldn&#39;t see what I&#39;d done or why I&#39;d done it. Whilst trying to figure out how to rephrase and rework what I&#39;d done one of the other students made a suggestion. It was a very good suggestion and I took their advice, redid the question and the &#34;lost&#34; student understood.
+I had problems with teachers in school who were never wrong or at least that&#39;s how they tried to play it.</description>
+    </item>
+    
+    <item>
+      <title>Money</title>
+      <link>/blog/money/</link>
+      <pubDate>Tue, 19 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/money/</guid>
+      <description>I had a chat with a colleague today who reminded me about something I wanted to post. When I&#39;ve asked a student what is 2 and a 1/2 % is as a fraction so they can enter it into their calculator I have generally been met with a blank stare and silence. (I&#39;ll get onto the subjest of calculators at a later date)
+However, if I ask them how they would write down 2 and a 1/2 pounds (£) then pretty much they say £2.</description>
+    </item>
+    
+    <item>
+      <title>Order and Preparation</title>
+      <link>/blog/order-and-preparation/</link>
+      <pubDate>Mon, 04 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/order-and-preparation/</guid>
+      <description>I taught three classes today and in all of them I made little mistakes (some that could have been avoided)
+First up was Higher. With a test tomorrow revision was the order of the day. I had decided to use a revision sheet produced by one of the other lecturers. The sheet is very good, covers everything a student will need to know for the test.
+Two problems I will try to fix for future revision.</description>
+    </item>
+    
+    <item>
+      <title>Algebra - Can it be made interesting?</title>
+      <link>/blog/algebra-can-it-be-made-interesting/</link>
+      <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/algebra-can-it-be-made-interesting/</guid>
+      <description>I started teaching algebra to my Intermediate 2 class this week and also mentioned the topic of indices to my Higher class. Neither was exactly delighted by the idea.
+I haven&#39;t met many people that like algebra and nearly all of them were teachers or worked in maths departments. I like algebra, I&#39;ll admit it, but teaching it can definitely be boring for the pupils. How to learn the basic skills without being bored?</description>
+    </item>
+    
+  </channel>
+</rss>

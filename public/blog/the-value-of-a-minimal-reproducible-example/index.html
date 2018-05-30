@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>The Value of a Minimal Reproducible Example</title>
+    <meta name="generator" content="Hugo 0.20.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/the-value-of-a-minimal-reproducible-example/">The Value of a Minimal Reproducible Example</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          May 16, 2018
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>I’m writing this down in the hope that it will remind me in the future.</p>
+<p>Although I have used a <a href="https://gist.github.com/hadley/270442">minimal reproducible example</a> before, I found one particularly useful the other day.</p>
+<div id="the-problem" class="section level3">
+<h3>The Problem</h3>
+<p>I had developed a <a href="https://shiny.aj2duncan.com">shiny</a> app and part of this was a <a href="https://rstudio.github.io/leaflet/">leaflet</a> map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</p>
+<p>Checking the usual sources of helpful advice (Google, Stackoverflow) yielded nothingm, so I started from scratch.</p>
+</div>
+<div id="the-solution" class="section level3">
+<h3>The Solution</h3>
+<p>Really quite quickly I found the answer. Due to running the app on a shiny server, behind ssl I was using a custom declaration for the markers to make sure they were also using ssl.</p>
+<pre class="r"><code>markers &lt;- makeIcon(
+  iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+  shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;
+)</code></pre>
+<p>What I had neglected to do was to take into account that by default <a href="https://rstudio.github.io/leaflet/">leaflet</a> puts the marker image with the top left of it at the actual latitude and longitude you want marked. Setting the anchor points sorted everything out.</p>
+<pre class="r"><code>markers &lt;- makeIcon(
+  iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+  iconAnchorX = 12, iconAnchorY = 41,
+  shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;,
+  shadowAnchorX = 12, shadowAnchorY = 41
+)</code></pre>
+<p>I don’t know how long this would have taken if I hadn’t built it up piece by piece - keeping it as minimal as possible. Hopefully I’ll remember how useful the process was next time around.</p>
+<p>Full code for the minimal shiny app is here:</p>
+<pre class="r"><code>library(shiny)
+library(leaflet)
+
+ui &lt;- fluidPage(
+  fluidRow(
+    column(12, leafletOutput(&quot;map&quot;))
+  )
+)
+
+
+server &lt;- function(input, output) {
+  
+  output$map &lt;- renderLeaflet({
+    leaflet(&quot;map&quot;) %&gt;%
+      setView(lng = -3.64, lat = 57.36, zoom = 8) %&gt;%
+      addTiles() 
+  })
+  
+  observeEvent(input$map_click, { 
+    markers &lt;- makeIcon(
+      iconUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png&quot;,
+      iconAnchorX = 12, iconAnchorY = 41,
+      shadowUrl = &quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png&quot;,
+      shadowAnchorX = 12, shadowAnchorY = 41
+    )
+    
+    leafletProxy(&quot;map&quot;) %&gt;%
+      addMarkers(lng = input$map_click$lng, lat = input$map_click$lat,
+                 icon = markers)
+  })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
+</div>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>

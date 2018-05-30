@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plotly on aj2duncan.com</title>
+    <link>/tags/plotly/</link>
+    <description>Recent content in Plotly on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/plotly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>using plotly to generate interactive 3d plots</title>
+      <link>/blog/using-plotly-to-generate-interactive-3d-plots/</link>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-plotly-to-generate-interactive-3d-plots/</guid>
+      <description>One of the courses I teach is a degree module which includes an introduction to solving ordinary differential equations (ODEs) numerically using R. I make heavy use of the deSolve package and normally plot results with ggplot2 but one of the models we look at is a 2/3 body problem and we generate results in 3d. At the moment we’ve been using scatterplot3d as it’s pretty easy to use but it is kind of lacking something when it comes to helping students see what is happening.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leaflet on aj2duncan.com</title>
+    <link>/tags/leaflet/</link>
+    <description>Recent content in Leaflet on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/leaflet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postcode Polygons on a Leaflet Map</title>
+      <link>/blog/postcode-polygons-on-a-leaflet-map/</link>
+      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
+      <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
+Sorting the DataFirst we’ll load the packages we need.
+library(rgdal)library(leaflet)Next we read in the data.</description>
+    </item>
+    
+  </channel>
+</rss>

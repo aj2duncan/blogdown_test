@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggplot2 on aj2duncan.com</title>
+    <link>/categories/ggplot2/</link>
+    <description>Recent content in Ggplot2 on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ggplot_build() again</title>
+      <link>/blog/ggplot-build-again/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/ggplot-build-again/</guid>
+      <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
+library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames. If we are interested in the results from geom_smooth() we need the second one as geom_smooth() is the second layer.</description>
+    </item>
+    
+    <item>
+      <title>More info on ggplots</title>
+      <link>/blog/more-info-on-ggplots/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/more-info-on-ggplots/</guid>
+      <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
+A little demo:
+library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+    </item>
+    
+  </channel>
+</rss>

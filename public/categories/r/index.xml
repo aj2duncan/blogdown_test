@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on aj2duncan.com</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postcode Polygons on a Leaflet Map</title>
+      <link>/blog/postcode-polygons-on-a-leaflet-map/</link>
+      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
+      <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
+Sorting the DataFirst we’ll load the packages we need.
+library(rgdal)library(leaflet)Next we read in the data.</description>
+    </item>
+    
+    <item>
+      <title>The Value of a Minimal Reproducible Example</title>
+      <link>/blog/the-value-of-a-minimal-reproducible-example/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/the-value-of-a-minimal-reproducible-example/</guid>
+      <description>I’m writing this down in the hope that it will remind me in the future.
+Although I have used a minimal reproducible example before, I found one particularly useful the other day.
+The ProblemI had developed a shiny app and part of this was a leaflet map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</description>
+    </item>
+    
+    <item>
+      <title>using plotly to generate interactive 3d plots</title>
+      <link>/blog/using-plotly-to-generate-interactive-3d-plots/</link>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-plotly-to-generate-interactive-3d-plots/</guid>
+      <description>One of the courses I teach is a degree module which includes an introduction to solving ordinary differential equations (ODEs) numerically using R. I make heavy use of the deSolve package and normally plot results with ggplot2 but one of the models we look at is a 2/3 body problem and we generate results in 3d. At the moment we’ve been using scatterplot3d as it’s pretty easy to use but it is kind of lacking something when it comes to helping students see what is happening.</description>
+    </item>
+    
+    <item>
+      <title>ggplot_build() again</title>
+      <link>/blog/ggplot-build-again/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/ggplot-build-again/</guid>
+      <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
+library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames. If we are interested in the results from geom_smooth() we need the second one as geom_smooth() is the second layer.</description>
+    </item>
+    
+    <item>
+      <title>sigmaNet - Interactive Network Plots</title>
+      <link>/blog/sigmanet-interactive-network-plots/</link>
+      <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/sigmanet-interactive-network-plots/</guid>
+      <description>Since getting my PhD, my mathematics focus has been on network analysis with an emphasis on examining the network with an eye to how diseases might spread through it. I recently came across a new package for network visualisation which I liked because it was interactive without needing to build it into a shiny app. This is similar to several other packages but I liked the syntax of it and that it also seemed quite light weight.</description>
+    </item>
+    
+    <item>
+      <title>Dealing with missing data in ggplot2 barplots</title>
+      <link>/blog/missing-data-ggplot2-barplots/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/missing-data-ggplot2-barplots/</guid>
+      <description>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.
+Any way, the problem:
+library(ggplot2)fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;))fake_data  var1 var21 a x2 a x3 a y4 b x5 b y6 b y7 c xggplot(fake_data, aes(x = var1, fill = var2)) +geom_bar(position = &amp;quot;dodge&amp;quot;)Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
+    </item>
+    
+    <item>
+      <title>More info on ggplots</title>
+      <link>/blog/more-info-on-ggplots/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/more-info-on-ggplots/</guid>
+      <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
+A little demo:
+library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+    </item>
+    
+  </channel>
+</rss>

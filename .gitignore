@@ -3,6 +3,3 @@
 .RData
 .Ruserdata
 
-
-# ignore built site
-/public

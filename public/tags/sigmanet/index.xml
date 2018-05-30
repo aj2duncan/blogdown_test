@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sigmanet on aj2duncan.com</title>
+    <link>/tags/sigmanet/</link>
+    <description>Recent content in Sigmanet on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sigmanet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>sigmaNet - Interactive Network Plots</title>
+      <link>/blog/sigmanet-interactive-network-plots/</link>
+      <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/sigmanet-interactive-network-plots/</guid>
+      <description>Since getting my PhD, my mathematics focus has been on network analysis with an emphasis on examining the network with an eye to how diseases might spread through it. I recently came across a new package for network visualisation which I liked because it was interactive without needing to build it into a shiny app. This is similar to several other packages but I liked the syntax of it and that it also seemed quite light weight.</description>
+    </item>
+    
+  </channel>
+</rss>

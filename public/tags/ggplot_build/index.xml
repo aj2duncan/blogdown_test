@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggplot_build on aj2duncan.com</title>
+    <link>/tags/ggplot_build/</link>
+    <description>Recent content in Ggplot_build on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ggplot_build/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>More info on ggplots</title>
+      <link>/blog/more-info-on-ggplots/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/more-info-on-ggplots/</guid>
+      <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
+A little demo:
+library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+    </item>
+    
+  </channel>
+</rss>
