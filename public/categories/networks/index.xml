@@ -6,19 +6,10 @@
     <description>Recent content in Networks on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/networks/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Investigating Betweenness and Degree</title>
-      <link>/blog/investigating-betweenness-and-degree/</link>
-      <pubDate>Sun, 13 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/investigating-betweenness-and-degree/</guid>
-      <description>{&#34;x&#34;:{&#34;data&#34;:{&#34;nodes&#34;: [{&#34;label&#34;: &#34;1&#34;,&#34;x&#34;: 17.406,&#34;y&#34;: 20.9727,&#34;id&#34;: 1,&#34;size&#34;: 0,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;2&#34;,&#34;x&#34;: 16.64,&#34;y&#34;: 21.575,&#34;id&#34;: 2,&#34;size&#34;: 0,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;3&#34;,&#34;x&#34;: 17.5063,&#34;y&#34;: 21.9523,&#34;id&#34;: 3,&#34;size&#34;: 6,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;4&#34;,&#34;x&#34;: 18.2188,&#34;y&#34;: 22.8113,&#34;id&#34;: 4,&#34;size&#34;: 7,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;5&#34;,&#34;x&#34;: 19.2238,&#34;y&#34;: 22.</description>
-    </item>
     
     <item>
       <title>sigmaNet - Interactive Network Plots</title>
