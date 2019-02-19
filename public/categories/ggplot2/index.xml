@@ -18,7 +18,7 @@
       
       <guid>/blog/ggplot-build-again/</guid>
       <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
-library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames. If we are interested in the results from geom_smooth() we need the second one as geom_smooth() is the second layer.</description>
+library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames.</description>
     </item>
     
     <item>

@@ -26,13 +26,13 @@ fake_data </code></pre>
   geom_bar(position = &quot;dodge&quot;)</code></pre>
 <p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/the-problem-1.png" width="672" /></p>
 <p>Now that all works fine but I don’t want the bar for <code>c</code> to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</p>
-<p>This same problem has been dealt with in two stackoverflow posts<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and Hadley Wickham (the package author) commented on the design of the <code>position_dodge()</code> in this <a href="https://github.com/tidyverse/ggplot2/issues/1776">issue</a>. The basic idea is to stop <code>ggplot</code> from dropping the missing bar (or bar with count 0).</p>
+<p>This same problem has been dealt with in two stackoverflow posts<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and Hadley Wickham (the package author) commented on the design of the <code>position_dodge()</code> in this <a href="https://github.com/tidyverse/ggplot2/issues/1776">issue</a>. The basic idea is to stop <code>ggplot</code> from dropping the missing bar (or bar with count 0).</p>
 <pre class="r"><code>ggplot(fake_data, aes(x = var1, fill = var2)) +
   geom_bar(position = &quot;dodge&quot;) +
   scale_x_discrete(drop = FALSE) +
   scale_fill_discrete(drop = FALSE)</code></pre>
 <p><img src="/blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>As you can see this makes no difference. The reason is because all the solutions count the data before plotting and use <code>stat = &quot;identity&quot;</code> and I wondered why that was necessary, why wouldn’t it work without it. To get the answer I had a look at the plot in more detail.</p>
+<p>As you can see this makes no difference. The reason is because all the solutions count the data before plotting and use <code>stat = "identity"</code> and I wondered why that was necessary, why wouldn’t it work without it. To get the answer I had a look at the plot in more detail.</p>
 <pre class="r"><code>p = ggplot(fake_data, aes(x = var1, fill = var2)) +
   geom_bar(position = &quot;dodge&quot;)
 ggplot_build(p)$data</code></pre>
@@ -74,7 +74,7 @@ ggplot(fake_data, aes(x = var1, fill = var2)) +
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data" class="uri">https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot" class="uri">https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot</a><a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p><a href="https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data" class="uri">https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot" class="uri">https://stackoverflow.com/questions/10326729/dont-drop-zero-count-dodged-barplot</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

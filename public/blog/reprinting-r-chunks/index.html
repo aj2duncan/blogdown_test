@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Reprinting R Chunks</title>
-    <meta name="generator" content="Hugo 0.20.1" />
+    <meta name="generator" content="Hugo 0.54.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -67,7 +67,10 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I only discovered this the other day and I’m writing it down so I can find it easily again.</p>
+              
+
+
+<p>I only discovered this the other day and I’m writing it down so I can find it easily again.</p>
 <p>In an R markdown document you can include a <em>chunk</em> or <code>R</code> code like</p>
 <pre><code>```{r chunk-name}
 my_fn <- function() {
@@ -78,7 +81,7 @@ my_fn <- function() {
 <pre><code>```{r, ref.label = "chunk-name", echo = TRUE, results = "markup"}
 ```</code></pre>
 <p>The reason I was looking for this was to enable <code>R</code> functions to be printed in an appendix without having to copy and paste the code.</p>
-<p>This also means that you could put a chunk earlier in the document with <code>eval = FALSE</code> and then actually calculate the results later in the document by using <code>ref.label = &quot;chunk-name&quot;, eval = TRUE</code>. I doubt I’ll use this very much but it might be useful at some point.</p>
+<p>This also means that you could put a chunk earlier in the document with <code>eval = FALSE</code> and then actually calculate the results later in the document by using <code>ref.label = "chunk-name", eval = TRUE</code>. I doubt I’ll use this very much but it might be useful at some point.</p>
 <p>It is of course in the <a href="https://yihui.name/knitr/demo/reference/">knitr documentation</a> and the functionality is exactly what I’ve come to expect from a package by <a href="https://yihui.name/">Yihui Xie</a>. Yihui thinks of pretty much everything when he writes a package.</p>
 
             
