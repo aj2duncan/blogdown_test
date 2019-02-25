@@ -18,8 +18,8 @@
       
       <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
       <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
-Sorting the DataFirst we’ll load the packages we need.
-library(rgdal)library(leaflet)Next we read in the data.</description>
+Sorting the Data First we’ll load the packages we need.
+library(rgdal) library(leaflet) Next we read in the data.</description>
     </item>
     
   </channel>

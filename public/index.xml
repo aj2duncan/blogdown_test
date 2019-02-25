@@ -6,10 +6,20 @@
     <description>Recent content on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Changing Bases of Logarithms</title>
+      <link>/blog/changing-base-of-log/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/changing-base-of-log/</guid>
+      <description>The topic of changing the base of a logarithm came up in class the other day and whilst it isn’t actually part of the Higher maths course, I thought it was worth a short post.
+A numerical example Let’s suppose that our calculator only has functions for \(\log_{10}(x)\) or \(\ln(x)\) but we are asked to calculate \(\log_5(12)\). Well suppose we let \[y = \log_5(12)\] then we have that \[5^y = 12.</description>
+    </item>
     
     <item>
       <title>Postcode Polygons on a Leaflet Map</title>
@@ -18,8 +28,8 @@
       
       <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
       <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
-Sorting the DataFirst we’ll load the packages we need.
-library(rgdal)library(leaflet)Next we read in the data.</description>
+Sorting the Data First we’ll load the packages we need.
+library(rgdal) library(leaflet) Next we read in the data.</description>
     </item>
     
     <item>
@@ -30,7 +40,7 @@ library(rgdal)library(leaflet)Next we read in the data.</description>
       <guid>/blog/the-value-of-a-minimal-reproducible-example/</guid>
       <description>I’m writing this down in the hope that it will remind me in the future.
 Although I have used a minimal reproducible example before, I found one particularly useful the other day.
-The ProblemI had developed a shiny app and part of this was a leaflet map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</description>
+The Problem I had developed a shiny app and part of this was a leaflet map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</description>
     </item>
     
     <item>
@@ -49,7 +59,7 @@ The ProblemI had developed a shiny app and part of this was a leaflet map where
       
       <guid>/blog/ggplot-build-again/</guid>
       <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
-library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames.</description>
+library(ggplot2) p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;) p The plot has two layers and so ggplot_build(p)$data will return a list of two data frames.</description>
     </item>
     
     <item>
@@ -78,8 +88,8 @@ library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geo
       <guid>/blog/reprinting-r-chunks/</guid>
       <description>I only discovered this the other day and I’m writing it down so I can find it easily again.
 In an R markdown document you can include a chunk or R code like
-```{r chunk-name}my_fn What I hadn’t realised is that you can reprint that chunk of code later by using the name as a reference.
-```{r, ref.label = &#34;chunk-name&#34;, echo = TRUE, results = &#34;markup&#34;}```The reason I was looking for this was to enable R functions to be printed in an appendix without having to copy and paste the code.</description>
+```{r chunk-name} my_fn  What I hadn’t realised is that you can reprint that chunk of code later by using the name as a reference.
+```{r, ref.label = &#34;chunk-name&#34;, echo = TRUE, results = &#34;markup&#34;} ``` The reason I was looking for this was to enable R functions to be printed in an appendix without having to copy and paste the code.</description>
     </item>
     
     <item>
@@ -99,7 +109,7 @@ This led me to think about one of my other courses where we discuss the history 
       
       <guid>/blog/reflection-on-feedback-process-pt-2/</guid>
       <description>This my second post on feedback, following up on reflecting on getting feedback from students. In this post I’ll reflect on giving feedback to students.
-Giving Feedback to StudentsAs I mentioned in my earlier post I started out looking for readings on getting feedback from students and along the way I found some about giving feedback back to students. This article was the piece that I foud most interesting.</description>
+Giving Feedback to Students As I mentioned in my earlier post I started out looking for readings on getting feedback from students and along the way I found some about giving feedback back to students. This article was the piece that I foud most interesting.</description>
     </item>
     
     <item>
@@ -130,7 +140,7 @@ Anyway here are the questions and the feedback.</description>
       <guid>/blog/missing-data-ggplot2-barplots/</guid>
       <description>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.
 Any way, the problem:
-library(ggplot2)fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;))fake_data  var1 var21 a x2 a x3 a y4 b x5 b y6 b y7 c xggplot(fake_data, aes(x = var1, fill = var2)) +geom_bar(position = &amp;quot;dodge&amp;quot;)Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
+library(ggplot2) fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;)) fake_data   var1 var2 1 a x 2 a x 3 a y 4 b x 5 b y 6 b y 7 c x ggplot(fake_data, aes(x = var1, fill = var2)) + geom_bar(position = &amp;quot;dodge&amp;quot;) Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
     </item>
     
     <item>
@@ -163,7 +173,7 @@ What&amp;rsquo;s good?
       <guid>/blog/more-info-on-ggplots/</guid>
       <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
 A little demo:
-library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+library(ggplot2) # create a sample plot p = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) + geom_point(size = 3) + labs(colour = &amp;quot;No.</description>
     </item>
     
     <item>
