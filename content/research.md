@@ -5,17 +5,11 @@ layout: page
 
 ### Current Research
 
-I am currently working at both the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) where I mainly model disease spread through herds of cattle and at the [River and Lochs Institute](http://www.uhi.ac.uk/en/research-enterprise/res-themes/environmental/rivers-and-lochs-institute) where I do some programming and statistical modelling. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/).
-
-### Websites and Software
-
-- [Strandings.org](http://www.strandings.org) is the website of the marine stranding scheme scotland and something I have been working with for a few years. This website has details of strandings (once they have been confirmed and/or post mortemed) and they can be mapped or basic statistical charts shown. 
-- The [Online Epidemiology resource centre](http://epidemiology.sruc.ac.uk) which I built as part of my work with the  [Epi Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit). It hosts a number of online models and calculators all built with [shiny](http://shiny.rstudio.com/), including a [Two-stage Sample Size Calculator](http://epidemiology.sruc.ac.uk/shiny/apps/Two-stageSampleSizeCalculator/) to help design surveys to estimate Herd Level Prevalence when the individual test is imperfect. 
-- My own [shiny server](https://shiny.aj2duncan.com/) to use for any apps I develop for teaching or just for my own interest.
-    
+I am currently working at both the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) where I mainly model disease spread through herds of cattle and at the [River and Lochs Institute](http://www.uhi.ac.uk/en/research-enterprise/res-themes/environmental/rivers-and-lochs-institute) where I do some programming and statistical modelling. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [programming](https://aj2duncan.com/programming/) page.
 
 ### Published Articles
-- [R Markdown in education](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 72 and the entire journal should be available. If you are interested the [R Markdown](https://rmarkdown.rstudio.com/) file that I used to create the article is available from this [github repository](https://github.com/aj2duncan/Rmd_Ed_Paper).
+- [When Textbook Answers are the Problem](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 19 and the entire journal should be available. 
+- [R Markdown in education](http://www.scottishmathematicalcouncil.org/wp1/smc-journal-47-2017/) the article is on page 72 and the entire journal should be available. If you are interested the [R Markdown](https://rmarkdown.rstudio.com/) file that I used to create the article is available from this [github repository](https://github.com/aj2duncan/Rmd_Ed_Paper).
 - [Blowfly strike in sheep: self-help surveillance for shepherds is unsustainable](http://veterinaryrecord.bmj.com/content/180/11/280.1.full). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/11171).
 - [Difficulties arising from the variety of testing schemes used for bovine viral diarrhoea virus (BVDV)](http://veterinaryrecord.bmj.com/cgi/content/full/vr.103329). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/10928).
 - [Replicating disease spread in empirical cattle networks by adjusting the probability of infection in random networks](http://www.sciencedirect.com/science/article/pii/S0040580914000653). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/bitstream/11262/10508/2/10508.pdf).

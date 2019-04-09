@@ -15,6 +15,9 @@ math = "true"
     name = "Research"
     url = "/research/"
 [[menu.main]]
+    name = "Programming"
+    url = "/programming/"
+[[menu.main]]
     name = "Blog"
     url = "/blog/"
 

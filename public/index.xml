@@ -513,13 +513,23 @@ I haven&#39;t met many people that like algebra and nearly all of them were teac
     </item>
     
     <item>
+      <title>Programming/Software</title>
+      <link>/programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/programming/</guid>
+      <description>I spend most of my time programming in R. This includes teaching and research. Teaching with R includes an Introduction to R course, a level 6 Statistics and a third year degree module. For my research I spend a large amount of time cleaning, organising and analysing data. Recently I have also been building Shiny apps either as online resources and to automate reporting.
+Shiny Aside from internal Shiny apps I have built two Shiny servers.</description>
+    </item>
+    
+    <item>
       <title>Research</title>
       <link>/research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/research/</guid>
-      <description>Current Research I am currently working at both the SRUC Epidemiology Research Unit where I mainly model disease spread through herds of cattle and at the River and Lochs Institute where I do some programming and statistical modelling. I also do a little bit of website design and work a lot with the statistical software R.
-Websites and Software  Strandings.org is the website of the marine stranding scheme scotland and something I have been working with for a few years.</description>
+      <description>Current Research I am currently working at both the SRUC Epidemiology Research Unit where I mainly model disease spread through herds of cattle and at the River and Lochs Institute where I do some programming and statistical modelling. I also do a little bit of website design and work a lot with the statistical software R. For full details please see the programming page.
+Published Articles  When Textbook Answers are the Problem the article is on page 19 and the entire journal should be available.</description>
     </item>
     
   </channel>
