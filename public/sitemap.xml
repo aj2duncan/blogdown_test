@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/changing-base-of-log/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/postcode-polygons-on-a-leaflet-map/</loc>
     <lastmod>2018-05-30T00:00:00+00:00</lastmod>
   </url>
@@ -254,7 +259,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2018-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -339,7 +344,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

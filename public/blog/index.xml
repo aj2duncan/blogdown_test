@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Changing Bases of Logarithms</title>
+      <link>/blog/changing-base-of-log/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/changing-base-of-log/</guid>
+      <description>The topic of changing the base of a logarithm came up in class the other day and whilst it isn’t actually part of the Higher maths course, I thought it was worth a short post.
+A numerical exampleLet’s suppose that our calculator only has functions for \(\log_{10}(x)\) or \(\ln(x)\) but we are asked to calculate \(\log_5(12)\). Well suppose we let \[y = \log_5(12)\] then we have that \[5^y = 12.</description>
+    </item>
     
     <item>
       <title>Postcode Polygons on a Leaflet Map</title>

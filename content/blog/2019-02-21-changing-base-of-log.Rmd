@@ -1,0 +1,26 @@
+---
+title: Changing Bases of Logarithms
+author: ''
+date: '2019-02-21'
+slug: changing-base-of-log
+categories: []
+tags: []
+description: ''
+---
+The topic of changing the base of a logarithm came up in class the other day and whilst it isn't actually part of the Higher maths course, I thought it was worth a short post. 
+
+## A numerical example
+
+Let's suppose that our calculator only has functions for $\log_{10}(x)$ or $\ln(x)$ but we are asked to calculate $\log_5(12)$. Well suppose we let $$y = \log_5(12)$$ then we have that $$5^y = 12.$$ Now we can take $\log_{10}$ of both sides 
+
+$$\log_{10}(5^y) = \log_{10}(12)$$ and bring the power down $$y\log_{10}(5) = \log_{10}(12)$$ allowing us to finally rearrange for $y$: $$y = \frac{\log_{10}(12)}{\log_{10}(5)}.$$
+
+Therefore we have $$\log_5(12) = \frac{\log_{10}(12)}{\log_{10}(5)}$$ which we can calculate.
+
+## An algebraic example
+
+The same process works in the general case too. Suppose $$y = \log_a{b}$$ then $$a^y = b$$ and we can take logarithm with a different base $$\log_c(a^y) = \log_c(b)$$ move the power down $$y\log_c(a) = \log_c(b),$$ giving us $$y = \frac{\log_c(b)}{\log_c(a)}.$$
+
+Putting all of this together gives us a general rule for changing the base of a logarithm. 
+
+$$\log_a(b) = \frac{\log_c(b)}{\log_c(a)}$$
