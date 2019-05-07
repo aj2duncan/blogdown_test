@@ -1,0 +1,80 @@
+---
+title: Plotting Rurality in Scotland
+author: ''
+date: '2019-05-05'
+slug: plotting-rurality-in-scotlands
+categories:
+  - R
+tags:
+  - tmap
+description: ''
+highlight: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+library(sf)
+rural_index = st_read("../../../blogdown_datasets/SG_UrbanRural_2016/", 
+        layer = "SG_UrbanRural_2016", quiet = TRUE)
+ur8fold_class = read.csv("../../../blogdown_datasets/UR8FOLD_Classification.csv",
+                         stringsAsFactors = FALSE)
+```
+
+The [Scottish Government Rural Classification](https://www2.gov.scot/Topics/Statistics/About/Methodology/UrbanRuralClassification){target="_blank"} gives definitions of rural areas within Scotland. As someone who lives (and works) in an area classed as rural I've taken more interest in this more recently. I've also started working with mapping more in *R* and so decided to combine the two into a post. As part of the classification Scottish Government provide a [shape file](https://www2.gov.scot/Publications/2018/03/6040/downloads){target="_blank"} to download. We can then load it in. 
+
+```{r, eval = FALSE}
+library(sf)
+rural_index = st_read("SG_UrbanRural_2016/", 
+                      layer = "SG_UrbanRural_2016", quiet = TRUE)
+```
+
+There are several different ways that the classification works. I have chosen to use the 8 fold classification. The table below shows the definitions.
+
+```{r, echo = FALSE}
+library(knitr)
+library(kableExtra)
+kable(ur8fold_class, col.names = c("Class", "Name", "Description")) %>%
+  kable_styling()
+```
+
+To plot the classification, we'll use the [tmap](https://github.com/mtennekes/tmap){target="_blank"} package. This use *ggplot2* type syntax and I have found it very straight forward to use. We create a shape and then add the polygons, colouring by the eight fold classification. 
+
+```{r}
+library(tmap)
+tm_shape(rural_index) +
+  tm_polygons(col = "UR8FOLD")
+```
+
+As the eight fold classification is numerical it is treated as a continuous variable, which means the colouring is slightly wrong. We can change it to categorical. 
+
+```{r}
+tm_shape(rural_index) +
+  tm_polygons(col = "UR8FOLD", style = "cat")
+```
+
+We can also add a different palette and change the label. 
+
+```{r}
+tm_shape(rural_index) +
+  tm_polygons(col = "UR8FOLD", style = "cat", palette = "viridis",
+              title = "Classification")
+```
+
+*tmap* also lets you reverse a pallete very easily, simply add a minus sign. 
+
+```{r}
+tm_shape(rural_index) +
+  tm_polygons(col = "UR8FOLD", style = "cat", palette = "-viridis",
+              title = "Classification")
+```
+
+Finally, *tmap* can switch to using an interactive map (bit better on the web) by changing the view. This uses the [leaflet](http://rstudio.github.io/leaflet/){target="_blank"} package which we could have used directly but I like that a single package can easily switch between static and interactive maps.
+
+```{r}
+tmap_mode("view")
+tm_shape(rural_index) +
+  tm_polygons(col = "UR8FOLD", style = "cat", palette = "-viridis",
+              title = "Classification")
+```
+

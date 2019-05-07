@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmap on aj2duncan.com</title>
+    <link>/tags/tmap/</link>
+    <description>Recent content in Tmap on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/tmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plotting Rurality in Scotland</title>
+      <link>/blog/plotting-rurality-in-scotlands/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/plotting-rurality-in-scotlands/</guid>
+      <description>The Scottish Government Rural Classification gives definitions of rural areas within Scotland. As someone who lives (and works) in an area classed as rural I’ve taken more interest in this more recently. I’ve also started working with mapping more in R and so decided to combine the two into a post. As part of the classification Scottish Government provide a shape file to download.</description>
+    </item>
+    
+  </channel>
+</rss>
