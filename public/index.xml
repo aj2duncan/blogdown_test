@@ -17,7 +17,7 @@
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/plotting-rurality-in-scotlands/</guid>
-      <description>The Scottish Government Rural Classification gives definitions of rural areas within Scotland. As someone who lives (and works) in an area classed as rural I’ve taken more interest in this more recently. I’ve also started working with mapping more in R and so decided to combine the two into a post. As part of the classification Scottish Government provide a shape file to download.</description>
+      <description>The Scottish Government Rural Classification gives definitions of rural areas within Scotland. As someone who lives (and works) in an area classed as rural I’ve taken more interest in this more recently. I’ve also started working with mapping more in R and so decided to combine the two into a post. As part of the classification Scottish Government provide a shape file to download. We can then load it in.</description>
     </item>
     
     <item>

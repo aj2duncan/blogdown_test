@@ -69,12 +69,3 @@ tm_shape(rural_index) +
               title = "Classification")
 ```
 
-Finally, *tmap* can switch to using an interactive map (bit better on the web) by changing the view. This uses the [leaflet](http://rstudio.github.io/leaflet/){target="_blank"} package which we could have used directly but I like that a single package can easily switch between static and interactive maps.
-
-```{r}
-tmap_mode("view")
-tm_shape(rural_index) +
-  tm_polygons(col = "UR8FOLD", style = "cat", palette = "-viridis",
-              title = "Classification")
-```
-
