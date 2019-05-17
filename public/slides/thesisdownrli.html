@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>thesisdownrli</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Andrew Duncan" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# thesisdownrli
+## A package to help you write your thesis
+### Andrew Duncan
+### 2019/05/22
+
+---
+
+
+
+class: center, middle
+
+# Who likes Microsoft Word?
+
+---
+class: center, middle
+
+# This is how I feel about Word ... 
+
+--
+
+.center[
+-&lt;img width = 100%, src = 'https://www.dropbox.com/s/yz2ny9om84m0pg8/raining_dr_who.gif?raw=1'&gt;&lt;/img&gt;
+-]
+
+---
+class: center, middle
+
+# Who has heard of/used LaTeX?
+
+--
+
+.center[
+&lt;iframe src="https://giphy.com/embed/NDzYciTuZlOFy" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;
+]
+
+---
+class: center, middle
+
+# What about R markdown?
+
+### What is it anyway?
+
+---
+class: inverse, center, middle
+
+# thesisdownrli
+
+---
+# Why Bother?
+
+.pull-left[
+- Write in markdown (simple control of some text elements)
+- LaTeX templates
+- Incorporate **R** code (if you want)
+- Properly formatted equations 
+- Automatic numbering of equations/figures/tables
+- Use BibTeX references and Zotero
+]
+
+.pull-right[
+- Can produce single chapter for supervisor
+- Works with version control
+- More reproducible than Word
+- Not as fiddly as LaTeX
+]
+
+---
+# How does it work?
+
+- Install package
+- Create new project or R markdown file
+    - Produces template files for chapters
+    - Template bibliography file
+    - central `index.Rmd` file to hold it all together
+
+- [Github repo](https://github.com/aj2duncan/thesisdownrli)
+- [Documentation](https://aj2duncan.github.io/thesisdownrli)
+
+
+---
+class: inverse, center, middle
+
+# Demo
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+  </body>
+</html>

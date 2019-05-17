@@ -1,0 +1,92 @@
+---
+title: "thesisdownrli"
+subtitle: "A package to help you write your thesis"
+author: "Andrew Duncan"
+date: "2019/05/22"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    mathjax: null
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+class: center, middle
+
+# Who likes Microsoft Word?
+
+---
+class: center, middle
+
+# This is how I feel about Word ... 
+
+--
+
+.center[
+-<img width = 100%, src = 'https://www.dropbox.com/s/yz2ny9om84m0pg8/raining_dr_who.gif?raw=1'></img>
+-]
+
+---
+class: center, middle
+
+# Who has heard of/used LaTeX?
+
+--
+
+.center[
+<iframe src="https://giphy.com/embed/NDzYciTuZlOFy" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+]
+
+---
+class: center, middle
+
+# What about R markdown?
+
+### What is it anyway?
+
+---
+class: inverse, center, middle
+
+# thesisdownrli
+
+---
+# Why Bother?
+
+.pull-left[
+- Write in markdown (simple control of some text elements)
+- LaTeX templates
+- Incorporate **R** code (if you want)
+- Properly formatted equations 
+- Automatic numbering of equations/figures/tables
+- Use BibTeX references and Zotero
+]
+
+.pull-right[
+- Can produce single chapter for supervisor
+- Works with version control
+- More reproducible than Word
+- Not as fiddly as LaTeX
+]
+
+---
+# How does it work?
+
+- Install package
+- Create new project or R markdown file
+    - Produces template files for chapters
+    - Template bibliography file
+    - central `index.Rmd` file to hold it all together
+
+- [Github repo](https://github.com/aj2duncan/thesisdownrli)
+- [Documentation](https://aj2duncan.github.io/thesisdownrli)
+
+
+---
+class: inverse, center, middle
+
+# Demo
+
