@@ -2,7 +2,7 @@
 title: "thesisdownrli"
 subtitle: "A package to help you write your thesis"
 author: "Andrew Duncan"
-date: "2019/05/22"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -58,30 +58,45 @@ class: inverse, center, middle
 
 .pull-left[
 - Write in markdown (simple control of some text elements)
+
 - LaTeX templates
+
 - Incorporate **R** code (if you want)
+
 - Properly formatted equations 
+
 - Automatic numbering of equations/figures/tables
+
 - Use BibTeX references and Zotero
 ]
 
 .pull-right[
 - Can produce single chapter for supervisor
+
 - Works with version control
+
 - More reproducible than Word
-- Not as fiddly as LaTeX
+
+- Not as fussy as LaTeX
 ]
 
 ---
 # How does it work?
 
-- Install package
+- Install package (and dependencies)
+
+--
+
 - Create new project or R markdown file
+
     - Produces template files for chapters
+    
     - Template bibliography file
+    
     - central `index.Rmd` file to hold it all together
 
 - [Github repo](https://github.com/aj2duncan/thesisdownrli)
+
 - [Documentation](https://aj2duncan.github.io/thesisdownrli)
 
 
