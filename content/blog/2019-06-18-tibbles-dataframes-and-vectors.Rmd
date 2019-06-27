@@ -1,0 +1,128 @@
+---
+title: Tibbles, Data frames and Vectors
+author: ''
+date: '2019-06-18'
+slug: tibbles-dataframes-and-vectors
+categories:
+  - R
+tags:
+  - tibble
+description: 'Learning something new about tibbles and data frames'
+highlight: true
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+I learned something new today and the reason I write this is that I'm somewhat confused as to how I didn't know it already. 
+
+# Data Frames
+
+Let us start by creating a data frame. 
+
+```{r}
+temp = data.frame(x = c(1:3), y = c(10:12))
+temp
+```
+
+We can select rows
+
+```{r}
+temp[1,]
+```
+
+and columns
+
+```{r}
+temp$x
+temp[,2]
+```
+
+What I hadn't realised before is that there is another way to select columns, using `[[` notation that I'm used to using with lists. 
+
+```{r}
+temp[[1]]
+```
+
+Let's see if there is any difference in what is returned with these variations.
+
+```{r}
+class(temp[1,])
+class(temp[,1])
+class(temp$x)
+class(temp[[1]])
+```
+
+So selecting a row returns a *data frame*, whereas selecting a column in any way seems to return a *vector*. 
+
+# Tibbles
+
+Let's do the same things with a tibble
+
+```{r}
+library(tibble)
+temp2 = tibble(x = c(1:3), y = c(10:12))
+temp2
+```
+
+We can select rows
+
+```{r}
+temp2[1,]
+```
+
+and columns
+
+```{r}
+temp2$x
+temp2[,2]
+temp2[[1]]
+```
+
+You've probably noticed a difference already but if we now look at what is returned we see some differences to the behaviour of `data.frame()`. 
+ 
+```{r}
+class(temp2[1,])
+class(temp2[,1])
+class(temp2$x)
+class(temp2[[1]])
+```
+
+There is now consistency using `[,]` notation - both `temp2[1,]` and `temp2[,1]` return a *tibble*. Using either `$` or `[[]]` returns a vector as it did for a *data.frame*. 
+
+# Why did this make a difference?
+
+What happened in my case was that I'd written a function that had a *data frame* as one of the arguments. In this function I'd used the `$` notation to select a column and then treated this as a *vector*. Not a problem. 
+
+I then wrote a similar function and used the `[,]` notation to select a column and then treated it as a *vector*. This wasn't a problem when I gave it a *data frame* but then I gave it a **tibble**. This actually threw an error for me but this sort of thing could result in just the wrong value being returned. A quick demo of this could be using the `length()` function. 
+
+```{r}
+# data frame
+length(temp[,1])
+# tibble
+length(temp2[,1])
+```
+
+You may be wondering what sort of error I got, well as an example lets do something slightly more meaningful. 
+
+```{r}
+temp = data.frame(x = rnorm(100))
+temp2 = tibble(x = rnorm(100, 2, 0.5))
+```
+
+Then something like this will work fine
+
+```{r}
+t.test(temp$x, temp2$x)
+```
+
+but this throws an error.
+
+```{r, error = TRUE}
+t.test(temp[,1], temp2[,1])
+```
+
+Now I know about `[[]]` I will definitely being using it with *tibbles*. 

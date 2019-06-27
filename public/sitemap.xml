@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/tibbles-dataframes-and-vectors/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/plotting-rurality-in-scotlands/</loc>
     <lastmod>2019-05-05T00:00:00+00:00</lastmod>
   </url>
@@ -264,7 +269,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -327,7 +332,7 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -348,6 +353,12 @@
   </url>
   
   <url>
+    <loc>/tags/tibble/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/tmap/</loc>
     <lastmod>2019-05-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -355,7 +366,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
