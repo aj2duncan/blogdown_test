@@ -18,7 +18,7 @@
       
       <guid>/blog/ggplot-build-again/</guid>
       <description>I was playing around with extracting data from ggplot graphs, which I have done previously using ggplot2_build(). This time it was getting some of the modelling results that are plotted using geom_smooth(). Take the quick example below.
-library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;)pThe plot has two layers and so ggplot_build(p)$data will return a list of two data frames.</description>
+library(ggplot2) p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = &amp;quot;loess&amp;quot;) p The plot has two layers and so ggplot_build(p)$data will return a list of two data frames.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ library(ggplot2)p = ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geo
       <guid>/blog/missing-data-ggplot2-barplots/</guid>
       <description>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.
 Any way, the problem:
-library(ggplot2)fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;))fake_data  var1 var21 a x2 a x3 a y4 b x5 b y6 b y7 c xggplot(fake_data, aes(x = var1, fill = var2)) +geom_bar(position = &amp;quot;dodge&amp;quot;)Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
+library(ggplot2) fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), var2 = c(&amp;quot;x&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;x&amp;quot;)) fake_data   var1 var2 1 a x 2 a x 3 a y 4 b x 5 b y 6 b y 7 c x ggplot(fake_data, aes(x = var1, fill = var2)) + geom_bar(position = &amp;quot;dodge&amp;quot;) Now that all works fine but I don’t want the bar for c to be full width, just half width as the others are, so the missing data (or count of zero is clearer).</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@ library(ggplot2)fake_data &amp;lt;- data.frame(var1 = c(&amp;quot;a&amp;quot;, 
       <guid>/blog/more-info-on-ggplots/</guid>
       <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
 A little demo:
-library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
+library(ggplot2) # create a sample plot p = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) + geom_point(size = 3) + labs(colour = &amp;quot;No.</description>
     </item>
     
   </channel>

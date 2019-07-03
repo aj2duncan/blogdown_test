@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+.inverse {
+  background-color: #006633;
+  color: #ffffff;
+  text-shadow: 0 0 20px #333;
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #ffffff;
+}
+
+h1, h2, h3 {
+  color: #006633;
+}
