@@ -19,7 +19,7 @@
       <guid>/blog/more-info-on-ggplots/</guid>
       <description>I have been a big fan of Hadley Wickham’s ggplot package for a while. This last week I was building a shiny app and wanted to find out exactly which colours were being used in the plot. After a bit of googling I ended up at this stackoverflow post, which led me to the ggplot_build function which I found seriously useful.
 A little demo:
-library(ggplot2) # create a sample plot p = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) + geom_point(size = 3) + labs(colour = &amp;quot;No.</description>
+library(ggplot2)# create a sample plotp = ggplot(mtcars, aes(x = hp, y = mpg, colour = factor(cyl), shape = factor(am))) +geom_point(size = 3) +labs(colour = &amp;quot;No.</description>
     </item>
     
   </channel>
