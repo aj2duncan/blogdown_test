@@ -266,6 +266,8 @@ I have a couple of examples here to show you.
 .right-column[
 - Brightspace
 
+- Video Conferencing
+
 - Bongo
 
 - <a href = "https://stream.uhi.ac.uk", target = "_blank">stream.uhi.ac.uk</a>
