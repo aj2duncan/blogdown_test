@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Leaflet Draw, Exporting Polygons and the Holepunch Package</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../programming/">PROGRAMMING</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/">Leaflet Draw, Exporting Polygons and the Holepunch Package</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          November 6, 2019
+            &nbsp;&nbsp;
+            
+            <span class="label label-tag">leaflet</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+<script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="../../rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="../../rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="../../rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+<link href="../../rmarkdown-libs/lfx-draw/lfx-draw-prod.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/lfx-draw/lfx-draw-prod.js"></script>
+<script src="../../rmarkdown-libs/lfx-draw/lfx-draw-bindings.js"></script>
+<script src="../../rmarkdown-libs/lfx-draw-drag/lfx-draw-drag-prod.js"></script>
+
+
+<p>A little over a month ago I attended <a href="https://uk.osgeo.org/foss4guk2019/" target="_blank">FOSS4GUK 2019</a>. It was a great conference and there were a few presentations (like mine) on <a href="https://rstudio.github.io/leaflet/" target="_blank">Leaflet</a>. One conversation I had was about using <a href="https://rstudio.github.io/leaflet/" target="_blank">Leaflet</a> to gather data and the question was whether it could be used draw and export polygons/polylines. I thought I would see if it could be. I have previously used a shiny app to record points submitted by users but not to record polygons.</p>
+<div id="leaflet" class="section level2">
+<h2>Leaflet</h2>
+<p>We can initialize a map quite easily.</p>
+<pre class="r"><code>library(leaflet)
+leaflet() %&gt;%
+  setView(lng = -4, lat = 58, zoom = 7) %&gt;%
+  addTiles()</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[58,-4],7,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<p>We can also use the <a href="https://bhaskarvk.github.io/leaflet.extras/" target="_blank">Leaflet Extras</a> package to add <a href="https://github.com/Leaflet/Leaflet.draw" target="_blank">Leaflet Draw</a> to it.</p>
+<pre class="r"><code>library(leaflet)
+library(leaflet.extras)
+leaflet() %&gt;%
+  setView(lng = -4, lat = 58, zoom = 7) %&gt;%
+  addTiles() %&gt;%
+  addDrawToolbar()</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[58,-4],7,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addDrawToolbar","args":[null,null,{"position":"topleft","draw":{"polyline":{"allowIntersection":true,"drawError":{"color":"#b00b00","timeout":2500},"guidelineDistance":20,"maxGuideLineLength":4000,"showLength":true,"metric":true,"feet":true,"nautic":false,"zIndexOffset":2000,"shapeOptions":{"stroke":true,"color":"#03f","weight":1,"opacity":1,"fill":false,"fillColor":"#03f","fillOpacity":0.4,"clickable":true,"smoothFactor":1,"noClip":true},"repeatMode":false},"polygon":{"showArea":false,"metric":true,"shapeOptions":{"stroke":true,"color":"#03f","weight":1,"opacity":1,"fill":true,"fillColor":"#03f","fillOpacity":0.4,"clickable":true,"smoothFactor":1,"noClip":true},"repeatMode":false},"circle":{"shapeOptions":{"stroke":true,"color":"#03f","weight":1,"opacity":1,"fill":true,"fillColor":"#03f","fillOpacity":0.4,"clickable":true,"smoothFactor":1,"noClip":true},"repeatMode":false,"showRadius":true,"metric":true,"feet":true,"nautic":false},"rectangle":{"showArea":true,"metric":true,"shapeOptions":{"stroke":true,"color":"#03f","weight":1,"opacity":1,"fill":true,"fillColor":"#03f","fillOpacity":0.4,"clickable":true,"smoothFactor":1,"noClip":true},"repeatMode":false},"marker":{"zIndexOffset":2000,"repeatMode":false},"circlemarker":{"stroke":true,"color":"#3388ff","weight":4,"opacity":0.5,"fill":true,"fillOpacity":0.2,"clickable":true,"zIndexOffset":2000,"repeatMode":false},"singleFeature":false},"edit":false}]}]},"evals":[],"jsHooks":[]}</script>
+<p>This now gives users the possibility of drawing polygons. If we embed one of these in a shiny app then we are able to discover when the user has completed the polygon by using <code>observeEvent(input$map_draw_new_feature, {...})</code>. Having done this we can access the geometry of the polygon using <code>input$map_draw_new_feature$geometry$coordinates[[1]]</code>, convert to a shapefile and allow the user to download it.</p>
+</div>
+<div id="holepunch" class="section level2">
+<h2>Holepunch</h2>
+<p>Having got a shiny app that lets uers draw and download a polygon I was trying to figure how to publish it. I could have put it on my <a href="https://shiny.aj2duncan.com">shinyserver</a> but then I read about <a href="https://mybinder.org/" target="_blank">binder</a> and the <a href="https://github.com/karthik/holepunch" target="_blank">holepunch package</a>. Binder is a resource that lets you turn almost any Github repository into a open version of RStudio or Jupyter notebooks. The holepunch package helps you turn your <code>R</code> based Github repo into an RStudio instance, including any dependencies. The documentation is available <a href="https://karthik.github.io/holepunch/" target="_blank">here</a> but the process is pretty straightforward. At some point I may document the whole thing but for the moment I will leave it to the documentation.</p>
+<p>The final shiny app can be found in this <a href="https://github.com/aj2duncan/leaflet-draw" target="_blank">repo</a> and clicking on the <a href="https://mybinder.org/" target="_blank">Binder</a> badge will launch things.</p>
+</div>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+    
+  </body>
+</html>

@@ -6,10 +6,32 @@
     <description>Recent content in Blogs on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leaflet Draw, Exporting Polygons and the Holepunch Package</title>
+      <link>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</link>
+      <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</guid>
+      <description>A little over a month ago I attended FOSS4GUK 2019. It was a great conference and there were a few presentations (like mine) on Leaflet. One conversation I had was about using Leaflet to gather data and the question was whether it could be used draw and export polygons/polylines. I thought I would see if it could be. I have previously used a shiny app to record points submitted by users but not to record polygons.</description>
+    </item>
+    
+    <item>
+      <title>Things I keep Needing to Look Up</title>
+      <link>/blog/things-i-keep-needing-to-look-up/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/things-i-keep-needing-to-look-up/</guid>
+      <description>This will be a post I keep updating as it keeps track of things I keep forgetting
+GitSee a git commit log that is nice and neat, including what stage remotes and branches are at.
+git log --oneline --decorateLinuxTo compress a folder (create, verbose, compress, files) with full file path
+tar -cvzf folder.tar.gz /path/to/folderTo skip the subfolders
+tar -cvzf folder.tar.gz --directory=/path/to folderThen extract them with</description>
+    </item>
     
     <item>
       <title>Tibbles, Data frames and Vectors</title>

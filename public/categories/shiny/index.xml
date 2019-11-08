@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leaflet on aj2duncan.com</title>
-    <link>/tags/leaflet/</link>
-    <description>Recent content in Leaflet on aj2duncan.com</description>
+    <title>Shiny on aj2duncan.com</title>
+    <link>/categories/shiny/</link>
+    <description>Recent content in Shiny on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/leaflet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,17 +18,6 @@
       
       <guid>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</guid>
       <description>A little over a month ago I attended FOSS4GUK 2019. It was a great conference and there were a few presentations (like mine) on Leaflet. One conversation I had was about using Leaflet to gather data and the question was whether it could be used draw and export polygons/polylines. I thought I would see if it could be. I have previously used a shiny app to record points submitted by users but not to record polygons.</description>
-    </item>
-    
-    <item>
-      <title>Postcode Polygons on a Leaflet Map</title>
-      <link>/blog/postcode-polygons-on-a-leaflet-map/</link>
-      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/postcode-polygons-on-a-leaflet-map/</guid>
-      <description>I have been using Leaflet for a little while now but always as part of a shiny app. However, as Mike Spencer went to all the trouble of producing polygons for GB postcode areas and districts I thought this was a good opportunity for a blog post (Spencer 2018).
-Sorting the DataFirst we’ll load the packages we need.
-library(rgdal)library(leaflet)Next we read in the data.</description>
     </item>
     
   </channel>

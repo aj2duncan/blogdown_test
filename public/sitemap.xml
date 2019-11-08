@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/things-i-keep-needing-to-look-up/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/tibbles-dataframes-and-vectors/</loc>
     <lastmod>2019-06-18T00:00:00+00:00</lastmod>
   </url>
@@ -269,7 +279,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -304,7 +314,7 @@
   
   <url>
     <loc>/tags/leaflet/</loc>
-    <lastmod>2018-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -332,12 +342,18 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/research/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/shiny/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -366,7 +382,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
