@@ -5,7 +5,7 @@ layout: page
 
 ### Current Research
 
-I am currently working at both the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) where I mainly model disease spread through herds of cattle and at the [River and Lochs Institute](http://www.uhi.ac.uk/en/research-enterprise/res-themes/environmental/rivers-and-lochs-institute) where I do some programming and statistical modelling. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [programming](https://aj2duncan.com/programming/) page.
+I am currently working at with the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) the [River and Lochs Institute](http://www.uhi.ac.uk/en/research-enterprise/res-themes/environmental/rivers-and-lochs-institute). At the SRUC I mainly work on network analysis of animal movements, automating disesase reporting and building online applications, whilst with the RLI, I do some programming, data analysis and statistical modelling. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [programming](https://aj2duncan.com/programming/) page.
 
 ### Published Articles
 - [When Textbook Answers are the Problem](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 19 and the entire journal should be available. 
@@ -21,6 +21,14 @@ I am currently working at both the [SRUC Epidemiology Research Unit](http://www.
 
 
 ### Selected Presentations and Posters
+- __Duncan AJ__, [Scottish Pig Health Network: making better use of data for health improvements](https://uk.osgeo.org/foss4guk2019/), Oral Presentation, FOSS4GUK2019, Edinburgh, September 2019.
+- Ribeiro R, Eze J, Gunn GJ, Gilbert L, Macrae A, __Duncan AJ__, Reeves A, Auty H, _Using Citizen Science to improve the knowledge of Tick Distribution in Scotland_, Poster Presentation, Space, Place, Face and Technology, Inverness, 2018.
+- __Duncan AJ__, Gunn GJ, Correia-Gomes C., Humphry RW, _A shiny online epidemiological resource centre_, SVEPM, Inverness, 2017. 
+- __Duncan AJ__, Gunn GJ, Eze J, Humphry RW, _Using network metrics to predict disease spread from animal movements of the Cattle Tracing scheme_, Poster Presentation, World Buiatrics Congress, Dublin, 2016. 
+- __Duncan AJ__, Gunn GJ, Auty H, Humphry RW, _An online calculator for assisting in the design of herd level prevalence surveys whilst taking into account test imperfections_, Poster Presentation, World Buiatrics Congress, Dublin, 2016.
+- __Duncan AJ__, Gunn GJ, Humphry RW, _Do too many tests spoil the eradication of Bovine Viral Diarrhoea_, Poster Presentation, World Buiatrics Congress, Dublin, 2016.
+
+
 - __Duncan AJ__, Auty H, Gunn GJ, Humphry RW, [An online calculator for assisting in the design of herd-level prevalence surveys whilst taking into account test imperfections](http://www.abstractsonline.com/Plan/ViewAbstract.aspx?sKey=909940c4-51e0-45b7-9577-46c7f25b2d9b&cKey=1ced8d75-5478-4b7f-81ea-f9fab912d764&mKey=6753aa4b-4efd-470c-b925-c66f22f0712c), Poster Presentation, 14th ISVEE Conference Yucatan, Mexico 2015. Poster No. 242.
 - Noble LR, Jones CS, Frost MB, Verspoor E, __Duncan AJ__, Bickham JW, _The challenge of identifying management units in large, vagile marine animals: meta-analysis reveals why conservation geneticists should think smart not big_, Paper and Oral Presentation, Meeting of the Scientific Committee of the International Whaling Commision Slovenia, 2014. Paper No. SC/65b/BRG02.
 - Macleod CJ, __Duncan AJ__, Ross NP, Duncan JL, _Is Aortic Aneurysm Growth Rate Affected by Aneurysm Risk Factors?_ Poster Presentation RCSEd President's Meeting, 2013
