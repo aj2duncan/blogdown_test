@@ -12,6 +12,7 @@ a {
 
 code {
   color: #FF8C00;
+  background-color: #424242;
 }
 
 
@@ -27,5 +28,6 @@ code {
 }
 
 pre {
-  background: #f8f8f8;
+  background: #424242;
+  color: #ffffff;
 }

@@ -25,4 +25,15 @@ highlight: true
 <pre class="sh"><code>tar -cvzf folder.tar.gz --directory=/path/to folder</code></pre>
 <p>Then extract them with</p>
 <pre class="sh"><code>tar -xvf folder.tar.gz</code></pre>
+<p>To look at the amount of storage that all home directories take up</p>
+<pre class="sh"><code>sudo du -d 1 -ch /home/</code></pre>
+</div>
+<div id="ggplot" class="section level2">
+<h2>ggplot</h2>
+<p>To change the angle of labels on an axis</p>
+<pre class="r"><code>library(ggplot2)
+ggplot(iris, aes(x = Species, y = Petal.Length)) + 
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/blog/2019-10-05-things-i-keep-needing-to-look-up_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>

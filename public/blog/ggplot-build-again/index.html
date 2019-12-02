@@ -84,28 +84,28 @@ p</code></pre>
 <p><img src="../../blog/2018-05-06-ggplot-build-again_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>The plot has two layers and so <code>ggplot_build(p)$data</code> will return a list of two data frames. If we are interested in the results from <code>geom_smooth()</code> we need the second one as <code>geom_smooth()</code> is the second layer.</p>
 <pre class="r"><code>head(ggplot_build(p)$data[[2]], n = 10)</code></pre>
-<pre><code>          x         y        ymin     ymax       se PANEL group  colour
-1  4.000000  5.893628 -14.0214308 25.80869 9.885466     1    -1 #3366FF
-2  4.265823  6.369796 -12.1702114 24.90980 9.202917     1    -1 #3366FF
-3  4.531646  6.867702 -10.3935937 24.12900 8.568188     1    -1 #3366FF
-4  4.797468  7.387181  -8.6930267 23.46739 7.981917     1    -1 #3366FF
-5  5.063291  7.928070  -7.0698299 22.92597 7.444680     1    -1 #3366FF
-6  5.329114  8.490205  -5.5250240 22.50543 6.956900     1    -1 #3366FF
-7  5.594937  9.073423  -4.0591073 22.20595 6.518745     1    -1 #3366FF
-8  5.860759  9.677561  -2.6717841 22.02691 6.129986     1    -1 #3366FF
-9  6.126582 10.302454  -1.3616644 21.96657 5.789853     1    -1 #3366FF
-10 6.392405 10.947940  -0.1259761 22.02186 5.496887     1    -1 #3366FF
-     fill size linetype weight alpha
-1  grey60    1        1      1   0.4
-2  grey60    1        1      1   0.4
-3  grey60    1        1      1   0.4
-4  grey60    1        1      1   0.4
-5  grey60    1        1      1   0.4
-6  grey60    1        1      1   0.4
-7  grey60    1        1      1   0.4
-8  grey60    1        1      1   0.4
-9  grey60    1        1      1   0.4
-10 grey60    1        1      1   0.4</code></pre>
+<pre><code>          x         y        ymin     ymax       se PANEL group  colour   fill
+1  4.000000  5.893628 -14.0214308 25.80869 9.885466     1    -1 #3366FF grey60
+2  4.265823  6.369796 -12.1702114 24.90980 9.202917     1    -1 #3366FF grey60
+3  4.531646  6.867702 -10.3935937 24.12900 8.568188     1    -1 #3366FF grey60
+4  4.797468  7.387181  -8.6930267 23.46739 7.981917     1    -1 #3366FF grey60
+5  5.063291  7.928070  -7.0698299 22.92597 7.444680     1    -1 #3366FF grey60
+6  5.329114  8.490205  -5.5250240 22.50543 6.956900     1    -1 #3366FF grey60
+7  5.594937  9.073423  -4.0591073 22.20595 6.518745     1    -1 #3366FF grey60
+8  5.860759  9.677561  -2.6717841 22.02691 6.129986     1    -1 #3366FF grey60
+9  6.126582 10.302454  -1.3616644 21.96657 5.789853     1    -1 #3366FF grey60
+10 6.392405 10.947940  -0.1259761 22.02186 5.496887     1    -1 #3366FF grey60
+   size linetype weight alpha
+1     1        1      1   0.4
+2     1        1      1   0.4
+3     1        1      1   0.4
+4     1        1      1   0.4
+5     1        1      1   0.4
+6     1        1      1   0.4
+7     1        1      1   0.4
+8     1        1      1   0.4
+9     1        1      1   0.4
+10    1        1      1   0.4</code></pre>
 <p>The <code>y</code> values are the results from the <strong>loess</strong> model. So far, so good but I wanted to check if these values were the same as the results from direct calculation. Using base <code>R</code> functions give us the following by default.</p>
 <pre class="r"><code>loess_results = predict(loess(dist~speed,cars), cars$speed)
 head(loess_results)</code></pre>
