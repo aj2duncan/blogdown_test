@@ -41,3 +41,19 @@ Then extract them with
 ```sh
 tar -xvf folder.tar.gz
 ```
+To look at the amount of storage that all home directories take up
+
+```sh
+sudo du -d 1 -ch /home/
+```
+
+## ggplot
+
+To change the angle of labels on an axis
+
+```{r}
+library(ggplot2)
+ggplot(iris, aes(x = Species, y = Petal.Length)) + 
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
