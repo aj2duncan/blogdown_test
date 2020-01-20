@@ -168,13 +168,13 @@ temp2 = tibble(x = rnorm(100, 2, 0.5))</code></pre>
     Welch Two Sample t-test
 
 data:  temp$x and temp2$x
-t = -18.953, df = 138.18, p-value &lt; 2.2e-16
+t = -19.361, df = 154.23, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.288267 -1.855920
+ -2.218295 -1.807520
 sample estimates:
- mean of x  mean of y 
--0.1291326  1.9429608 </code></pre>
+  mean of x   mean of y 
+-0.01396455  1.99894316 </code></pre>
 <p>but this throws an error.</p>
 <pre class="r"><code>t.test(temp[,1], temp2[,1])</code></pre>
 <pre><code>Error: Must use a vector in `[`, not an object of class matrix.</code></pre>

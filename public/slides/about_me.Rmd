@@ -1,0 +1,153 @@
+---
+title: "Please allow me to introduce myself ... "
+subtitle: ""
+author: "Andrew Duncan"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: [default, chocolate, chocolate-fonts, "xaringan_css/chocolate_custom.css", "xaringan_css/bootstrap_button.css" ]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+.left-column[
+### Background
+]
+
+
+.right-column[
+
+- BSc Mathematics 2005
+
+- PhD Applied Mathematics 2009
+
+    - __On the estimation of the electromagnetic, elastodynamic and piezoelectric properties of homogenized composite materials__
+    
+    - Heavily computational. Mostly in Fortran (yes, fortran)
+
+]
+
+---
+.left-column[
+### Background
+
+### Employment
+]
+
+
+.right-column[
+
+- Lecturing (Maths/Stats) at IC UHI since 2009. 
+
+- Researcher at SAC/SRUC.
+
+- Full time post at IC UHI with subcontract to SRUC. 
+
+- Now split 60:40 teaching:research.
+
+- Developing MSc Data Science.
+
+]
+
+
+---
+.left-column[
+### Background
+
+### Employment
+
+### Research
+]
+
+.right-column[
+
+- Mathematical modelling of disease spread through herds.
+
+- Network analysis of animal movements.
+
+- Analysis of eradication programmes.
+
+- Creation of online tools for industry/vets/researchers/general public.
+
+    - [Epi Resources](https://epidemiology.sruc.ac.uk)
+
+]
+
+---
+# Networks
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(sigmajs)
+# generate data using convenience functions
+nodes <- sg_make_nodes(50)
+edges <- sg_make_edges(nodes, n = 200)
+edges$delay <- runif(nrow(edges), 100, 250) # between .5 and .75 seconds between each edge
+
+last_edge <- sum(edges$delay) + 100
+
+sigmajs(type = "svg") %>%
+  sg_force_start() %>%
+  sg_nodes(nodes, id, size, color) %>%
+  sg_add_edges(edges, delay, id, source, target, refresh = TRUE) %>% # read delay documentation
+  sg_force_stop(last_edge) %>%
+  sg_button(
+    "add_edges", # event
+    class = "btn btn-default", # button class
+    "Add edges" # label
+  )
+```
+
+---
+
+.left-column[
+### Background
+
+### Employment
+
+### Research
+
+### Current Work
+]
+
+.right-column[
+
+- SRUC Projects
+
+- Joint academic lead KTP - Tillhill Forestry
+
+- R Packages
+
+    - Thesisdownrli
+    - figtabeqr
+    - sgurbanrural
+    - RColony
+
+- Reviewer (occasionally)
+
+    - Journal Open Source Education
+    - Journal Open Source Software
+
+- Linux Maintenance
+
+- Come speak to me about:
+
+    - R/Linux
+    - Data (Cleaning/Manipulating/Analysis/Visualisation)
+    - Shiny (e.g. [Catch Statistics](https://shiny.aj2duncan.com/catch_statistics/))
+    - Statistical Modelling
+    - Machine Learning
+    - Network Analysis (including Social Media data)
+]
+
+
+
+
+---
+class: inverse, center, middle
+
+# Thanks for Listening
+
+## Any Questions?
