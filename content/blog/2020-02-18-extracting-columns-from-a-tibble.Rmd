@@ -1,0 +1,111 @@
+---
+title: Extracting Columns from a Tibble
+author: ''
+date: '2020-02-18'
+slug: extracting-columns-from-a-tibble
+categories:
+  - R
+tags:
+  - tibble
+description: ''
+highlight: true
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+This is both a follow up post to my earlier post [tibbles, data frames and vectors](https://www.aj2duncan.com/blog/tibbles-dataframes-and-vectors/) and a query that came up at work. 
+
+The central question was how can you extract a column from a tibble as part of a pipe. That might sound straight forward but let's take a look.
+
+```{r}
+# load packages and create a tibble to work with
+library(tibble)
+library(dplyr)
+test = tibble(id = c("a", "b", "a"), val = c(1, 2, 3))
+test
+```
+
+Let's run a quick `filter()` and then `select()` the values.
+
+```{r}
+test %>%
+  filter(id == "a") %>%
+  select(val)
+```
+
+But as we saw in my previous post, this is still a tibble, so if we pass it to something expecting a vector it doesn't work.
+
+```{r, warning = TRUE}
+test %>%
+  filter(id == "a") %>%
+  select(val) %>%
+  mean()
+```
+
+## The Best Solution
+
+The best solution to this problem is to use the `pull()` function. I missed this function when it first came out in [dplyr 0.7.0](https://blog.rstudio.com/2017/06/13/dplyr-0-7-0/) but now use it a lot.
+
+```{r}
+# pull() gives us a vector 
+test %>%
+  filter(id == "a") %>%
+  pull(val) 
+
+# now we don't get an error
+test %>%
+  filter(id == "a") %>%
+  pull(val) %>%
+  mean()
+```
+
+## Other Solutions
+
+As with many, many things in `R` there are alternatives and for the moment we are just going to continue to work with a pipe. Some neat alternatives come from a special type of function called an [infix](http://adv-r.had.co.nz/Functions.html#special-calls) function. You use these all the time, `+` and `%>%` being examples. These *infix* functions sit between arguments `x + y` but they can also be used in a more traditional `f(x,y)` manner. To use them in this way you need to use backticks so `2^3 = 8` becomes `` `^`(2,3) = 8`` :
+
+```{r}
+# Power
+2 ^ 3
+`^`(2,3)
+```
+
+This means that we can use `[[]]` and `$` like this too. Take our tibble.
+
+```{r}
+test$val
+`$`(test, val)
+```
+
+or 
+
+```{r}
+test[[2]]
+`[[`(test, 2)
+```
+
+This means we can add an infix function to the end of our pipe.
+
+```{r}
+test %>%
+  filter(id == "a") %>%
+  `[[`(2)
+```
+
+```{r}
+test %>%
+  filter(id == "a") %>%
+  `$`(val)
+```
+
+Finally, we could just use `getElement()`.
+
+```{r}
+test %>%
+  filter(id == "a") %>%
+  getElement("val")
+```
+
