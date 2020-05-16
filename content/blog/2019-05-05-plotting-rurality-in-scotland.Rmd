@@ -15,7 +15,9 @@ highlight: true
 knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
                       warning = FALSE, message = FALSE)
 library(sf)
+library(rmapshaper)
 rural_index = read_sf("../../../blogdown_datasets/SG_UrbanRural_2016/SG_UrbanRural_2016.shp")
+rural_index = ms_simplify(rural_index)
 ur8fold_class = read.csv("../../../blogdown_datasets/UR8FOLD_Classification.csv",
                          stringsAsFactors = FALSE)
 ```

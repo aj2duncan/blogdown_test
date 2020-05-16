@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Dealing with missing data in ggplot2 barplots</title>
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.69.2" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -105,18 +105,18 @@ fake_data </code></pre>
   geom_bar(position = &quot;dodge&quot;)
 ggplot_build(p)$data</code></pre>
 <pre><code>[[1]]
-     fill y count prop     x PANEL group ymin ymax xmin xmax colour size
-1 #00BFC4 1     1    1 1.225     1     2    0    1 1.00 1.45     NA  0.5
-2 #F8766D 2     2    1 0.775     1     1    0    2 0.55 1.00     NA  0.5
-3 #00BFC4 2     2    1 2.225     1     4    0    2 2.00 2.45     NA  0.5
-4 #F8766D 1     1    1 1.775     1     3    0    1 1.55 2.00     NA  0.5
-5 #F8766D 1     1    1 3.000     1     5    0    1 2.55 3.45     NA  0.5
-  linetype alpha
-1        1    NA
-2        1    NA
-3        1    NA
-4        1    NA
-5        1    NA</code></pre>
+     fill y count prop     x flipped_aes PANEL group ymin ymax xmin xmax colour
+1 #F8766D 2     2    1 0.775       FALSE     1     1    0    2 0.55 1.00     NA
+2 #00BFC4 1     1    1 1.225       FALSE     1     2    0    1 1.00 1.45     NA
+3 #F8766D 1     1    1 1.775       FALSE     1     3    0    1 1.55 2.00     NA
+4 #00BFC4 2     2    1 2.225       FALSE     1     4    0    2 2.00 2.45     NA
+5 #F8766D 1     1    1 3.000       FALSE     1     5    0    1 2.55 3.45     NA
+  size linetype alpha
+1  0.5        1    NA
+2  0.5        1    NA
+3  0.5        1    NA
+4  0.5        1    NA
+5  0.5        1    NA</code></pre>
 <p>The data only has 5 rows and so there isn’t any data to stop <code>ggplot</code> from dropping. It is necessary to count the data first.</p>
 <pre class="r"><code># starting again
 library(tidyverse)

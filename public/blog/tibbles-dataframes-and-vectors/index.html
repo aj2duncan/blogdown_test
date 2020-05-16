@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Tibbles, Data frames and Vectors</title>
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.69.2" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -168,16 +168,26 @@ temp2 = tibble(x = rnorm(100, 2, 0.5))</code></pre>
     Welch Two Sample t-test
 
 data:  temp$x and temp2$x
-t = -16.121, df = 138.71, p-value &lt; 2.2e-16
+t = -17.748, df = 131.56, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.084115 -1.628734
+ -2.238543 -1.789573
 sample estimates:
  mean of x  mean of y 
-0.05642707 1.91285169 </code></pre>
+0.03697273 2.05103062 </code></pre>
 <p>but this throws an error.</p>
 <pre class="r"><code>t.test(temp[,1], temp2[,1])</code></pre>
-<pre><code>Error: Must use a vector in `[`, not an object of class matrix.</code></pre>
+<pre><code>
+    Welch Two Sample t-test
+
+data:  temp[, 1] and temp2[, 1]
+t = -17.748, df = 131.56, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.238543 -1.789573
+sample estimates:
+ mean of x  mean of y 
+0.03697273 2.05103062 </code></pre>
 <p>Now I know about <code>[[]]</code> I will definitely being using it with <em>tibbles</em>.</p>
 </div>
 

@@ -1,0 +1,177 @@
+---
+title: R markdown to Powerpoint
+author: ''
+date: '2020-05-09'
+slug: r-markdown-to-powerpoint
+categories:
+  - R markdown
+tags:
+  - R markdown
+description: ''
+highlight: true
+---
+
+Despite knowing that R markdown (through the amazing [Pandoc](https://pandoc.org/){target='_blank'}) can create Powerpoint presentations I haven't used it until very recently. In doing so I thought I would write a quick demo and show what the default slides look like. 
+
+We'll talk about customisation and the end but let's start with the defaults and demo some things you can do. Most of the code included is the in the template document. This post is also the first time I've used the excellent addin for [inserting images into blogdown](https://lcolladotor.github.io/2018/03/07/blogdown-insert-image-addin/#.XrcV_WhKjIU){target='_blank'}.
+
+The YAML for setting things up is as you would expect
+
+```md
+---
+title: "Rmd to Powerpoint Demo"
+output: powerpoint_presentation
+---
+```
+
+which produces a pretty bland title page.
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide1.JPG){width=70%}
+</div>
+
+New Slides are started with either a header 1 `#`, header 2 `##` or if you want a new slide without a header use a horizontal rule `---`. Standard markdown syntax can be used within slides and any footnotes you include will be automatically placed in a final slide entitled **Notes**. 
+
+```md
+
+## R Markdown
+
+You can include **Knit** markdown as *normal*^[A footnote].
+
+Including links like [my website](https://aj2duncan.com).
+
+```
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide2.JPG){width=70%}
+</div>
+
+Bullets can be added, either without numbering
+
+```md
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+```
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide3.JPG){width=70%}
+</div>
+
+
+or with 
+
+```md
+
+## Slide with Numerical Bullets
+
+1. Bullet 1
+2. Bullet 2
+3. Bullet 3
+```
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide4.JPG){width=70%}
+</div>
+
+
+We can include `R` as we would expect
+
+````md
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}`r ''`
+summary(cars)
+```
+
+````
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide5.JPG){width=70%}
+</div>
+
+The output can also be put in a table
+
+````md
+## Slide with Table
+
+```{r table}`r ''`
+knitr::kable(summary(cars), row.names = FALSE)
+```
+
+````
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide6.JPG){width=70%}
+</div>
+
+
+Likewise we can generate a plot
+
+````md
+## Slide with Plot
+
+```{r pressure}`r ''`
+plot(pressure)
+```
+````
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide7.JPG){width=70%}
+</div>
+
+You can use two columns but pandoc does not currently [see the issue here](){target='_blank'} support custom widths. However, it does seem possible depending on any template that you may be using. 
+
+```md
+## Two Columns
+
+:::::::::::::: {.columns}
+::: {.column}
+contents of the left column
+:::
+::: {.column}
+contents of the right column
+:::
+::::::::::::::
+```
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide8.JPG){width=70%}
+</div>
+
+Finally, you can also use LaTeX formatting for equations. 
+
+```md
+## Slide with Equation
+
+$$
+\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+```
+
+<div class="container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide9.JPG){width=70%}
+</div>
+
+If you want to using a different template then just like with a word document you can provide a template file in the YAML header. I've tested this with a generic Powerpoint and the results can be seen in the gif below. 
+
+```
+---
+title: "Rmd to Powerpoint Demo"
+output: 
+  powerpoint_presentation:
+    reference_doc: my_template.pptx
+---
+```
+
+<div class = "container">
+![](/blog/2020-05-09-r-markdown-to-powerpoint_files/template.gif){width=70%}
+</div>
+
+This [RStudio article](https://support.rstudio.com/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-RStudio){target='_blank'} gives further details on templates and also how [Pandoc](https://pandoc.org/){target='_blank'} decides on how the headers/horizontal lines start new slides.
+
+

@@ -1,9 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r-markdown/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/r-markdown-to-powerpoint/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/extracting-columns-from-a-tibble/</loc>
+    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tibble/</loc>
     <lastmod>2020-02-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -13,7 +58,22 @@
   </url>
   
   <url>
+    <loc>/tags/xaringan/</loc>
+    <lastmod>2020-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/leaflet/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/shiny/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,6 +93,11 @@
   </url>
   
   <url>
+    <loc>/tags/tmap/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/changing-base-of-log/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
   </url>
@@ -48,13 +113,48 @@
   </url>
   
   <url>
+    <loc>/blog/investigating-betweenness-and-degree/</loc>
+    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/networks/</loc>
+    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/networks/</loc>
+    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/plotly/</loc>
+    <lastmod>2018-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/using-plotly-to-generate-interactive-3d-plots/</loc>
     <lastmod>2018-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/ggplot2/</loc>
+    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/ggplot-build-again/</loc>
     <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sigmanet/</loc>
+    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -98,6 +198,11 @@
   </url>
   
   <url>
+    <loc>/tags/geom_bar/</loc>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/catch-statistics-app/</loc>
     <lastmod>2017-02-04T00:00:00+00:00</lastmod>
   </url>
@@ -105,6 +210,11 @@
   <url>
     <loc>/blog/feedback-term1-2016/</loc>
     <lastmod>2016-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot_build/</loc>
+    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -288,118 +398,11 @@
   </url>
   
   <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/geom_bar/</loc>
-    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/ggplot2/</loc>
-    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ggplot_build/</loc>
-    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/leaflet/</loc>
-    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/networks/</loc>
-    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/networks/</loc>
-    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plotly/</loc>
-    <lastmod>2018-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/programming/</loc>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/research/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/shiny/</loc>
-    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/sigmanet/</loc>
-    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tibble/</loc>
-    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tmap/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/xaringan/</loc>
-    <lastmod>2020-02-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

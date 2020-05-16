@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Testing Rmd to md using knitr</title>
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.69.2" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -69,64 +69,42 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              
-
-<p>I use <a href="http://rmarkdown.rstudio.com">Rmarkdown</a> a lot. I have recently been preparing lecture notes using it and I wanted to see how easy it would be for me take an Rmarkdown document and create a blog post.</p>
-
+              <p>I use <a href="http://rmarkdown.rstudio.com">Rmarkdown</a> a lot. I have recently been preparing lecture notes using it and I wanted to see how easy it would be for me take an Rmarkdown document and create a blog post.</p>
 <p>Firstly, this whole website is built using <a href="https://jekyllrb.com/">Jekyll</a> which means that I need each of my blog posts to start with the date and then the title. For instance this blog post came from a file named <code>2016-08-26-Testing-Rmd-to-md-using-knitr.Rmd</code>. I then need to create a markdown (or html file) of the same name. This is no problem with the R package <a href="http://yihui.name/knitr/">knitr</a>. All we need to do is</p>
-
 <p>{% highlight r %}
 knit(&ldquo;2016-08-26-Testing-Rmd-to-md-using-knitr.Rmd&rdquo;)
 {% endhighlight %}</p>
-
 <p>and it&rsquo;ll convert to <em>.md</em>. For Jekyll this needs to end up in a folder named <code>_posts</code> and any figures need to be placed where they can be accessed. To take care of this I put them in my <code>images</code> folder.</p>
-
 <p>To do all this automatically I wrote this script which always re-knits all my Rmd blog posts.</p>
-
 <p>{% highlight r %}</p>
-
 <h1 id="script-to-knitr-all-the-rmd-files-into-md-blog-posts">Script to knitr all the Rmd files into md blog posts.</h1>
-
 <h1 id="load-package">load package</h1>
-
 <p>library(knitr)</p>
-
 <h1 id="delete-all-previous-figures">delete all previous figures</h1>
-
 <p>file.remove(dir(
-  path = &ldquo;images/figs/&rdquo;,
-  full.names = TRUE
+path = &ldquo;images/figs/&quot;,
+full.names = TRUE
 ))</p>
-
 <h1 id="set-base-url-for-links">set base url for links</h1>
-
-<p>opts_knit$set(base.url = &lsquo;/&rsquo;, base.dir = getwd())</p>
-
+<p>opts_knit$set(base.url = &lsquo;/', base.dir = getwd())</p>
 <h1 id="setting-directory-for-figures">Setting directory for figures</h1>
-
-<p>opts_chunk$set(fig.path = &ldquo;images/figs/&rdquo;)
+<p>opts_chunk$set(fig.path = &ldquo;images/figs/&quot;)
 opts_chunk$set(fig.cap = &ldquo;center&rdquo;)</p>
-
 <h1 id="get-all-filenames">get all filenames</h1>
-
-<p>filenames = list.files(&ldquo;Rmd/&rdquo;, pattern = &ldquo;*.Rmd&rdquo;)
+<p>filenames = list.files(&ldquo;Rmd/&quot;, pattern = &ldquo;*.Rmd&rdquo;)
 num_files = length(filenames)</p>
-
-<p>for (i in c(1:num_files)) {
-  # split the blog title from the .Rmd file so we can create the .md blog file
-  blog_title = unlist(strsplit(filenames[i], &ldquo;[.]&ldquo;))[1]
-  knit(input = paste(&ldquo;Rmd/&rdquo;, filenames[i], sep = &ldquo;&rdquo;),
-       output = paste(&rdquo;_posts/&ldquo;, blog_title, &ldquo;.md&rdquo;, sep = &ldquo;&rdquo;))
+<p>for (i in c(1:num_files)) {</p>
+<h1 id="split-the-blog-title-from-the-rmd-file-so-we-can-create-the-md-blog-file">split the blog title from the .Rmd file so we can create the .md blog file</h1>
+<p>blog_title = unlist(strsplit(filenames[i], &ldquo;[.]&quot;))[1]
+knit(input = paste(&ldquo;Rmd/&quot;, filenames[i], sep = &ldquo;&quot;),
+output = paste(&quot;_posts/&quot;, blog_title, &ldquo;.md&rdquo;, sep = &ldquo;&quot;))
 }
 {% endhighlight %}</p>
-
 <p>Just so we can see what plots look like I&rsquo;ve included the default demo from an Rmarkdown document.</p>
-
 <p>{% highlight r %}
 plot(pressure)
 {% endhighlight %}</p>
-
-<p><img src="../../images/figs/Test-Rmarkdown-1.png" alt="center" /></p>
+<p><img src="../../images/figs/Test-Rmarkdown-1.png" alt="center"></p>
 
             
             </div>
