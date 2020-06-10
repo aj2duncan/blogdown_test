@@ -4,22 +4,42 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dplyr/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tibble/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/using-dplyr-rename-within-a-function/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -38,17 +58,7 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/extracting-columns-from-a-tibble/</loc>
-    <lastmod>2020-02-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tibble/</loc>
     <lastmod>2020-02-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -113,21 +123,6 @@
   </url>
   
   <url>
-    <loc>/blog/investigating-betweenness-and-degree/</loc>
-    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/networks/</loc>
-    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/networks/</loc>
-    <lastmod>2018-05-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/plotly/</loc>
     <lastmod>2018-05-12T00:00:00+00:00</lastmod>
   </url>
@@ -150,6 +145,16 @@
   <url>
     <loc>/blog/ggplot-build-again/</loc>
     <lastmod>2018-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/networks/</loc>
+    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/networks/</loc>
+    <lastmod>2018-04-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -1,0 +1,77 @@
+---
+title: Using `dplyr::rename()` within a function
+author: Andrew Duncan
+date: '2020-06-10'
+slug: using-dplyr-rename-within-a-function
+categories:
+  - R
+tags:
+  - tibble
+  - dplyr
+description: ''
+highlight: true
+---
+
+
+
+<p>Today I rewrote some old code and came across something that I thought I would write down because I’m pretty sure I’ll forget it if I don’t! The issue was passing strings to the <code>rename()</code> function from the <a href="https://dplyr.tidyverse.org/" target="&#39;_blank">dplyr</a> package to rename a column. This came about because of a change in a older<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> version of dplyr which had functions specifically for use inside your own functions. These had an underscore as a postfix. So instead of using <code>rename()</code> I was using <code>rename_()</code>. There are now depreciated and so I was updating my code.</p>
+<p>It was a pretty simple function but still created a few errors until I found the necessary bit in the documentation. More on that in a minute, first let’s create some data and see what we’re trying to do.</p>
+<pre class="r"><code>library(dplyr)
+temp &lt;- tribble(
+  ~x, ~y,
+  1, 2,
+  3, 4
+)
+temp</code></pre>
+<pre><code># A tibble: 2 x 2
+      x     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     2
+2     3     4</code></pre>
+<p>Now we’ve got some data we can <code>rename()</code> a column.</p>
+<pre class="r"><code>rename(temp, x2 = x)</code></pre>
+<pre><code># A tibble: 2 x 2
+     x2     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     2
+2     3     4</code></pre>
+<p>So far so good. However, things get a little trickier if you want to do this inside another function. For example we could try this function.</p>
+<pre class="r"><code>my_rename &lt;- function(dat_f, new_name) {
+  rename(dat_f, new_name = x)
+}</code></pre>
+<p>We can try using this with a string and without.</p>
+<pre class="r"><code>my_rename(temp, &quot;x2&quot;)</code></pre>
+<pre><code># A tibble: 2 x 2
+  new_name     y
+     &lt;dbl&gt; &lt;dbl&gt;
+1        1     2
+2        3     4</code></pre>
+<pre class="r"><code>my_rename(temp, x2)</code></pre>
+<pre><code># A tibble: 2 x 2
+  new_name     y
+     &lt;dbl&gt; &lt;dbl&gt;
+1        1     2
+2        3     4</code></pre>
+<p>Not quite what we were looking for and it doesn’t produce an error. After a little looking I found the necessary information on the use of <em>tidy selection</em> in <code>rename()</code> - you can read it <a href="https://dplyr.tidyverse.org/articles/programming.html" target="_blank">here</a>. With the new info we can rewrite the function to use <a href="https://glue.tidyverse.org" target="_blank">glue</a> notation and assignment with the <code>:=</code> operator. This works with and without quotes.</p>
+<pre class="r"><code>my_rename &lt;- function(dat_f, new_name) {
+  rename(dat_f, {{new_name}} := x)
+}
+my_rename(temp, &quot;x2&quot;)</code></pre>
+<pre><code># A tibble: 2 x 2
+     x2     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     2
+2     3     4</code></pre>
+<pre class="r"><code>my_rename(temp, x3)</code></pre>
+<pre><code># A tibble: 2 x 2
+     x3     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     2
+2     3     4</code></pre>
+<p>In a future post I plan to do a run through (mainly for myself when I forget things) a few things like this including <em>quosures</em>.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>much older<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>

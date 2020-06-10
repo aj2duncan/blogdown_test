@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using `dplyr::rename()` within a function</title>
+      <link>/blog/using-dplyr-rename-within-a-function/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-dplyr-rename-within-a-function/</guid>
+      <description>Today I rewrote some old code and came across something that I thought I would write down because I’m pretty sure I’ll forget it if I don’t! The issue was passing strings to the rename() function from the dplyr package to rename a column. This came about because of a change in a older1 version of dplyr which had functions specifically for use inside your own functions. These had an underscore as a postfix.</description>
+    </item>
     
     <item>
       <title>R markdown to Powerpoint</title>
@@ -118,15 +127,6 @@ library(rgdal)library(leaflet)Next we read in the data.</description>
       <description>I’m writing this down in the hope that it will remind me in the future.
 Although I have used a minimal reproducible example before, I found one particularly useful the other day.
 The ProblemI had developed a shiny app and part of this was a leaflet map where users are able to click the map to add a marker, these are later captured. However, the markers always appeared below and to the right of where the point clicked.</description>
-    </item>
-    
-    <item>
-      <title>Investigating Betweenness and Degree</title>
-      <link>/blog/investigating-betweenness-and-degree/</link>
-      <pubDate>Sun, 13 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/investigating-betweenness-and-degree/</guid>
-      <description>{&#34;x&#34;:{&#34;data&#34;:{&#34;nodes&#34;: [{&#34;label&#34;: &#34;1&#34;,&#34;x&#34;: 18.8296,&#34;y&#34;: 26.7198,&#34;id&#34;: 1,&#34;size&#34;: 0,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;2&#34;,&#34;x&#34;: 17.9454,&#34;y&#34;: 27.1187,&#34;id&#34;: 2,&#34;size&#34;: 0,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;3&#34;,&#34;x&#34;: 18.7155,&#34;y&#34;: 27.6784,&#34;id&#34;: 3,&#34;size&#34;: 6,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;4&#34;,&#34;x&#34;: 19.1742,&#34;y&#34;: 28.6939,&#34;id&#34;: 4,&#34;size&#34;: 7,&#34;color&#34;: &#34;#3182bd&#34;},{&#34;label&#34;: &#34;5&#34;,&#34;x&#34;: 18.2604,&#34;y&#34;: 29.</description>
     </item>
     
     <item>

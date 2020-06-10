@@ -1,0 +1,67 @@
+---
+title: Using `dplyr::rename()` within a function
+author: Andrew Duncan
+date: '2020-06-10'
+slug: using-dplyr-rename-within-a-function
+categories:
+  - R
+tags:
+  - tibble
+  - dplyr
+description: ''
+highlight: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+
+Today I rewrote some old code and came across something that I thought I would write down because I'm pretty sure I'll forget it if I don't! The issue was passing strings to the `rename()` function from the [dplyr](https://dplyr.tidyverse.org/){target='_blank} package to rename a column. This came about because of a change in a older^[much older] version of dplyr which had functions specifically for use inside your own functions. These had an underscore as a postfix. So instead of using `rename()` I was using `rename_()`. There are now depreciated and so I was updating my code.
+
+It was a pretty simple function but still created a few errors until I found the necessary bit in the documentation. More on that in a minute, first let's create some data and see what we're trying to do.
+
+```{r}
+library(dplyr)
+temp <- tribble(
+  ~x, ~y,
+  1, 2,
+  3, 4
+)
+temp
+```
+
+
+Now we've got some data we can `rename()` a column.
+
+```{r}
+rename(temp, x2 = x)
+```
+
+So far so good. However, things get a little trickier if you want to do this inside another function. For example we could try this function.
+
+```{r}
+my_rename <- function(dat_f, new_name) {
+  rename(dat_f, new_name = x)
+}
+```
+
+We can try using this with a string and without.
+
+```{r}
+my_rename(temp, "x2")
+my_rename(temp, x2)
+```
+
+Not quite what we were looking for and it doesn't produce an error. After a little looking I found the necessary information on the use of *tidy selection* in `rename()` - you can read it [here](https://dplyr.tidyverse.org/articles/programming.html){target='_blank'}. With the new info we can rewrite the function to use [glue](https://glue.tidyverse.org){target='_blank'} notation and assignment with the `:=` operator. This works with and without quotes.
+
+```{r}
+my_rename <- function(dat_f, new_name) {
+  rename(dat_f, {{new_name}} := x)
+}
+my_rename(temp, "x2")
+my_rename(temp, x3)
+```
+
+In a future post I plan to do a run through (mainly for myself when I forget things) a few things like this including *quosures*.

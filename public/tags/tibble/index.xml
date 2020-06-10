@@ -6,10 +6,19 @@
     <description>Recent content in tibble on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/tibble/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using `dplyr::rename()` within a function</title>
+      <link>/blog/using-dplyr-rename-within-a-function/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/using-dplyr-rename-within-a-function/</guid>
+      <description>Today I rewrote some old code and came across something that I thought I would write down because I’m pretty sure I’ll forget it if I don’t! The issue was passing strings to the rename() function from the dplyr package to rename a column. This came about because of a change in a older1 version of dplyr which had functions specifically for use inside your own functions. These had an underscore as a postfix.</description>
+    </item>
     
     <item>
       <title>Extracting Columns from a Tibble</title>

@@ -106,25 +106,25 @@ temp2 = tibble(x = rnorm(100, 2, 0.5))</code></pre>
     Welch Two Sample t-test
 
 data:  temp$x and temp2$x
-t = -17.748, df = 131.56, p-value &lt; 2.2e-16
+t = -17.81, df = 147.96, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.238543 -1.789573
+ -2.150517 -1.720956
 sample estimates:
  mean of x  mean of y 
-0.03697273 2.05103062 </code></pre>
+0.09323706 2.02897320 </code></pre>
 <p>but this throws an error.</p>
 <pre class="r"><code>t.test(temp[,1], temp2[,1])</code></pre>
 <pre><code>
     Welch Two Sample t-test
 
 data:  temp[, 1] and temp2[, 1]
-t = -17.748, df = 131.56, p-value &lt; 2.2e-16
+t = -17.81, df = 147.96, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.238543 -1.789573
+ -2.150517 -1.720956
 sample estimates:
  mean of x  mean of y 
-0.03697273 2.05103062 </code></pre>
+0.09323706 2.02897320 </code></pre>
 <p>Now I know about <code>[[]]</code> I will definitely being using it with <em>tibbles</em>.</p>
 </div>
