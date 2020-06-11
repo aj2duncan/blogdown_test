@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Testing Rmd to md using knitr</title>
-    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="generator" content="Hugo 0.72.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -82,22 +82,22 @@ knit(&ldquo;2016-08-26-Testing-Rmd-to-md-using-knitr.Rmd&rdquo;)
 <p>library(knitr)</p>
 <h1 id="delete-all-previous-figures">delete all previous figures</h1>
 <p>file.remove(dir(
-path = &ldquo;images/figs/&quot;,
+path = &ldquo;images/figs/&rdquo;,
 full.names = TRUE
 ))</p>
 <h1 id="set-base-url-for-links">set base url for links</h1>
-<p>opts_knit$set(base.url = &lsquo;/', base.dir = getwd())</p>
+<p>opts_knit$set(base.url = &lsquo;/&rsquo;, base.dir = getwd())</p>
 <h1 id="setting-directory-for-figures">Setting directory for figures</h1>
 <p>opts_chunk$set(fig.path = &ldquo;images/figs/&quot;)
 opts_chunk$set(fig.cap = &ldquo;center&rdquo;)</p>
 <h1 id="get-all-filenames">get all filenames</h1>
-<p>filenames = list.files(&ldquo;Rmd/&quot;, pattern = &ldquo;*.Rmd&rdquo;)
+<p>filenames = list.files(&ldquo;Rmd/&rdquo;, pattern = &ldquo;*.Rmd&rdquo;)
 num_files = length(filenames)</p>
 <p>for (i in c(1:num_files)) {</p>
 <h1 id="split-the-blog-title-from-the-rmd-file-so-we-can-create-the-md-blog-file">split the blog title from the .Rmd file so we can create the .md blog file</h1>
 <p>blog_title = unlist(strsplit(filenames[i], &ldquo;[.]&quot;))[1]
-knit(input = paste(&ldquo;Rmd/&quot;, filenames[i], sep = &ldquo;&quot;),
-output = paste(&quot;_posts/&quot;, blog_title, &ldquo;.md&rdquo;, sep = &ldquo;&quot;))
+knit(input = paste(&ldquo;Rmd/&rdquo;, filenames[i], sep = &ldquo;&quot;),
+output = paste(&quot;_posts/&rdquo;, blog_title, &ldquo;.md&rdquo;, sep = &ldquo;&quot;))
 }
 {% endhighlight %}</p>
 <p>Just so we can see what plots look like I&rsquo;ve included the default demo from an Rmarkdown document.</p>
