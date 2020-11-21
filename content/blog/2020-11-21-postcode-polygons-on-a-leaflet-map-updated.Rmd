@@ -1,0 +1,109 @@
+---
+title: Postcode Polygons on a Leaflet Map - Updated
+author: ''
+date: '2020-11-21'
+slug: postcode-polygons-on-a-leaflet-map-updated
+categories:
+  - R
+tags:
+  - leaflet
+  - sf
+description: ''
+highlight: true
+bibliography: "../../../blogdown_datasets/aj2duncan.bib"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+library(sf)
+library(leaflet)
+library(tidyverse)
+postcodes = st_read("../../../blogdown_datasets/postcode_polygons.gpkg", 
+                    layer = "postcode_district")
+```
+
+Following an earlier [post](https://www.aj2duncan.com/blog/postcode-polygons-on-a-leaflet-map/) where I plotted [postcode polygons](https://scottishsnow.wordpress.com/2018/03/28/gb-postcode-polygons-open-data/){target='_blank'} on a [Leaflet](https://rstudio.github.io/leaflet/){target='_blank'} map I wanted to update it to use the [sf](https://r-spatial.github.io/sf/){target='_blank'} package which is now my default package for working with spatial data. Note that I've also started using `<-` again after being a longtime user of `=`.
+
+## Sorting the Data
+
+First we'll load the packages we need.
+
+```{r, eval = FALSE}
+library(sf)
+library(leaflet)
+library(tidyverse)
+```
+
+Next we read in the data. The file has two layers of polygons and we need to specify which one we want. I have chosen to work with the postcode district which is the first half of our postcodes. 
+
+```{r, eval = FALSE}
+postcodes <- st_read("postcode_polygons.gpkg", layer = "postcode_district")
+```
+
+```
+Simple feature collection with 7077 features and 2 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: 5720 ymin: 5180 xmax: 655503 ymax: 1220373
+projected CRS:  Transverse Mercator
+```
+
+This gives us a tidy version of our earlier data and the message provided when reading it in shows us our CRS which we're going to have to change from Transverse Mercator to something that will work with Leaflet - *latitude* and *longitude*. We can do this using st_transform()`
+
+```{r}
+postcodes <- st_transform(postcodes, 4326)
+```
+
+We can now check that we have lat and long.
+
+```{r}
+st_is_longlat(postcodes)
+```
+
+## Plotting the Ploygons
+
+To simplify plotting things (and reduce the amount of data needed for the leaflet map) we can select just those postcode districts starting **IV**. The [sf](https://r-spatial.github.io/sf/){target='_blank'} package allows us to use tidyverse functions, which are my preferred options anyway.
+
+```{r}
+postcodes <- filter(postcodes, str_detect(pc_district, "IV"))
+```
+
+Now we can construct a map
+
+```{r}
+leaflet(postcodes, width = "100%") %>% 
+  setView(lng = -3.64, lat = 58, zoom = 7) %>%
+  addTiles() %>% 
+  addPolygons()
+```
+
+To get a little more info we can add the postcode district as a popup. Changing the highlight options and adding a little custom css to the popup improves how everything looks. 
+
+```{r, fig.align = "center"}
+leaflet(postcodes, width = "100%") %>% 
+  setView(lng = -3.64, lat = 58, zoom = 7) %>%
+  addTiles() %>% 
+  addPolygons(fillOpacity = 0.2, popup = ~(pc_district), weight = 2,
+              highlightOptions = highlightOptions(color = "#03F", weight = 5, 
+                                                  bringToFront = TRUE))
+```
+
+For info the custom popup css is shown below.
+
+```{css}
+.leaflet-popup-content-wrapper {
+  background:rgba(0,51,255,0.5);
+  color:rgba(255,255,255,0.7);
+  font-size:14px;
+  line-height:20px;
+  border-radius: 0px;  
+}
+.leaflet-popup-tip {
+  background:rgba(0,51,255,0.5);
+  border-left:2px solid transparent;
+  border-right:2px solid transparent;
+  border-top:2px solid #03F; 
+}
+```
+

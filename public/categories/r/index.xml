@@ -6,10 +6,21 @@
     <description>Recent content in R on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Postcode Polygons on a Leaflet Map - Updated</title>
+      <link>/blog/postcode-polygons-on-a-leaflet-map-updated/</link>
+      <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/postcode-polygons-on-a-leaflet-map-updated/</guid>
+      <description>Following an earlier [post] where I plotted postcode polygons on a Leaflet map I wanted to update it to use the sf package which is now my default package for working with spatial data. Note that I’ve also started using &amp;lt;- again after being a longtime user of =.
+Sorting the DataFirst we’ll load the packages we need.
+library(sf)library(leaflet)library(tidyverse)Next we read in the data.</description>
+    </item>
     
     <item>
       <title>Using `dplyr::rename()` within a function</title>
@@ -61,8 +72,7 @@ git add .</description>
       <description>I learned something new today and the reason I write this is that I’m somewhat confused as to how I didn’t know it already.
 Data FramesLet us start by creating a data frame.
 temp = data.frame(x = c(1:3), y = c(10:12))temp x y1 1 102 2 113 3 12We can select rows
-temp[1,] x y1 1 10and columns
-temp$x[1] 1 2 3temp[,2][1] 10 11 12What I hadn’t realised before is that there is another way to select columns, using [[ notation that I’m used to using with lists.</description>
+temp[1,] x y1 1 10and columns</description>
     </item>
     
     <item>

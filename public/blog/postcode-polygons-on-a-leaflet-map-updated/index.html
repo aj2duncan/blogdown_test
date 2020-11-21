@@ -1,51 +1,116 @@
----
-title: Postcode Polygons on a Leaflet Map
-author: ''
-date: '2018-05-30'
-slug: postcode-polygons-on-a-leaflet-map
-categories:
-  - R
-tags:
-  - leaflet
-description: ''
-highlight: true
-bibliography: "../../../blogdown_datasets/aj2duncan.bib"
----
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Postcode Polygons on a Leaflet Map - Updated</title>
+    <meta name="generator" content="Hugo 0.72.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
-<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
-<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../programming/">PROGRAMMING</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/postcode-polygons-on-a-leaflet-map-updated/">Postcode Polygons on a Leaflet Map - Updated</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          November 21, 2020
+            &nbsp;&nbsp;
+            
+            <span class="label label-tag">leaflet</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+<link href="../../rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="../../rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="../../rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="../../rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/leaflet-binding/leaflet.js"></script>
 
 
-<p>I have been using <a href="https://rstudio.github.io/leaflet/">Leaflet</a> for a little while now but always as part of a <strong>shiny</strong> app. However, as <a href="http://mikerspencer.com/">Mike Spencer</a> went to all the trouble of producing polygons for <a href="https://scottishsnow.wordpress.com/2018/03/28/gb-postcode-polygons-open-data/">GB postcode areas and districts</a> I thought this was a good opportunity for a blog post <span class="citation">(Spencer 2018)</span>.</p>
+<p>Following an earlier [post] where I plotted <a href="https://scottishsnow.wordpress.com/2018/03/28/gb-postcode-polygons-open-data/" target="_blank">postcode polygons</a> on a <a href="https://rstudio.github.io/leaflet/" target="_blank">Leaflet</a> map I wanted to update it to use the <a href="https://r-spatial.github.io/sf/" target="_blank">sf</a> package which is now my default package for working with spatial data. Note that I’ve also started using <code>&lt;-</code> again after being a longtime user of <code>=</code>.</p>
 <div id="sorting-the-data" class="section level2">
 <h2>Sorting the Data</h2>
 <p>First we’ll load the packages we need.</p>
-<pre class="r"><code>library(rgdal)
-library(leaflet)</code></pre>
+<pre class="r"><code>library(sf)
+library(leaflet)
+library(tidyverse)</code></pre>
 <p>Next we read in the data. The file has two layers of polygons and we need to specify which one we want. I have chosen to work with the postcode district which is the first half of our postcodes.</p>
-<pre class="r"><code>postcodes = readOGR(&quot;postcode_polygons.gpkg&quot;, layer = &quot;postcode_district&quot;)</code></pre>
-<p>For leaflet to be able to plot these they need to be in terms of <em>latitude</em> and <em>longitude</em> rather than <em>Easting</em> and <em>Northing</em>. We can check the current projection:</p>
-<pre class="r"><code>proj4string(postcodes)</code></pre>
-<pre><code>[1] &quot;+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.1502,0.247,0.8421,-20.4894 +units=m +no_defs&quot;</code></pre>
-<p>and convert them to <em>latitude</em> and <em>longitude</em>.</p>
-<pre class="r"><code>postcodes = spTransform(postcodes, CRS(&quot;+proj=longlat +datum=WGS84&quot;))
-proj4string(postcodes)</code></pre>
-<pre><code>[1] &quot;+proj=longlat +datum=WGS84 +no_defs&quot;</code></pre>
+<pre class="r"><code>postcodes &lt;- st_read(&quot;postcode_polygons.gpkg&quot;, layer = &quot;postcode_district&quot;)</code></pre>
+<pre><code>Simple feature collection with 7077 features and 2 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: 5720 ymin: 5180 xmax: 655503 ymax: 1220373
+projected CRS:  Transverse Mercator</code></pre>
+<p>This gives us a tidy version of our earlier data and the message provided when reading it in shows us our CRS which we’re going to have to change from Transverse Mercator to something that will work with Leaflet - <em>latitude</em> and <em>longitude</em>. We can do this using st_transform()`</p>
+<pre class="r"><code>postcodes = st_transform(postcodes, 4326)</code></pre>
+<p>We can now check that we have lat and long.</p>
+<pre class="r"><code>st_is_longlat(postcodes)</code></pre>
+<pre><code>[1] TRUE</code></pre>
 <p>For a lot more detail on different coordinate systems <a href="https://www.bnhs.co.uk/focuson/grabagridref/html/OSGB.pdf">this pdf</a> seems like a reasonable place to start.</p>
 </div>
 <div id="plotting-the-ploygons" class="section level2">
 <h2>Plotting the Ploygons</h2>
-<p>To simplify plotting things (and reduce the amount of data needed for the leaflet map) we can select just those postcode districts starting <strong>IV</strong>.</p>
-<pre class="r"><code>postcodes = subset(postcodes, grepl(&quot;IV&quot;, postcodes$pc_district))</code></pre>
+<p>To simplify plotting things (and reduce the amount of data needed for the leaflet map) we can select just those postcode districts starting <strong>IV</strong>. The <a href="https://r-spatial.github.io/sf/" target="_blank">sf</a> package allows us to use tidyverse functions, which are my preferred options anyway.</p>
+<pre class="r"><code>postcodes = filter(postcodes, str_detect(pc_district, &quot;IV&quot;))</code></pre>
 <p>Now we can construct a map</p>
 <pre class="r"><code>leaflet(postcodes, width = &quot;100%&quot;) %&gt;% 
   setView(lng = -3.64, lat = 58, zoom = 7) %&gt;%
@@ -91,19 +156,55 @@ proj4string(postcodes)</code></pre>
   border-top:2px solid #03F; 
 }
 </style>
-<p>This was a good bit easier than I was expecting it to be<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> but mapping anything just reminds me of a <a href="https://www.youtube.com/watch?v=OH1bZ0F3zVU">particular West Wing episode</a>.</p>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<div id="refs" class="references">
-<div id="ref-Spencer2018">
-<p>Spencer, Mike. 2018. “British (GB) postcode polygons for area and district levels,” March. <a href="https://doi.org/10.6084/m9.figshare.6050105.v2">https://doi.org/10.6084/m9.figshare.6050105.v2</a>.</p>
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Not sure why I thought it was going to be difficult but there you go…<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+    
+  </body>
+</html>

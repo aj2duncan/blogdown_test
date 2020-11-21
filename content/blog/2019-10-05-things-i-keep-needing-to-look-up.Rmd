@@ -19,7 +19,11 @@ See a git commit log that is nice and neat, including what stage remotes and bra
 git log --oneline --decorate
 ```
 
+Download a git repo from a remote, without the git metadata and unpack it into the current directory. For info on git archive see this [link](https://www.atlassian.com/git/tutorials/export-git-archive){target='_blank'}
 
+```sh
+git archive --format=tar --remote=git@url:user/repo.git master | tar x
+```
 
 
 ## Linux

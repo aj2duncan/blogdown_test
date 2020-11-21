@@ -9,6 +9,8 @@ description: 'This will be a post I keep updating as it keeps track of things I 
 highlight: true
 ---
 
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <p>This will be a post I keep updating as it keeps track of things I keep forgetting</p>
@@ -16,6 +18,8 @@ highlight: true
 <h2>Git</h2>
 <p>See a git commit log that is nice and neat, including what stage remotes and branches are at.</p>
 <pre class="sh"><code>git log --oneline --decorate</code></pre>
+<p>Download a git repo from a remote, without the git metadata and unpack it into the current directory. For info on git archive see this <a href="https://www.atlassian.com/git/tutorials/export-git-archive" target="_blank">link</a></p>
+<pre class="sh"><code>git archive --format=tar --remote=git@url:user/repo.git master | tar x</code></pre>
 </div>
 <div id="linux" class="section level2">
 <h2>Linux</h2>

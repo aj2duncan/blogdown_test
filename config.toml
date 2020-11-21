@@ -5,7 +5,7 @@ title = "aj2duncan.com"
 theme = "hugo-sustain"
 googleAnalytics = ""
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$", "_cache$"]
 math = "true"
 
 [permalinks]
